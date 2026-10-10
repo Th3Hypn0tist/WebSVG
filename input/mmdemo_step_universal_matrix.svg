@@ -23,7 +23,7 @@
 </style>
 </defs>
 
-<g id="document-header"><text x="28" y="40" class="title">MMDemo — Step × Business Universal matrix</text><text x="28" y="66" class="sub">All 32 Business Universals · columns are concrete role steps · C=create, R=read/reference, W=write/transition</text></g>
+<g id="document-header"><text x="28" y="40" class="title">MMDemo — Step × Business Universal matrix</text><text x="28" y="66" class="sub">All 32 Business Universals · columns are concrete role steps · Project is the universal work context · C=create, R=read/reference, W=write/transition</text></g>
 <g id="matrix-columns">
 <g id="matrix-role-sales" class="matrix-role" transform="translate(210,0)" data-websvg-id="rep:matrix-role:sales">
 <rect class="header-bg" x="0" y="92" width="464" height="28" />
@@ -561,11 +561,79 @@
 <rect class="row-alt" x="0" y="0" width="4310" height="30" />
 <text x="24" y="20" class="u">Project</text>
 <line class="grid" x1="0" y1="30" x2="4310" y2="30" />
+<g class="matrix-cell" data-mode="R" transform="translate(210,0)" data-websvg-id="rep:matrix-cell:sales.identify_need:Project">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(268,0)" data-websvg-id="rep:matrix-cell:sales.qualify:Project">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(326,0)" data-websvg-id="rep:matrix-cell:sales.scope_solution:Project">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(384,0)" data-websvg-id="rep:matrix-cell:sales.prepare_quote:Project">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(442,0)" data-websvg-id="rep:matrix-cell:sales.send_quote:Project">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(500,0)" data-websvg-id="rep:matrix-cell:sales.negotiate:Project">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(558,0)" data-websvg-id="rep:matrix-cell:sales.confirm_order:Project">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
 <g class="matrix-cell" data-mode="C" transform="translate(616,0)" data-websvg-id="rep:matrix-cell:sales.handoff_delivery:Project">
 <rect class="cell-active" x="1" y="1" width="56" height="28" />
 <text x="29.0" y="20" class="cell" text-anchor="middle">C</text>
 </g>
+<g class="matrix-cell" data-mode="R" transform="translate(674,0)" data-websvg-id="rep:matrix-cell:proc.check_availability:Project">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(732,0)" data-websvg-id="rep:matrix-cell:proc.create_po:Project">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(790,0)" data-websvg-id="rep:matrix-cell:proc.send_po:Project">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(848,0)" data-websvg-id="rep:matrix-cell:proc.confirm_delivery:Project">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(906,0)" data-websvg-id="rep:matrix-cell:proc.supplier_invoice:Project">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(964,0)" data-websvg-id="rep:matrix-cell:wh.plan_receipt:Project">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(1022,0)" data-websvg-id="rep:matrix-cell:wh.receive:Project">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(1080,0)" data-websvg-id="rep:matrix-cell:wh.inspect:Project">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(1138,0)" data-websvg-id="rep:matrix-cell:wh.putaway:Project">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
 <g class="matrix-cell" data-mode="R" transform="translate(1196,0)" data-websvg-id="rep:matrix-cell:wh.reserve_project:Project">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(1254,0)" data-websvg-id="rep:matrix-cell:wh.pick:Project">
 <rect class="cell-active" x="1" y="1" width="56" height="28" />
 <text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
 </g>
@@ -597,6 +665,10 @@
 <rect class="cell-active" x="1" y="1" width="56" height="28" />
 <text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
 </g>
+<g class="matrix-cell" data-mode="R" transform="translate(1718,0)" data-websvg-id="rep:matrix-cell:inst.site_check:Project">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
 <g class="matrix-cell" data-mode="W" transform="translate(1776,0)" data-websvg-id="rep:matrix-cell:inst.install:Project">
 <rect class="cell-active" x="1" y="1" width="56" height="28" />
 <text x="29.0" y="20" class="cell" text-anchor="middle">W</text>
@@ -621,9 +693,65 @@
 <rect class="cell-active" x="1" y="1" width="56" height="28" />
 <text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
 </g>
+<g class="matrix-cell" data-mode="R" transform="translate(2124,0)" data-websvg-id="rep:matrix-cell:bill.review:Project">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(2182,0)" data-websvg-id="rep:matrix-cell:bill.send:Project">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(2240,0)" data-websvg-id="rep:matrix-cell:bill.follow_due:Project">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(2298,0)" data-websvg-id="rep:matrix-cell:pay.receive:Project">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(2356,0)" data-websvg-id="rep:matrix-cell:pay.allocate:Project">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(2414,0)" data-websvg-id="rep:matrix-cell:pay.exception:Project">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(2472,0)" data-websvg-id="rep:matrix-cell:acc.create_posting:Project">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(2530,0)" data-websvg-id="rep:matrix-cell:acc.post_ledger:Project">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(2588,0)" data-websvg-id="rep:matrix-cell:acc.reconcile:Project">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(2646,0)" data-websvg-id="rep:matrix-cell:acc.close_period:Project">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(2704,0)" data-websvg-id="rep:matrix-cell:acc.management_report:Project">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(2762,0)" data-websvg-id="rep:matrix-cell:svc.request:Project">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(2820,0)" data-websvg-id="rep:matrix-cell:svc.assess:Project">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
 <g class="matrix-cell" data-mode="C" transform="translate(2878,0)" data-websvg-id="rep:matrix-cell:svc.plan:Project">
 <rect class="cell-active" x="1" y="1" width="56" height="28" />
 <text x="29.0" y="20" class="cell" text-anchor="middle">C</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(2936,0)" data-websvg-id="rep:matrix-cell:svc.reserve_parts:Project">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
 </g>
 <g class="matrix-cell" data-mode="W" transform="translate(2994,0)" data-websvg-id="rep:matrix-cell:svc.execute:Project">
 <rect class="cell-active" x="1" y="1" width="56" height="28" />
@@ -633,6 +761,18 @@
 <rect class="cell-active" x="1" y="1" width="56" height="28" />
 <text x="29.0" y="20" class="cell" text-anchor="middle">W</text>
 </g>
+<g class="matrix-cell" data-mode="R" transform="translate(3110,0)" data-websvg-id="rep:matrix-cell:svc.close:Project">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(3168,0)" data-websvg-id="rep:matrix-cell:svc.bill:Project">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(3226,0)" data-websvg-id="rep:matrix-cell:hr.people:Project">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
 <g class="matrix-cell" data-mode="W" transform="translate(3284,0)" data-websvg-id="rep:matrix-cell:hr.project_roles:Project">
 <rect class="cell-active" x="1" y="1" width="56" height="28" />
 <text x="29.0" y="20" class="cell" text-anchor="middle">W</text>
@@ -641,13 +781,65 @@
 <rect class="cell-active" x="1" y="1" width="56" height="28" />
 <text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
 </g>
+<g class="matrix-cell" data-mode="R" transform="translate(3400,0)" data-websvg-id="rep:matrix-cell:hr.payroll_base:Project">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(3458,0)" data-websvg-id="rep:matrix-cell:hr.payroll_pay:Project">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(3516,0)" data-websvg-id="rep:matrix-cell:hr.payroll_post:Project">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(3574,0)" data-websvg-id="rep:matrix-cell:comp.contracts:Project">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(3632,0)" data-websvg-id="rep:matrix-cell:comp.readiness:Project">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(3690,0)" data-websvg-id="rep:matrix-cell:comp.exception:Project">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(3748,0)" data-websvg-id="rep:matrix-cell:comp.filing:Project">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(3806,0)" data-websvg-id="rep:matrix-cell:comp.archive:Project">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(3864,0)" data-websvg-id="rep:matrix-cell:mgmt.pipeline:Project">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
 <g class="matrix-cell" data-mode="R" transform="translate(3922,0)" data-websvg-id="rep:matrix-cell:mgmt.delivery:Project">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(3980,0)" data-websvg-id="rep:matrix-cell:mgmt.finance:Project">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(4038,0)" data-websvg-id="rep:matrix-cell:mgmt.risk:Project">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(4096,0)" data-websvg-id="rep:matrix-cell:mgmt.plan:Project">
 <rect class="cell-active" x="1" y="1" width="56" height="28" />
 <text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
 </g>
 <g class="matrix-cell" data-mode="C" transform="translate(4154,0)" data-websvg-id="rep:matrix-cell:mgmt.actions:Project">
 <rect class="cell-active" x="1" y="1" width="56" height="28" />
 <text x="29.0" y="20" class="cell" text-anchor="middle">C</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(4212,0)" data-websvg-id="rep:matrix-cell:mgmt.report:Project">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
 </g>
 </g>
 <g id="row-Location" class="universal-row" transform="translate(0,360)" data-websvg-id="rep:matrix-universal:Location">
