@@ -23,10 +23,7 @@ function fail(error) {
 
   const pre = document.createElement("pre");
   pre.className = "error";
-  pre.textContent = error instanceof Error
-    ? error.stack || error.message
-    : String(error);
-
+  pre.textContent = error instanceof Error ? error.stack || error.message : String(error);
   workspaceEl.append(pre);
 }
 
@@ -54,10 +51,7 @@ async function discoverInputFiles() {
     if (url.origin !== inputUrl.origin) continue;
     if (!url.pathname.startsWith(inputUrl.pathname)) continue;
 
-    const relative = decodeURIComponent(
-      url.pathname.slice(inputUrl.pathname.length)
-    );
-
+    const relative = decodeURIComponent(url.pathname.slice(inputUrl.pathname.length));
     if (!relative || relative.includes("/")) continue;
     if (!/\.(?:svg|json)$/i.test(relative)) continue;
 
@@ -78,10 +72,7 @@ async function discoverInputFiles() {
     throw new Error("input/ contains no SVG files");
   }
 
-  return {
-    manifest: manifests[0],
-    svgFiles
-  };
+  return { manifest: manifests[0], svgFiles };
 }
 
 function makeHosts(svgFiles, declarations) {
@@ -134,7 +125,7 @@ function renderSemantics() {
   semanticsEl.replaceChildren();
 
   for (const kind of websvg.semanticKinds()) {
-    const identities = websvg.identities(kind);
+    const refs = websvg.semanticRefs(kind);
 
     const wrapper = document.createElement("div");
     wrapper.className = "kind";
@@ -146,45 +137,21 @@ function renderSemantics() {
     kindLabel.textContent = kind;
 
     const count = document.createElement("span");
-    count.textContent = String(identities.length);
+    count.textContent = String(refs.length);
 
     title.append(kindLabel, count);
 
     const list = document.createElement("div");
     list.className = "identity-list";
 
-    for (const identity of identities) {
+    for (const semanticRef of refs) {
       const button = document.createElement("button");
       button.type = "button";
-      button.textContent = identity;
-      button.title = `${kind}: ${identity}`;
+      button.textContent = semanticRef;
+      button.title = semanticRef;
 
       button.addEventListener("click", () => {
-        const matches = websvg.select(identity, kind);
-
-        selectionEl.textContent = JSON.stringify({
-          kind,
-          identity,
-          representations: matches.map(match => ({
-            document: match.documentId,
-            element_id: match.element.id || null
-          })),
-          relations: websvg.relations(identity, kind).map(relation => ({
-            source: relation.source,
-            group: relation.group || null,
-            relation: relation.relation,
-            from: relation.from || null,
-            to: relation.to || null,
-            refs: relation.refs || null,
-            mode: relation.mode || null
-          }))
-        }, null, 2);
-
-        matches[0]?.element.scrollIntoView({
-          behavior: "smooth",
-          block: "center",
-          inline: "center"
-        });
+        showSemanticSelection(semanticRef);
       });
 
       list.append(button);
@@ -192,6 +159,96 @@ function renderSemantics() {
 
     wrapper.append(title, list);
     semanticsEl.append(wrapper);
+  }
+}
+
+function showSemanticSelection(semanticRef) {
+  const result = websvg.selectSemantic(semanticRef);
+
+  selectionEl.textContent = JSON.stringify({
+    type: result.type,
+    semantic_ref: semanticRef,
+    representations: result.directRepresentationRefs,
+    relation_count: result.relations.length,
+    relations: result.relations.map(relation => ({
+      id: relation.id,
+      type: relation.type || relation.group || "relation",
+      from: relation.from || null,
+      to: relation.to || null,
+      label: relation.label || null
+    }))
+  }, null, 2);
+
+  scrollToFirstRepresentation(result.directRepresentationRefs);
+}
+
+function showRelationSelection(relationRef) {
+  const result = websvg.selectRelation(relationRef);
+
+  selectionEl.textContent = JSON.stringify({
+    type: result.type,
+    relation_ref: relationRef,
+    relation: result.relation,
+    representations: result.relationRepresentationRefs,
+    endpoint_representations: result.endpointRepresentationRefs
+  }, null, 2);
+
+  scrollToFirstRepresentation([
+    ...result.relationRepresentationRefs,
+    ...result.endpointRepresentationRefs
+  ]);
+}
+
+function showRepresentationSelection(representationRef) {
+  const result = websvg.selectRepresentation(representationRef);
+
+  if (result.type === "semantic") {
+    showSemanticSelection(result.ref);
+    return;
+  }
+
+  if (result.type === "relation") {
+    showRelationSelection(result.ref);
+    return;
+  }
+
+  selectionEl.textContent = JSON.stringify({
+    type: result.type,
+    representation_ref: representationRef,
+    bindings: result.bindings,
+    local_values: result.localValues
+  }, null, 2);
+
+  scrollToFirstRepresentation([representationRef]);
+}
+
+function scrollToFirstRepresentation(refs) {
+  for (const ref of refs) {
+    const item = websvg.representation(ref)[0];
+    if (!item) continue;
+
+    item.element.scrollIntoView({
+      behavior: "smooth",
+      block: "center",
+      inline: "center"
+    });
+    return;
+  }
+}
+
+function wireRepresentationClicks() {
+  for (const record of websvg.documents()) {
+    for (const element of record.svg.querySelectorAll("[data-websvg-id]")) {
+      element.classList.add("websvg-interactive");
+
+      element.addEventListener("click", event => {
+        event.preventDefault();
+        event.stopPropagation();
+
+        const ref = element.getAttribute("data-websvg-id");
+        if (ref) showRepresentationSelection(ref);
+      });
+    }
   }
 }
 
@@ -216,9 +273,10 @@ async function start() {
 
     renderDocuments();
     renderSemantics();
+    wireRepresentationClicks();
 
     statusEl.textContent =
-      `${websvg.manifest.document_set} · ${websvg.documents().length} SVG · ${websvg.semanticKinds().length} semantic kinds`;
+      `${websvg.manifest.document_set} · ${websvg.documents().length} SVG · ${websvg.representationIds().length} representations · ${websvg.relations().length} JSON relations`;
   } catch (error) {
     fail(error);
   }
