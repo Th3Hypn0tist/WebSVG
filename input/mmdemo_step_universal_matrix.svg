@@ -1,80 +1,1000 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="940" height="390" viewBox="0 0 940 390" id="mmdemo-step-universal-matrix">
-  <rect width="100%" height="100%" fill="#05090C"/>
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="4350" height="1365" viewBox="0 0 4350 1365" id="mmdemo-step-universal-matrix">
+<rect id="document-background" width="100%" height="100%" fill="#05090C" />
+
+<defs>
   <style>
     text{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;fill:#E5F3F9}
-    .title{font-size:26px;font-weight:700}.sub{font-size:13px;fill:#90B7D1}
-    .head{font-size:11px;font-weight:600}.u{font-size:12px;font-weight:700}
-    .grid{stroke:#173748;stroke-width:1}.cell{fill:#0F222E;stroke:#274E63}
-    .matrix-cell[data-mode="C"] .cell{fill:#D88351;fill-opacity:.25;stroke:#D88351}
-    .matrix-cell[data-mode="R"] .cell{fill:#354E97;fill-opacity:.24;stroke:#436983}
-    .matrix-cell[data-mode="W"] .cell{fill:#436983;fill-opacity:.28;stroke:#658FA9}
-    .mode{font-size:12px;font-weight:700;text-anchor:middle}
-  </style>
+    .title{font-size:28px;font-weight:700;fill:#E5F3F9}
+    .sub{font-size:14px;fill:#90B7D1}
+    .role{font-size:12px;font-weight:700;fill:#E5F3F9}
+    .step-head{font-size:10px;font-weight:600;fill:#658FA9}
+    .u{font-size:12px;font-weight:650;fill:#E5F3F9}
+    .cell{font-size:10px;font-weight:750;fill:#E5F3F9}
+    .grid{stroke:#173748;stroke-width:1}
+    .group{stroke:#436983;stroke-width:1.3}
+    .header-bg{fill:#0F222E}
+    .row-alt{fill:#08121B}
+    .cell-active{fill:#0F222E;stroke:#274E63;stroke-width:.7}
+    .matrix-cell[data-mode*="C"] .cell-active{fill:#D88351;fill-opacity:.22;stroke:#D88351;stroke-opacity:.72}
+    .matrix-cell[data-mode="R"] .cell-active{fill:#354E97;fill-opacity:.20;stroke:#436983;stroke-opacity:.72}
+    .matrix-cell[data-mode*="W"] .cell-active{fill:#436983;fill-opacity:.25;stroke:#658FA9;stroke-opacity:.72}
+    .matrix-cell[data-mode*="/"] .cell-active{stroke:#DDAD68;stroke-width:1}
+</style>
+</defs>
 
-  <text x="24" y="36" class="title">MMDemo — step × universal</text>
-  <text x="24" y="60" class="sub">C/R/W remains the SVG cell's local datapoint value. The step→universal relation exists only in JSON.</text>
-
-  <g data-websvg-id="rep:matrix-step:sales.identify_need" transform="translate(190,82)">
-    <text transform="rotate(-35)" class="head">Identify need</text>
-  </g>
-  <g data-websvg-id="rep:matrix-step:sales.prepare_quote" transform="translate(330,82)">
-    <text transform="rotate(-35)" class="head">Prepare quote</text>
-  </g>
-  <g data-websvg-id="rep:matrix-step:sales.confirm_order" transform="translate(470,82)">
-    <text transform="rotate(-35)" class="head">Confirm order</text>
-  </g>
-  <g data-websvg-id="rep:matrix-step:proc.check_availability" transform="translate(610,82)">
-    <text transform="rotate(-35)" class="head">Check availability</text>
-  </g>
-  <g data-websvg-id="rep:matrix-step:proc.create_po" transform="translate(750,82)">
-    <text transform="rotate(-35)" class="head">Create PO</text>
-  </g>
-
-  <g data-websvg-id="rep:matrix-universal:Identity" transform="translate(0,150)">
-    <text x="24" y="26" class="u">Identity</text>
-  </g>
-  <g data-websvg-id="rep:matrix-universal:Quote" transform="translate(0,210)">
-    <text x="24" y="26" class="u">Quote</text>
-  </g>
-  <g data-websvg-id="rep:matrix-universal:Order" transform="translate(0,270)">
-    <text x="24" y="26" class="u">Order</text>
-  </g>
-  <g data-websvg-id="rep:matrix-universal:CatalogItem" transform="translate(0,330)">
-    <text x="24" y="26" class="u">CatalogItem</text>
-  </g>
-
-  <g class="matrix-cell" data-websvg-id="rep:matrix-cell:001" data-mode="R" transform="translate(160,150)">
-    <rect class="cell" width="110" height="44"/><text class="mode" x="55" y="28">R</text>
-  </g>
-  <g class="matrix-cell" data-websvg-id="rep:matrix-cell:002" data-mode="R" transform="translate(300,150)">
-    <rect class="cell" width="110" height="44"/><text class="mode" x="55" y="28">R</text>
-  </g>
-  <g class="matrix-cell" data-websvg-id="rep:matrix-cell:003" data-mode="R" transform="translate(440,150)">
-    <rect class="cell" width="110" height="44"/><text class="mode" x="55" y="28">R</text>
-  </g>
-
-  <g class="matrix-cell" data-websvg-id="rep:matrix-cell:004" data-mode="C" transform="translate(300,210)">
-    <rect class="cell" width="110" height="44"/><text class="mode" x="55" y="28">C</text>
-  </g>
-  <g class="matrix-cell" data-websvg-id="rep:matrix-cell:005" data-mode="R" transform="translate(440,210)">
-    <rect class="cell" width="110" height="44"/><text class="mode" x="55" y="28">R</text>
-  </g>
-
-  <g class="matrix-cell" data-websvg-id="rep:matrix-cell:006" data-mode="C" transform="translate(440,270)">
-    <rect class="cell" width="110" height="44"/><text class="mode" x="55" y="28">C</text>
-  </g>
-  <g class="matrix-cell" data-websvg-id="rep:matrix-cell:007" data-mode="R" transform="translate(580,270)">
-    <rect class="cell" width="110" height="44"/><text class="mode" x="55" y="28">R</text>
-  </g>
-  <g class="matrix-cell" data-websvg-id="rep:matrix-cell:008" data-mode="C" transform="translate(720,270)">
-    <rect class="cell" width="110" height="44"/><text class="mode" x="55" y="28">C</text>
-  </g>
-
-  <g class="matrix-cell" data-websvg-id="rep:matrix-cell:009" data-mode="R" transform="translate(580,330)">
-    <rect class="cell" width="110" height="44"/><text class="mode" x="55" y="28">R</text>
-  </g>
-  <g class="matrix-cell" data-websvg-id="rep:matrix-cell:010" data-mode="R" transform="translate(720,330)">
-    <rect class="cell" width="110" height="44"/><text class="mode" x="55" y="28">R</text>
-  </g>
-</svg>
+<g id="document-header"><text x="28" y="40" class="title">MMDemo — Step × Business Universal matrix</text><text x="28" y="66" class="sub">All 32 Business Universals · columns are concrete role steps · C=create, R=read/reference, W=write/transition</text></g>
+<g id="matrix-columns">
+<g id="matrix-role-sales" class="matrix-role" transform="translate(210,0)" data-websvg-id="rep:matrix-role:sales">
+<rect class="header-bg" x="0" y="92" width="464" height="28" />
+<text x="232.0" y="112" class="role" text-anchor="middle">Myyjä</text>
+<line class="group" x1="0" y1="92" x2="0" y2="1300" />
+<g id="matrix-col-sales-identify_need" class="step-column" transform="translate(0,0)" data-websvg-id="rep:matrix-step:sales.identify_need">
+<text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Tunnista asiakas ja tarve</text>
+<text x="29.0" y="132" class="step-head" text-anchor="middle">1</text>
+<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
+</g>
+<g id="matrix-col-sales-qualify" class="step-column" transform="translate(58,0)" data-websvg-id="rep:matrix-step:sales.qualify">
+<text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Kvalifioi opportunity</text>
+<text x="29.0" y="132" class="step-head" text-anchor="middle">2</text>
+<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
+</g>
+<g id="matrix-col-sales-scope_solution" class="step-column" transform="translate(116,0)" data-websvg-id="rep:matrix-step:sales.scope_solution">
+<text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Rajaa ratkaisu</text>
+<text x="29.0" y="132" class="step-head" text-anchor="middle">3</text>
+<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
+</g>
+<g id="matrix-col-sales-prepare_quote" class="step-column" transform="translate(174,0)" data-websvg-id="rep:matrix-step:sales.prepare_quote">
+<text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Rakenna tarjous</text>
+<text x="29.0" y="132" class="step-head" text-anchor="middle">4</text>
+<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
+</g>
+<g id="matrix-col-sales-send_quote" class="step-column" transform="translate(232,0)" data-websvg-id="rep:matrix-step:sales.send_quote">
+<text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Lähetä tarjous</text>
+<text x="29.0" y="132" class="step-head" text-anchor="middle">5</text>
+<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
+</g>
+<g id="matrix-col-sales-negotiate" class="step-column" transform="translate(290,0)" data-websvg-id="rep:matrix-step:sales.negotiate">
+<text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Neuvottele ja revisioi</text>
+<text x="29.0" y="132" class="step-head" text-anchor="middle">6</text>
+<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
+</g>
+<g id="matrix-col-sales-confirm_order" class="step-column" transform="translate(348,0)" data-websvg-id="rep:matrix-step:sales.confirm_order">
+<text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Vahvista tilaus</text>
+<text x="29.0" y="132" class="step-head" text-anchor="middle">7</text>
+<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
+</g>
+<g id="matrix-col-sales-handoff_delivery" class="step-column" transform="translate(406,0)" data-websvg-id="rep:matrix-step:sales.handoff_delivery">
+<text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Luovuta toteutukseen</text>
+<text x="29.0" y="132" class="step-head" text-anchor="middle">8</text>
+<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
+</g>
+</g>
+<g id="matrix-role-procurement" class="matrix-role" transform="translate(674,0)" data-websvg-id="rep:matrix-role:procurement">
+<rect class="header-bg" x="0" y="92" width="290" height="28" />
+<text x="145.0" y="112" class="role" text-anchor="middle">Hankinta / ostaja</text>
+<line class="group" x1="0" y1="92" x2="0" y2="1300" />
+<g id="matrix-col-proc-check_availability" class="step-column" transform="translate(0,0)" data-websvg-id="rep:matrix-step:proc.check_availability">
+<text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Tarkista saatavuus</text>
+<text x="29.0" y="132" class="step-head" text-anchor="middle">9</text>
+<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
+</g>
+<g id="matrix-col-proc-create_po" class="step-column" transform="translate(58,0)" data-websvg-id="rep:matrix-step:proc.create_po">
+<text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Luo ostotilaus</text>
+<text x="29.0" y="132" class="step-head" text-anchor="middle">10</text>
+<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
+</g>
+<g id="matrix-col-proc-send_po" class="step-column" transform="translate(116,0)" data-websvg-id="rep:matrix-step:proc.send_po">
+<text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Lähetä toimittajalle</text>
+<text x="29.0" y="132" class="step-head" text-anchor="middle">11</text>
+<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
+</g>
+<g id="matrix-col-proc-confirm_delivery" class="step-column" transform="translate(174,0)" data-websvg-id="rep:matrix-step:proc.confirm_delivery">
+<text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Vahvista toimitus</text>
+<text x="29.0" y="132" class="step-head" text-anchor="middle">12</text>
+<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
+</g>
+<g id="matrix-col-proc-supplier_invoice" class="step-column" transform="translate(232,0)" data-websvg-id="rep:matrix-step:proc.supplier_invoice">
+<text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Vastaanota toimittajalasku</text>
+<text x="29.0" y="132" class="step-head" text-anchor="middle">13</text>
+<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
+</g>
+</g>
+<g id="matrix-role-warehouse" class="matrix-role" transform="translate(964,0)" data-websvg-id="rep:matrix-role:warehouse">
+<rect class="header-bg" x="0" y="92" width="406" height="28" />
+<text x="203.0" y="112" class="role" text-anchor="middle">Varasto</text>
+<line class="group" x1="0" y1="92" x2="0" y2="1300" />
+<g id="matrix-col-wh-plan_receipt" class="step-column" transform="translate(0,0)" data-websvg-id="rep:matrix-step:wh.plan_receipt">
+<text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Suunnittele vastaanotto</text>
+<text x="29.0" y="132" class="step-head" text-anchor="middle">14</text>
+<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
+</g>
+<g id="matrix-col-wh-receive" class="step-column" transform="translate(58,0)" data-websvg-id="rep:matrix-step:wh.receive">
+<text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Vastaanota lähetys</text>
+<text x="29.0" y="132" class="step-head" text-anchor="middle">15</text>
+<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
+</g>
+<g id="matrix-col-wh-inspect" class="step-column" transform="translate(116,0)" data-websvg-id="rep:matrix-step:wh.inspect">
+<text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Tarkista tavara</text>
+<text x="29.0" y="132" class="step-head" text-anchor="middle">16</text>
+<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
+</g>
+<g id="matrix-col-wh-putaway" class="step-column" transform="translate(174,0)" data-websvg-id="rep:matrix-step:wh.putaway">
+<text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Kirjaa varastoon</text>
+<text x="29.0" y="132" class="step-head" text-anchor="middle">17</text>
+<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
+</g>
+<g id="matrix-col-wh-reserve_project" class="step-column" transform="translate(232,0)" data-websvg-id="rep:matrix-step:wh.reserve_project">
+<text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Kohdista projektille</text>
+<text x="29.0" y="132" class="step-head" text-anchor="middle">18</text>
+<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
+</g>
+<g id="matrix-col-wh-pick" class="step-column" transform="translate(290,0)" data-websvg-id="rep:matrix-step:wh.pick">
+<text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Keräile</text>
+<text x="29.0" y="132" class="step-head" text-anchor="middle">19</text>
+<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
+</g>
+<g id="matrix-col-wh-release_install" class="step-column" transform="translate(348,0)" data-websvg-id="rep:matrix-step:wh.release_install">
+<text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Luovuta asennukseen</text>
+<text x="29.0" y="132" class="step-head" text-anchor="middle">20</text>
+<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
+</g>
+</g>
+<g id="matrix-role-project" class="matrix-role" transform="translate(1370,0)" data-websvg-id="rep:matrix-role:project">
+<rect class="header-bg" x="0" y="92" width="290" height="28" />
+<text x="145.0" y="112" class="role" text-anchor="middle">Projektipäällikkö</text>
+<line class="group" x1="0" y1="92" x2="0" y2="1300" />
+<g id="matrix-col-pm-create_project" class="step-column" transform="translate(0,0)" data-websvg-id="rep:matrix-step:pm.create_project">
+<text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Perusta toimitusprojekti</text>
+<text x="29.0" y="132" class="step-head" text-anchor="middle">21</text>
+<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
+</g>
+<g id="matrix-col-pm-plan_work" class="step-column" transform="translate(58,0)" data-websvg-id="rep:matrix-step:pm.plan_work">
+<text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Suunnittele työ</text>
+<text x="29.0" y="132" class="step-head" text-anchor="middle">22</text>
+<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
+</g>
+<g id="matrix-col-pm-schedule" class="step-column" transform="translate(116,0)" data-websvg-id="rep:matrix-step:pm.schedule">
+<text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Aikatauluta resurssit</text>
+<text x="29.0" y="132" class="step-head" text-anchor="middle">23</text>
+<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
+</g>
+<g id="matrix-col-pm-readiness" class="step-column" transform="translate(174,0)" data-websvg-id="rep:matrix-step:pm.readiness">
+<text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Varmista lähtöedellytykset</text>
+<text x="29.0" y="132" class="step-head" text-anchor="middle">24</text>
+<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
+</g>
+<g id="matrix-col-pm-release_install" class="step-column" transform="translate(232,0)" data-websvg-id="rep:matrix-step:pm.release_install">
+<text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Vapauta asennukseen</text>
+<text x="29.0" y="132" class="step-head" text-anchor="middle">25</text>
+<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
+</g>
+</g>
+<g id="matrix-role-installer" class="matrix-role" transform="translate(1660,0)" data-websvg-id="rep:matrix-role:installer">
+<rect class="header-bg" x="0" y="92" width="406" height="28" />
+<text x="203.0" y="112" class="role" text-anchor="middle">Asentaja</text>
+<line class="group" x1="0" y1="92" x2="0" y2="1300" />
+<g id="matrix-col-inst-accept_work" class="step-column" transform="translate(0,0)" data-websvg-id="rep:matrix-step:inst.accept_work">
+<text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Vastaanota työ</text>
+<text x="29.0" y="132" class="step-head" text-anchor="middle">26</text>
+<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
+</g>
+<g id="matrix-col-inst-site_check" class="step-column" transform="translate(58,0)" data-websvg-id="rep:matrix-step:inst.site_check">
+<text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Tarkista kohde</text>
+<text x="29.0" y="132" class="step-head" text-anchor="middle">27</text>
+<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
+</g>
+<g id="matrix-col-inst-install" class="step-column" transform="translate(116,0)" data-websvg-id="rep:matrix-step:inst.install">
+<text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Asenna komponentit</text>
+<text x="29.0" y="132" class="step-head" text-anchor="middle">28</text>
+<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
+</g>
+<g id="matrix-col-inst-test" class="step-column" transform="translate(174,0)" data-websvg-id="rep:matrix-step:inst.test">
+<text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Testaa toteutus</text>
+<text x="29.0" y="132" class="step-head" text-anchor="middle">29</text>
+<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
+</g>
+<g id="matrix-col-inst-document" class="step-column" transform="translate(232,0)" data-websvg-id="rep:matrix-step:inst.document">
+<text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Dokumentoi asennus</text>
+<text x="29.0" y="132" class="step-head" text-anchor="middle">30</text>
+<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
+</g>
+<g id="matrix-col-inst-handover" class="step-column" transform="translate(290,0)" data-websvg-id="rep:matrix-step:inst.handover">
+<text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Luovuta asiakkaalle</text>
+<text x="29.0" y="132" class="step-head" text-anchor="middle">31</text>
+<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
+</g>
+<g id="matrix-col-inst-ready_to_bill" class="step-column" transform="translate(348,0)" data-websvg-id="rep:matrix-step:inst.ready_to_bill">
+<text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Merkitse laskutusvalmiiksi</text>
+<text x="29.0" y="132" class="step-head" text-anchor="middle">32</text>
+<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
+</g>
+</g>
+<g id="matrix-role-billing" class="matrix-role" transform="translate(2066,0)" data-websvg-id="rep:matrix-role:billing">
+<rect class="header-bg" x="0" y="92" width="232" height="28" />
+<text x="116.0" y="112" class="role" text-anchor="middle">Laskutus</text>
+<line class="group" x1="0" y1="92" x2="0" y2="1300" />
+<g id="matrix-col-bill-create_invoice" class="step-column" transform="translate(0,0)" data-websvg-id="rep:matrix-step:bill.create_invoice">
+<text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Muodosta laskupohja</text>
+<text x="29.0" y="132" class="step-head" text-anchor="middle">33</text>
+<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
+</g>
+<g id="matrix-col-bill-review" class="step-column" transform="translate(58,0)" data-websvg-id="rep:matrix-step:bill.review">
+<text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Tarkista lasku</text>
+<text x="29.0" y="132" class="step-head" text-anchor="middle">34</text>
+<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
+</g>
+<g id="matrix-col-bill-send" class="step-column" transform="translate(116,0)" data-websvg-id="rep:matrix-step:bill.send">
+<text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Lähetä lasku</text>
+<text x="29.0" y="132" class="step-head" text-anchor="middle">35</text>
+<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
+</g>
+<g id="matrix-col-bill-follow_due" class="step-column" transform="translate(174,0)" data-websvg-id="rep:matrix-step:bill.follow_due">
+<text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Seuraa eräpäivää</text>
+<text x="29.0" y="132" class="step-head" text-anchor="middle">36</text>
+<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
+</g>
+</g>
+<g id="matrix-role-payments" class="matrix-role" transform="translate(2298,0)" data-websvg-id="rep:matrix-role:payments">
+<rect class="header-bg" x="0" y="92" width="174" height="28" />
+<text x="87.0" y="112" class="role" text-anchor="middle">Maksuliikenne</text>
+<line class="group" x1="0" y1="92" x2="0" y2="1300" />
+<g id="matrix-col-pay-receive" class="step-column" transform="translate(0,0)" data-websvg-id="rep:matrix-step:pay.receive">
+<text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Vastaanota maksu</text>
+<text x="29.0" y="132" class="step-head" text-anchor="middle">37</text>
+<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
+</g>
+<g id="matrix-col-pay-allocate" class="step-column" transform="translate(58,0)" data-websvg-id="rep:matrix-step:pay.allocate">
+<text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Kohdista laskuun</text>
+<text x="29.0" y="132" class="step-head" text-anchor="middle">38</text>
+<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
+</g>
+<g id="matrix-col-pay-exception" class="step-column" transform="translate(116,0)" data-websvg-id="rep:matrix-step:pay.exception">
+<text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Käsittele poikkeama</text>
+<text x="29.0" y="132" class="step-head" text-anchor="middle">39</text>
+<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
+</g>
+</g>
+<g id="matrix-role-accounting" class="matrix-role" transform="translate(2472,0)" data-websvg-id="rep:matrix-role:accounting">
+<rect class="header-bg" x="0" y="92" width="290" height="28" />
+<text x="145.0" y="112" class="role" text-anchor="middle">Kirjanpito</text>
+<line class="group" x1="0" y1="92" x2="0" y2="1300" />
+<g id="matrix-col-acc-create_posting" class="step-column" transform="translate(0,0)" data-websvg-id="rep:matrix-step:acc.create_posting">
+<text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Muodosta vienti</text>
+<text x="29.0" y="132" class="step-head" text-anchor="middle">40</text>
+<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
+</g>
+<g id="matrix-col-acc-post_ledger" class="step-column" transform="translate(58,0)" data-websvg-id="rep:matrix-step:acc.post_ledger">
+<text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Kirjaa reskontra</text>
+<text x="29.0" y="132" class="step-head" text-anchor="middle">41</text>
+<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
+</g>
+<g id="matrix-col-acc-reconcile" class="step-column" transform="translate(116,0)" data-websvg-id="rep:matrix-step:acc.reconcile">
+<text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Täsmäytä tili</text>
+<text x="29.0" y="132" class="step-head" text-anchor="middle">42</text>
+<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
+</g>
+<g id="matrix-col-acc-close_period" class="step-column" transform="translate(174,0)" data-websvg-id="rep:matrix-step:acc.close_period">
+<text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Sulje kausi</text>
+<text x="29.0" y="132" class="step-head" text-anchor="middle">43</text>
+<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
+</g>
+<g id="matrix-col-acc-management_report" class="step-column" transform="translate(232,0)" data-websvg-id="rep:matrix-step:acc.management_report">
+<text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Tuota talousraportti</text>
+<text x="29.0" y="132" class="step-head" text-anchor="middle">44</text>
+<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
+</g>
+</g>
+<g id="matrix-role-service" class="matrix-role" transform="translate(2762,0)" data-websvg-id="rep:matrix-role:service">
+<rect class="header-bg" x="0" y="92" width="464" height="28" />
+<text x="232.0" y="112" class="role" text-anchor="middle">Huolto</text>
+<line class="group" x1="0" y1="92" x2="0" y2="1300" />
+<g id="matrix-col-svc-request" class="step-column" transform="translate(0,0)" data-websvg-id="rep:matrix-step:svc.request">
+<text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Vastaanota huoltopyyntö</text>
+<text x="29.0" y="132" class="step-head" text-anchor="middle">45</text>
+<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
+</g>
+<g id="matrix-col-svc-assess" class="step-column" transform="translate(58,0)" data-websvg-id="rep:matrix-step:svc.assess">
+<text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Arvioi oikeus ja kiire</text>
+<text x="29.0" y="132" class="step-head" text-anchor="middle">46</text>
+<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
+</g>
+<g id="matrix-col-svc-plan" class="step-column" transform="translate(116,0)" data-websvg-id="rep:matrix-step:svc.plan">
+<text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Suunnittele huolto</text>
+<text x="29.0" y="132" class="step-head" text-anchor="middle">47</text>
+<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
+</g>
+<g id="matrix-col-svc-reserve_parts" class="step-column" transform="translate(174,0)" data-websvg-id="rep:matrix-step:svc.reserve_parts">
+<text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Varaa osat</text>
+<text x="29.0" y="132" class="step-head" text-anchor="middle">48</text>
+<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
+</g>
+<g id="matrix-col-svc-execute" class="step-column" transform="translate(232,0)" data-websvg-id="rep:matrix-step:svc.execute">
+<text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Tee huolto</text>
+<text x="29.0" y="132" class="step-head" text-anchor="middle">49</text>
+<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
+</g>
+<g id="matrix-col-svc-document" class="step-column" transform="translate(290,0)" data-websvg-id="rep:matrix-step:svc.document">
+<text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Dokumentoi huolto</text>
+<text x="29.0" y="132" class="step-head" text-anchor="middle">50</text>
+<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
+</g>
+<g id="matrix-col-svc-close" class="step-column" transform="translate(348,0)" data-websvg-id="rep:matrix-step:svc.close">
+<text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Sulje case</text>
+<text x="29.0" y="132" class="step-head" text-anchor="middle">51</text>
+<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
+</g>
+<g id="matrix-col-svc-bill" class="step-column" transform="translate(406,0)" data-websvg-id="rep:matrix-step:svc.bill">
+<text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Laskuta huolto</text>
+<text x="29.0" y="132" class="step-head" text-anchor="middle">52</text>
+<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
+</g>
+</g>
+<g id="matrix-role-hr" class="matrix-role" transform="translate(3226,0)" data-websvg-id="rep:matrix-role:hr">
+<rect class="header-bg" x="0" y="92" width="348" height="28" />
+<text x="174.0" y="112" class="role" text-anchor="middle">HR / henkilöstö</text>
+<line class="group" x1="0" y1="92" x2="0" y2="1300" />
+<g id="matrix-col-hr-people" class="step-column" transform="translate(0,0)" data-websvg-id="rep:matrix-step:hr.people">
+<text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Ylläpidä henkilöt ja sopimukset</text>
+<text x="29.0" y="132" class="step-head" text-anchor="middle">53</text>
+<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
+</g>
+<g id="matrix-col-hr-project_roles" class="step-column" transform="translate(58,0)" data-websvg-id="rep:matrix-step:hr.project_roles">
+<text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Kohdista projektiroolit</text>
+<text x="29.0" y="132" class="step-head" text-anchor="middle">54</text>
+<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
+</g>
+<g id="matrix-col-hr-time" class="step-column" transform="translate(116,0)" data-websvg-id="rep:matrix-step:hr.time">
+<text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Kirjaa työaika ja toteuma</text>
+<text x="29.0" y="132" class="step-head" text-anchor="middle">55</text>
+<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
+</g>
+<g id="matrix-col-hr-payroll_base" class="step-column" transform="translate(174,0)" data-websvg-id="rep:matrix-step:hr.payroll_base">
+<text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Valmistele palkka-aineisto</text>
+<text x="29.0" y="132" class="step-head" text-anchor="middle">56</text>
+<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
+</g>
+<g id="matrix-col-hr-payroll_pay" class="step-column" transform="translate(232,0)" data-websvg-id="rep:matrix-step:hr.payroll_pay">
+<text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Maksa palkat</text>
+<text x="29.0" y="132" class="step-head" text-anchor="middle">57</text>
+<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
+</g>
+<g id="matrix-col-hr-payroll_post" class="step-column" transform="translate(290,0)" data-websvg-id="rep:matrix-step:hr.payroll_post">
+<text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Kirjaa palkat</text>
+<text x="29.0" y="132" class="step-head" text-anchor="middle">58</text>
+<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
+</g>
+</g>
+<g id="matrix-role-compliance" class="matrix-role" transform="translate(3574,0)" data-websvg-id="rep:matrix-role:compliance">
+<rect class="header-bg" x="0" y="92" width="290" height="28" />
+<text x="145.0" y="112" class="role" text-anchor="middle">Compliance / hallinto</text>
+<line class="group" x1="0" y1="92" x2="0" y2="1300" />
+<g id="matrix-col-comp-contracts" class="step-column" transform="translate(0,0)" data-websvg-id="rep:matrix-step:comp.contracts">
+<text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Tarkista sopimusvelvoitteet</text>
+<text x="29.0" y="132" class="step-head" text-anchor="middle">59</text>
+<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
+</g>
+<g id="matrix-col-comp-readiness" class="step-column" transform="translate(58,0)" data-websvg-id="rep:matrix-step:comp.readiness">
+<text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Tarkista toteutusedellytykset</text>
+<text x="29.0" y="132" class="step-head" text-anchor="middle">60</text>
+<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
+</g>
+<g id="matrix-col-comp-exception" class="step-column" transform="translate(116,0)" data-websvg-id="rep:matrix-step:comp.exception">
+<text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Hyväksy poikkeama</text>
+<text x="29.0" y="132" class="step-head" text-anchor="middle">61</text>
+<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
+</g>
+<g id="matrix-col-comp-filing" class="step-column" transform="translate(174,0)" data-websvg-id="rep:matrix-step:comp.filing">
+<text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Tee viranomaisilmoitus</text>
+<text x="29.0" y="132" class="step-head" text-anchor="middle">62</text>
+<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
+</g>
+<g id="matrix-col-comp-archive" class="step-column" transform="translate(232,0)" data-websvg-id="rep:matrix-step:comp.archive">
+<text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Arkistoi evidenssi</text>
+<text x="29.0" y="132" class="step-head" text-anchor="middle">63</text>
+<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
+</g>
+</g>
+<g id="matrix-role-management" class="matrix-role" transform="translate(3864,0)" data-websvg-id="rep:matrix-role:management">
+<rect class="header-bg" x="0" y="92" width="406" height="28" />
+<text x="203.0" y="112" class="role" text-anchor="middle">Johto / Strategy</text>
+<line class="group" x1="0" y1="92" x2="0" y2="1300" />
+<g id="matrix-col-mgmt-pipeline" class="step-column" transform="translate(0,0)" data-websvg-id="rep:matrix-step:mgmt.pipeline">
+<text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Seuraa pipelinea</text>
+<text x="29.0" y="132" class="step-head" text-anchor="middle">64</text>
+<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
+</g>
+<g id="matrix-col-mgmt-delivery" class="step-column" transform="translate(58,0)" data-websvg-id="rep:matrix-step:mgmt.delivery">
+<text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Seuraa toimituskykyä</text>
+<text x="29.0" y="132" class="step-head" text-anchor="middle">65</text>
+<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
+</g>
+<g id="matrix-col-mgmt-finance" class="step-column" transform="translate(116,0)" data-websvg-id="rep:matrix-step:mgmt.finance">
+<text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Seuraa taloutta</text>
+<text x="29.0" y="132" class="step-head" text-anchor="middle">66</text>
+<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
+</g>
+<g id="matrix-col-mgmt-risk" class="step-column" transform="translate(174,0)" data-websvg-id="rep:matrix-step:mgmt.risk">
+<text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Arvioi riskit</text>
+<text x="29.0" y="132" class="step-head" text-anchor="middle">67</text>
+<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
+</g>
+<g id="matrix-col-mgmt-plan" class="step-column" transform="translate(232,0)" data-websvg-id="rep:matrix-step:mgmt.plan">
+<text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Päivitä suunnitelma</text>
+<text x="29.0" y="132" class="step-head" text-anchor="middle">68</text>
+<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
+</g>
+<g id="matrix-col-mgmt-actions" class="step-column" transform="translate(290,0)" data-websvg-id="rep:matrix-step:mgmt.actions">
+<text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Päätä toimenpiteet</text>
+<text x="29.0" y="132" class="step-head" text-anchor="middle">69</text>
+<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
+</g>
+<g id="matrix-col-mgmt-report" class="step-column" transform="translate(348,0)" data-websvg-id="rep:matrix-step:mgmt.report">
+<text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Johdon raportointi</text>
+<text x="29.0" y="132" class="step-head" text-anchor="middle">70</text>
+<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
+</g>
+</g>
+<line class="group" x1="4270" y1="92" x2="4270" y2="1300" />
+</g>
+<g id="matrix-rows" transform="translate(0,0)">
+<g id="row-Identity" class="universal-row" transform="translate(0,300)" data-websvg-id="rep:matrix-universal:Identity">
+<text x="24" y="20" class="u">Identity</text>
+<line class="grid" x1="0" y1="30" x2="4310" y2="30" />
+<g class="matrix-cell" data-mode="R" transform="translate(210,0)" data-websvg-id="rep:matrix-cell:sales.identify_need:Identity">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(268,0)" data-websvg-id="rep:matrix-cell:sales.qualify:Identity">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(326,0)" data-websvg-id="rep:matrix-cell:sales.scope_solution:Identity">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(384,0)" data-websvg-id="rep:matrix-cell:sales.prepare_quote:Identity">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(442,0)" data-websvg-id="rep:matrix-cell:sales.send_quote:Identity">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(558,0)" data-websvg-id="rep:matrix-cell:sales.confirm_order:Identity">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(732,0)" data-websvg-id="rep:matrix-cell:proc.create_po:Identity">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(790,0)" data-websvg-id="rep:matrix-cell:proc.send_po:Identity">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(906,0)" data-websvg-id="rep:matrix-cell:proc.supplier_invoice:Identity">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(1370,0)" data-websvg-id="rep:matrix-cell:pm.create_project:Identity">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(1428,0)" data-websvg-id="rep:matrix-cell:pm.plan_work:Identity">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(1486,0)" data-websvg-id="rep:matrix-cell:pm.schedule:Identity">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(1602,0)" data-websvg-id="rep:matrix-cell:pm.release_install:Identity">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(1660,0)" data-websvg-id="rep:matrix-cell:inst.accept_work:Identity">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(1950,0)" data-websvg-id="rep:matrix-cell:inst.handover:Identity">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(2066,0)" data-websvg-id="rep:matrix-cell:bill.create_invoice:Identity">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(2182,0)" data-websvg-id="rep:matrix-cell:bill.send:Identity">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(2240,0)" data-websvg-id="rep:matrix-cell:bill.follow_due:Identity">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(2298,0)" data-websvg-id="rep:matrix-cell:pay.receive:Identity">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(2762,0)" data-websvg-id="rep:matrix-cell:svc.request:Identity">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(3168,0)" data-websvg-id="rep:matrix-cell:svc.bill:Identity">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="C/W" transform="translate(3226,0)" data-websvg-id="rep:matrix-cell:hr.people:Identity">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">C/W</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(3284,0)" data-websvg-id="rep:matrix-cell:hr.project_roles:Identity">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(3342,0)" data-websvg-id="rep:matrix-cell:hr.time:Identity">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(3400,0)" data-websvg-id="rep:matrix-cell:hr.payroll_base:Identity">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(3458,0)" data-websvg-id="rep:matrix-cell:hr.payroll_pay:Identity">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(3690,0)" data-websvg-id="rep:matrix-cell:comp.exception:Identity">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(3748,0)" data-websvg-id="rep:matrix-cell:comp.filing:Identity">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(4154,0)" data-websvg-id="rep:matrix-cell:mgmt.actions:Identity">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+</g>
+<g id="row-Project" class="universal-row" transform="translate(0,330)" data-websvg-id="rep:matrix-universal:Project">
+<rect class="row-alt" x="0" y="0" width="4310" height="30" />
+<text x="24" y="20" class="u">Project</text>
+<line class="grid" x1="0" y1="30" x2="4310" y2="30" />
+<g class="matrix-cell" data-mode="C" transform="translate(616,0)" data-websvg-id="rep:matrix-cell:sales.handoff_delivery:Project">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">C</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(1196,0)" data-websvg-id="rep:matrix-cell:wh.reserve_project:Project">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(1312,0)" data-websvg-id="rep:matrix-cell:wh.release_install:Project">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="C" transform="translate(1370,0)" data-websvg-id="rep:matrix-cell:pm.create_project:Project">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">C</text>
+</g>
+<g class="matrix-cell" data-mode="W" transform="translate(1428,0)" data-websvg-id="rep:matrix-cell:pm.plan_work:Project">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">W</text>
+</g>
+<g class="matrix-cell" data-mode="W" transform="translate(1486,0)" data-websvg-id="rep:matrix-cell:pm.schedule:Project">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">W</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(1544,0)" data-websvg-id="rep:matrix-cell:pm.readiness:Project">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="W" transform="translate(1602,0)" data-websvg-id="rep:matrix-cell:pm.release_install:Project">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">W</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(1660,0)" data-websvg-id="rep:matrix-cell:inst.accept_work:Project">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="W" transform="translate(1776,0)" data-websvg-id="rep:matrix-cell:inst.install:Project">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">W</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(1834,0)" data-websvg-id="rep:matrix-cell:inst.test:Project">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="W" transform="translate(1892,0)" data-websvg-id="rep:matrix-cell:inst.document:Project">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">W</text>
+</g>
+<g class="matrix-cell" data-mode="W" transform="translate(1950,0)" data-websvg-id="rep:matrix-cell:inst.handover:Project">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">W</text>
+</g>
+<g class="matrix-cell" data-mode="W" transform="translate(2008,0)" data-websvg-id="rep:matrix-cell:inst.ready_to_bill:Project">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">W</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(2066,0)" data-websvg-id="rep:matrix-cell:bill.create_invoice:Project">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="C" transform="translate(2878,0)" data-websvg-id="rep:matrix-cell:svc.plan:Project">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">C</text>
+</g>
+<g class="matrix-cell" data-mode="W" transform="translate(2994,0)" data-websvg-id="rep:matrix-cell:svc.execute:Project">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">W</text>
+</g>
+<g class="matrix-cell" data-mode="W" transform="translate(3052,0)" data-websvg-id="rep:matrix-cell:svc.document:Project">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">W</text>
+</g>
+<g class="matrix-cell" data-mode="W" transform="translate(3284,0)" data-websvg-id="rep:matrix-cell:hr.project_roles:Project">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">W</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(3342,0)" data-websvg-id="rep:matrix-cell:hr.time:Project">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(3922,0)" data-websvg-id="rep:matrix-cell:mgmt.delivery:Project">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="C" transform="translate(4154,0)" data-websvg-id="rep:matrix-cell:mgmt.actions:Project">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">C</text>
+</g>
+</g>
+<g id="row-Location" class="universal-row" transform="translate(0,360)" data-websvg-id="rep:matrix-universal:Location">
+<text x="24" y="20" class="u">Location</text>
+<line class="grid" x1="0" y1="30" x2="4310" y2="30" />
+<g class="matrix-cell" data-mode="R" transform="translate(964,0)" data-websvg-id="rep:matrix-cell:wh.plan_receipt:Location">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(1022,0)" data-websvg-id="rep:matrix-cell:wh.receive:Location">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(1138,0)" data-websvg-id="rep:matrix-cell:wh.putaway:Location">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(1196,0)" data-websvg-id="rep:matrix-cell:wh.reserve_project:Location">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(1254,0)" data-websvg-id="rep:matrix-cell:wh.pick:Location">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(1428,0)" data-websvg-id="rep:matrix-cell:pm.plan_work:Location">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(1660,0)" data-websvg-id="rep:matrix-cell:inst.accept_work:Location">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(1718,0)" data-websvg-id="rep:matrix-cell:inst.site_check:Location">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(2878,0)" data-websvg-id="rep:matrix-cell:svc.plan:Location">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(2936,0)" data-websvg-id="rep:matrix-cell:svc.reserve_parts:Location">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+</g>
+<g id="row-Asset" class="universal-row" transform="translate(0,390)" data-websvg-id="rep:matrix-universal:Asset">
+<rect class="row-alt" x="0" y="0" width="4310" height="30" />
+<text x="24" y="20" class="u">Asset</text>
+<line class="grid" x1="0" y1="30" x2="4310" y2="30" />
+<g class="matrix-cell" data-mode="R" transform="translate(1718,0)" data-websvg-id="rep:matrix-cell:inst.site_check:Asset">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="C/W" transform="translate(1776,0)" data-websvg-id="rep:matrix-cell:inst.install:Asset">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">C/W</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(1834,0)" data-websvg-id="rep:matrix-cell:inst.test:Asset">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="W" transform="translate(1892,0)" data-websvg-id="rep:matrix-cell:inst.document:Asset">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">W</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(2762,0)" data-websvg-id="rep:matrix-cell:svc.request:Asset">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(2878,0)" data-websvg-id="rep:matrix-cell:svc.plan:Asset">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="W" transform="translate(2994,0)" data-websvg-id="rep:matrix-cell:svc.execute:Asset">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">W</text>
+</g>
+</g>
+<g id="row-CatalogItem" class="universal-row" transform="translate(0,420)" data-websvg-id="rep:matrix-universal:CatalogItem">
+<text x="24" y="20" class="u">CatalogItem</text>
+<line class="grid" x1="0" y1="30" x2="4310" y2="30" />
+<g class="matrix-cell" data-mode="R" transform="translate(326,0)" data-websvg-id="rep:matrix-cell:sales.scope_solution:CatalogItem">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(384,0)" data-websvg-id="rep:matrix-cell:sales.prepare_quote:CatalogItem">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(674,0)" data-websvg-id="rep:matrix-cell:proc.check_availability:CatalogItem">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(732,0)" data-websvg-id="rep:matrix-cell:proc.create_po:CatalogItem">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(1080,0)" data-websvg-id="rep:matrix-cell:wh.inspect:CatalogItem">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(1138,0)" data-websvg-id="rep:matrix-cell:wh.putaway:CatalogItem">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(1196,0)" data-websvg-id="rep:matrix-cell:wh.reserve_project:CatalogItem">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(1776,0)" data-websvg-id="rep:matrix-cell:inst.install:CatalogItem">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(2936,0)" data-websvg-id="rep:matrix-cell:svc.reserve_parts:CatalogItem">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(2994,0)" data-websvg-id="rep:matrix-cell:svc.execute:CatalogItem">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+</g>
+<g id="row-Specification" class="universal-row" transform="translate(0,450)" data-websvg-id="rep:matrix-universal:Specification">
+<rect class="row-alt" x="0" y="0" width="4310" height="30" />
+<text x="24" y="20" class="u">Specification</text>
+<line class="grid" x1="0" y1="30" x2="4310" y2="30" />
+<g class="matrix-cell" data-mode="C" transform="translate(326,0)" data-websvg-id="rep:matrix-cell:sales.scope_solution:Specification">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">C</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(384,0)" data-websvg-id="rep:matrix-cell:sales.prepare_quote:Specification">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(1080,0)" data-websvg-id="rep:matrix-cell:wh.inspect:Specification">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(1428,0)" data-websvg-id="rep:matrix-cell:pm.plan_work:Specification">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(1660,0)" data-websvg-id="rep:matrix-cell:inst.accept_work:Specification">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(1776,0)" data-websvg-id="rep:matrix-cell:inst.install:Specification">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(1834,0)" data-websvg-id="rep:matrix-cell:inst.test:Specification">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+</g>
+<g id="row-Opportunity" class="universal-row" transform="translate(0,480)" data-websvg-id="rep:matrix-universal:Opportunity">
+<text x="24" y="20" class="u">Opportunity</text>
+<line class="grid" x1="0" y1="30" x2="4310" y2="30" />
+<g class="matrix-cell" data-mode="C" transform="translate(210,0)" data-websvg-id="rep:matrix-cell:sales.identify_need:Opportunity">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">C</text>
+</g>
+<g class="matrix-cell" data-mode="W" transform="translate(268,0)" data-websvg-id="rep:matrix-cell:sales.qualify:Opportunity">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">W</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(326,0)" data-websvg-id="rep:matrix-cell:sales.scope_solution:Opportunity">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="W" transform="translate(500,0)" data-websvg-id="rep:matrix-cell:sales.negotiate:Opportunity">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">W</text>
+</g>
+<g class="matrix-cell" data-mode="W" transform="translate(558,0)" data-websvg-id="rep:matrix-cell:sales.confirm_order:Opportunity">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">W</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(3864,0)" data-websvg-id="rep:matrix-cell:mgmt.pipeline:Opportunity">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+</g>
+<g id="row-LineItem" class="universal-row" transform="translate(0,510)" data-websvg-id="rep:matrix-universal:LineItem">
+<rect class="row-alt" x="0" y="0" width="4310" height="30" />
+<text x="24" y="20" class="u">LineItem</text>
+<line class="grid" x1="0" y1="30" x2="4310" y2="30" />
+<g class="matrix-cell" data-mode="C" transform="translate(384,0)" data-websvg-id="rep:matrix-cell:sales.prepare_quote:LineItem">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">C</text>
+</g>
+<g class="matrix-cell" data-mode="C" transform="translate(558,0)" data-websvg-id="rep:matrix-cell:sales.confirm_order:LineItem">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">C</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(674,0)" data-websvg-id="rep:matrix-cell:proc.check_availability:LineItem">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="C" transform="translate(732,0)" data-websvg-id="rep:matrix-cell:proc.create_po:LineItem">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">C</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(906,0)" data-websvg-id="rep:matrix-cell:proc.supplier_invoice:LineItem">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(2066,0)" data-websvg-id="rep:matrix-cell:bill.create_invoice:LineItem">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="C" transform="translate(3168,0)" data-websvg-id="rep:matrix-cell:svc.bill:LineItem">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">C</text>
+</g>
+</g>
+<g id="row-Quote" class="universal-row" transform="translate(0,540)" data-websvg-id="rep:matrix-universal:Quote">
+<text x="24" y="20" class="u">Quote</text>
+<line class="grid" x1="0" y1="30" x2="4310" y2="30" />
+<g class="matrix-cell" data-mode="C" transform="translate(384,0)" data-websvg-id="rep:matrix-cell:sales.prepare_quote:Quote">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">C</text>
+</g>
+<g class="matrix-cell" data-mode="W" transform="translate(442,0)" data-websvg-id="rep:matrix-cell:sales.send_quote:Quote">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">W</text>
+</g>
+<g class="matrix-cell" data-mode="W" transform="translate(500,0)" data-websvg-id="rep:matrix-cell:sales.negotiate:Quote">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">W</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(558,0)" data-websvg-id="rep:matrix-cell:sales.confirm_order:Quote">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(3864,0)" data-websvg-id="rep:matrix-cell:mgmt.pipeline:Quote">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+</g>
+<g id="row-Order" class="universal-row" transform="translate(0,570)" data-websvg-id="rep:matrix-universal:Order">
+<rect class="row-alt" x="0" y="0" width="4310" height="30" />
+<text x="24" y="20" class="u">Order</text>
+<line class="grid" x1="0" y1="30" x2="4310" y2="30" />
+<g class="matrix-cell" data-mode="C" transform="translate(558,0)" data-websvg-id="rep:matrix-cell:sales.confirm_order:Order">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">C</text>
+</g>
+<g class="matrix-cell" data-mode="W" transform="translate(616,0)" data-websvg-id="rep:matrix-cell:sales.handoff_delivery:Order">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">W</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(674,0)" data-websvg-id="rep:matrix-cell:proc.check_availability:Order">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="C" transform="translate(732,0)" data-websvg-id="rep:matrix-cell:proc.create_po:Order">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">C</text>
+</g>
+<g class="matrix-cell" data-mode="W" transform="translate(790,0)" data-websvg-id="rep:matrix-cell:proc.send_po:Order">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">W</text>
+</g>
+<g class="matrix-cell" data-mode="W" transform="translate(848,0)" data-websvg-id="rep:matrix-cell:proc.confirm_delivery:Order">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">W</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(906,0)" data-websvg-id="rep:matrix-cell:proc.supplier_invoice:Order">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(1370,0)" data-websvg-id="rep:matrix-cell:pm.create_project:Order">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(2008,0)" data-websvg-id="rep:matrix-cell:inst.ready_to_bill:Order">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(2066,0)" data-websvg-id="rep:matrix-cell:bill.create_invoice:Order">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(3864,0)" data-websvg-id="rep:matrix-cell:mgmt.pipeline:Order">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+</g>
+<g id="row-Invoice" class="universal-row" transform="translate(0,600)" data-websvg-id="rep:matrix-universal:Invoice">
+<text x="24" y="20" class="u">Invoice</text>
+<line class="grid" x1="0" y1="30" x2="4310" y2="30" />
+<g class="matrix-cell" data-mode="C" transform="translate(906,0)" data-websvg-id="rep:matrix-cell:proc.supplier_invoice:Invoice">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">C</text>
+</g>
+<g class="matrix-cell" data-mode="C" transform="translate(2066,0)" data-websvg-id="rep:matrix-cell:bill.create_invoice:Invoice">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">C</text>
+</g>
+<g class="matrix-cell" data-mode="W" transform="translate(2124,0)" data-websvg-id="rep:matrix-cell:bill.review:Invoice">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">W</text>
+</g>
+<g class="matrix-cell" data-mode="W" transform="translate(2182,0)" data-websvg-id="rep:matrix-cell:bill.send:Invoice">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">W</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(2240,0)" data-websvg-id="rep:matrix-cell:bill.follow_due:Invoice">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(2298,0)" data-websvg-id="rep:matrix-cell:pay.receive:Invoice">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="W" transform="translate(2356,0)" data-websvg-id="rep:matrix-cell:pay.allocate:Invoice">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">W</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(2414,0)" data-websvg-id="rep:matrix-cell:pay.exception:Invoice">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(2472,0)" data-websvg-id="rep:matrix-cell:acc.create_posting:Invoice">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="C" transform="translate(3168,0)" data-websvg-id="rep:matrix-cell:svc.bill:Invoice">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">C</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(3980,0)" data-websvg-id="rep:matrix-cell:mgmt.finance:Invoice">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+</g>
+<g id="row-BalanceAccount" class="universal-row" transform="translate(0,630)" data-websvg-id="rep:matrix-universal:BalanceAccount">
+<rect class="row-alt" x="0" y="0" width="4310" height="30" />
+<text x="24" y="20" class="u">BalanceAccount</text>
+<line class="grid" x1="0" y1="30" x2="4310" y2="30" />
+<g class="matrix-cell" data-mode="R" transform="translate(2298,0)" data-websvg-id="rep:matrix-cell:pay.receive:BalanceAccount">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
+</g>
+<g class="matrix-cell" data-mode="R" transform="translate(2530,0)" data-websvg-id="rep:matrix-cell:acc.post_ledger:BalanceAccount">
+<rect class="cell-active" x="1" y="1" width="56" height="28" />
+<text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
