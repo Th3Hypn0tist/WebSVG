@@ -304,9 +304,9 @@ export function createViewportManager({
         event.stopPropagation();
 
         if (button.dataset.viewportAction === "zoom-in") {
-          zoomCenter(record.svg, 0.72);
+          zoomCenter(record.svg, 0.9);
         } else if (button.dataset.viewportAction === "zoom-out") {
-          zoomCenter(record.svg, 1.38);
+          zoomCenter(record.svg, 1.1);
         } else if (button.dataset.viewportAction === "reset") {
           resetViewport(record.svg);
         }
@@ -339,7 +339,7 @@ export function createViewportManager({
           svg,
           event.clientX,
           event.clientY,
-          event.deltaY < 0 ? 0.82 : 1.22
+          event.deltaY < 0 ? 0.94 : 1.06
         );
       },
       { passive: false }
@@ -348,7 +348,7 @@ export function createViewportManager({
     svg.addEventListener("dblclick", event => {
       event.preventDefault();
       event.stopPropagation();
-      zoomAt(svg, event.clientX, event.clientY, 0.58);
+      zoomAt(svg, event.clientX, event.clientY, 0.85);
     });
 
     svg.addEventListener("pointerdown", event => {
