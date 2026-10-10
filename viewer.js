@@ -1,5 +1,6 @@
 import { WebSVG } from "./src/websvg.js";
 
+const topbarEl = document.querySelector(".topbar");
 const statusEl = document.querySelector("#status");
 const workspaceEl = document.querySelector("#workspace");
 const summaryEl = document.querySelector("#selection-summary");
@@ -28,6 +29,8 @@ focusButton.addEventListener("click", () => {
   applyFocusState();
 });
 
+window.addEventListener("resize", updateViewerMetrics);
+
 window.addEventListener("keydown", event => {
   if (event.altKey || event.ctrlKey || event.metaKey) return;
 
@@ -55,6 +58,17 @@ window.addEventListener("keydown", event => {
     event.preventDefault();
   }
 });
+
+function updateViewerMetrics() {
+  const topbarHeight = topbarEl?.getBoundingClientRect().height || 52;
+  const verticalChrome = topbarHeight + 24;
+  const freeHeight = Math.max(300, window.innerHeight - verticalChrome);
+
+  document.documentElement.style.setProperty(
+    "--websvg-stage-height",
+    `${freeHeight}px`
+  );
+}
 
 function fail(error) {
   console.error(error);
@@ -431,7 +445,7 @@ function prepareSvgDocuments() {
 
     svg.removeAttribute("width");
     svg.removeAttribute("height");
-    svg.setAttribute("preserveAspectRatio", "xMinYMin meet");
+    svg.setAttribute("preserveAspectRatio", "xMidYMid meet");
     svg.classList.add("websvg-document-svg");
 
     wireViewportControls(record);
@@ -1181,6 +1195,7 @@ async function start() {
       hosts
     });
 
+    updateViewerMetrics();
     prepareSvgDocuments();
     buildNavigationModel();
     wireRepresentationClicks();
