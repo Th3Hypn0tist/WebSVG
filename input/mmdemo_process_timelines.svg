@@ -1,71 +1,573 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="1220" height="360" viewBox="0 0 1220 360" id="mmdemo-process-timelines">
-  <rect width="100%" height="100%" fill="#05090C"/>
-  <defs>
-    <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
-      <path d="M0,0 L8,4 L0,8 Z" fill="#658FA9"/>
-    </marker>
-    <style>
-      text{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;fill:#E5F3F9}
-      .title{font-size:26px;font-weight:700}.sub{font-size:13px;fill:#90B7D1}
-      .role{font-size:14px;font-weight:700}.step{font-size:12px;font-weight:600}
-      .meta{font-size:9px;fill:#658FA9}.lane{stroke:#274E63;stroke-width:1}
-      .box{fill:#0F222E;stroke:#436983;stroke-width:1}.seq{fill:none;stroke:#274E63;marker-end:url(#arrow)}
-      .handoff{fill:none;stroke:#D88351;stroke-width:1.6;marker-end:url(#arrow)}
-    </style>
-  </defs>
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="6415" height="1446" viewBox="0 0 6415 1446" id="mmdemo-process-timelines">
+<rect id="document-background" width="100%" height="100%" fill="#05090C" />
 
-  <text x="28" y="38" class="title">MMDemo — process timeline</text>
-  <text x="28" y="62" class="sub">SVG owns visual structure and representation identities. JSON owns semantic meaning and relations.</text>
+<defs>
+  <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+    <path d="M0,0 L8,4 L0,8 Z" fill="#658FA9" />
+  </marker>
+  <style>
+    text{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;fill:#E5F3F9}
+    .title{font-size:30px;font-weight:700;fill:#E5F3F9}
+    .sub{font-size:15px;fill:#90B7D1}
+    .role{font-size:15px;font-weight:700;fill:#E5F3F9}
+    .step{font-size:12px;font-weight:600;fill:#E5F3F9}
+    .meta{font-size:10px;fill:#658FA9}
+    .lane-line{stroke:#274E63;stroke-width:1}
+    .step-box{fill:#0F222E;stroke:#436983;stroke-width:1}
+    .step-box:hover{stroke:#D88351;stroke-width:1.6}
+    .handoff{fill:none;stroke:#658FA9;stroke-width:1.25;marker-end:url(#arrow)}
+    .intra{fill:none;stroke:#274E63;stroke-width:1;marker-end:url(#arrow)}
+    .slot{font-size:10px;fill:#436983}
+</style>
+</defs>
 
-  <!-- This entire visual region is bound by JSON to abstraction:sales. -->
-  <g class="timeline" data-websvg-id="rep:timeline:sales" transform="translate(0,92)">
-    <text x="28" y="33" class="role">Sales</text>
-    <line x1="150" y1="28" x2="1155" y2="28" class="lane"/>
-
-    <g class="process-step" data-websvg-id="rep:timeline-step:sales.identify_need" data-slot="1" transform="translate(170,0)">
-      <rect class="box" width="170" height="56" rx="5"/>
-      <text x="10" y="22" class="step">Identify need</text>
-      <text x="160" y="47" class="meta" text-anchor="end">slot 1</text>
-    </g>
-
-    <path class="seq" d="M340 28 H375" data-websvg-id="rep:sequence:001"/>
-
-    <g class="process-step" data-websvg-id="rep:timeline-step:sales.prepare_quote" data-slot="2" transform="translate(380,0)">
-      <rect class="box" width="170" height="56" rx="5"/>
-      <text x="10" y="22" class="step">Prepare quote</text>
-      <text x="160" y="47" class="meta" text-anchor="end">slot 2</text>
-    </g>
-
-    <path class="seq" d="M550 28 H585" data-websvg-id="rep:sequence:002"/>
-
-    <g class="process-step" data-websvg-id="rep:timeline-step:sales.confirm_order" data-slot="3" transform="translate(590,0)">
-      <rect class="box" width="170" height="56" rx="5"/>
-      <text x="10" y="22" class="step">Confirm order</text>
-      <text x="160" y="47" class="meta" text-anchor="end">slot 3</text>
-    </g>
-  </g>
-
-  <!-- Another large visual region bound to abstraction:procurement. -->
-  <g class="timeline" data-websvg-id="rep:timeline:procurement" transform="translate(0,220)">
-    <text x="28" y="33" class="role">Procurement</text>
-    <line x1="150" y1="28" x2="1155" y2="28" class="lane"/>
-
-    <g class="process-step" data-websvg-id="rep:timeline-step:proc.check_availability" data-slot="3" transform="translate(590,0)">
-      <rect class="box" width="170" height="56" rx="5"/>
-      <text x="10" y="22" class="step">Check availability</text>
-      <text x="160" y="47" class="meta" text-anchor="end">slot 3</text>
-    </g>
-
-    <path class="seq" d="M760 28 H795" data-websvg-id="rep:sequence:003"/>
-
-    <g class="process-step" data-websvg-id="rep:timeline-step:proc.create_po" data-slot="4" transform="translate(800,0)">
-      <rect class="box" width="170" height="56" rx="5"/>
-      <text x="10" y="22" class="step">Create PO</text>
-      <text x="160" y="47" class="meta" text-anchor="end">slot 4</text>
-    </g>
-  </g>
-
-  <!-- Pure representation of the JSON handoff relation. -->
-  <path class="handoff" d="M760 120 C790 120 560 248 590 248" data-websvg-id="rep:handoff:001"/>
+<g id="document-header"><text x="38" y="48" class="title">MMDemo — role timelines</text><text x="38" y="76" class="sub">DOC design surface · roles → steps → handoffs · one reference use case across the company</text></g>
+<g id="time-axis">
+<line x1="349.0" y1="122" x2="349.0" y2="1386" stroke="#173748" stroke-width="1" />
+<text x="349.0" y="112" class="slot" text-anchor="middle">1</text>
+<line x1="521.0" y1="122" x2="521.0" y2="1386" stroke="#173748" stroke-width="1" />
+<text x="521.0" y="112" class="slot" text-anchor="middle">2</text>
+<line x1="693.0" y1="122" x2="693.0" y2="1386" stroke="#173748" stroke-width="1" />
+<text x="693.0" y="112" class="slot" text-anchor="middle">3</text>
+<line x1="865.0" y1="122" x2="865.0" y2="1386" stroke="#173748" stroke-width="1" />
+<text x="865.0" y="112" class="slot" text-anchor="middle">4</text>
+<line x1="1037.0" y1="122" x2="1037.0" y2="1386" stroke="#173748" stroke-width="1" />
+<text x="1037.0" y="112" class="slot" text-anchor="middle">5</text>
+<line x1="1209.0" y1="122" x2="1209.0" y2="1386" stroke="#173748" stroke-width="1" />
+<text x="1209.0" y="112" class="slot" text-anchor="middle">6</text>
+<line x1="1381.0" y1="122" x2="1381.0" y2="1386" stroke="#173748" stroke-width="1" />
+<text x="1381.0" y="112" class="slot" text-anchor="middle">7</text>
+<line x1="1553.0" y1="122" x2="1553.0" y2="1386" stroke="#173748" stroke-width="1" />
+<text x="1553.0" y="112" class="slot" text-anchor="middle">8</text>
+<line x1="1725.0" y1="122" x2="1725.0" y2="1386" stroke="#173748" stroke-width="1" />
+<text x="1725.0" y="112" class="slot" text-anchor="middle">9</text>
+<line x1="1897.0" y1="122" x2="1897.0" y2="1386" stroke="#173748" stroke-width="1" />
+<text x="1897.0" y="112" class="slot" text-anchor="middle">10</text>
+<line x1="2069.0" y1="122" x2="2069.0" y2="1386" stroke="#173748" stroke-width="1" />
+<text x="2069.0" y="112" class="slot" text-anchor="middle">11</text>
+<line x1="2241.0" y1="122" x2="2241.0" y2="1386" stroke="#173748" stroke-width="1" />
+<text x="2241.0" y="112" class="slot" text-anchor="middle">12</text>
+<line x1="2413.0" y1="122" x2="2413.0" y2="1386" stroke="#173748" stroke-width="1" />
+<text x="2413.0" y="112" class="slot" text-anchor="middle">13</text>
+<line x1="2585.0" y1="122" x2="2585.0" y2="1386" stroke="#173748" stroke-width="1" />
+<text x="2585.0" y="112" class="slot" text-anchor="middle">14</text>
+<line x1="2757.0" y1="122" x2="2757.0" y2="1386" stroke="#173748" stroke-width="1" />
+<text x="2757.0" y="112" class="slot" text-anchor="middle">15</text>
+<line x1="2929.0" y1="122" x2="2929.0" y2="1386" stroke="#173748" stroke-width="1" />
+<text x="2929.0" y="112" class="slot" text-anchor="middle">16</text>
+<line x1="3101.0" y1="122" x2="3101.0" y2="1386" stroke="#173748" stroke-width="1" />
+<text x="3101.0" y="112" class="slot" text-anchor="middle">17</text>
+<line x1="3273.0" y1="122" x2="3273.0" y2="1386" stroke="#173748" stroke-width="1" />
+<text x="3273.0" y="112" class="slot" text-anchor="middle">18</text>
+<line x1="3445.0" y1="122" x2="3445.0" y2="1386" stroke="#173748" stroke-width="1" />
+<text x="3445.0" y="112" class="slot" text-anchor="middle">19</text>
+<line x1="3617.0" y1="122" x2="3617.0" y2="1386" stroke="#173748" stroke-width="1" />
+<text x="3617.0" y="112" class="slot" text-anchor="middle">20</text>
+<line x1="3789.0" y1="122" x2="3789.0" y2="1386" stroke="#173748" stroke-width="1" />
+<text x="3789.0" y="112" class="slot" text-anchor="middle">21</text>
+<line x1="3961.0" y1="122" x2="3961.0" y2="1386" stroke="#173748" stroke-width="1" />
+<text x="3961.0" y="112" class="slot" text-anchor="middle">22</text>
+<line x1="4133.0" y1="122" x2="4133.0" y2="1386" stroke="#173748" stroke-width="1" />
+<text x="4133.0" y="112" class="slot" text-anchor="middle">23</text>
+<line x1="4305.0" y1="122" x2="4305.0" y2="1386" stroke="#173748" stroke-width="1" />
+<text x="4305.0" y="112" class="slot" text-anchor="middle">24</text>
+<line x1="4477.0" y1="122" x2="4477.0" y2="1386" stroke="#173748" stroke-width="1" />
+<text x="4477.0" y="112" class="slot" text-anchor="middle">25</text>
+<line x1="4649.0" y1="122" x2="4649.0" y2="1386" stroke="#173748" stroke-width="1" />
+<text x="4649.0" y="112" class="slot" text-anchor="middle">26</text>
+<line x1="4821.0" y1="122" x2="4821.0" y2="1386" stroke="#173748" stroke-width="1" />
+<text x="4821.0" y="112" class="slot" text-anchor="middle">27</text>
+<line x1="4993.0" y1="122" x2="4993.0" y2="1386" stroke="#173748" stroke-width="1" />
+<text x="4993.0" y="112" class="slot" text-anchor="middle">28</text>
+<line x1="5165.0" y1="122" x2="5165.0" y2="1386" stroke="#173748" stroke-width="1" />
+<text x="5165.0" y="112" class="slot" text-anchor="middle">29</text>
+<line x1="5337.0" y1="122" x2="5337.0" y2="1386" stroke="#173748" stroke-width="1" />
+<text x="5337.0" y="112" class="slot" text-anchor="middle">30</text>
+<line x1="5509.0" y1="122" x2="5509.0" y2="1386" stroke="#173748" stroke-width="1" />
+<text x="5509.0" y="112" class="slot" text-anchor="middle">31</text>
+<line x1="5681.0" y1="122" x2="5681.0" y2="1386" stroke="#173748" stroke-width="1" />
+<text x="5681.0" y="112" class="slot" text-anchor="middle">32</text>
+<line x1="5853.0" y1="122" x2="5853.0" y2="1386" stroke="#173748" stroke-width="1" />
+<text x="5853.0" y="112" class="slot" text-anchor="middle">33</text>
+<line x1="6025.0" y1="122" x2="6025.0" y2="1386" stroke="#173748" stroke-width="1" />
+<text x="6025.0" y="112" class="slot" text-anchor="middle">34</text>
+<line x1="6197.0" y1="122" x2="6197.0" y2="1386" stroke="#173748" stroke-width="1" />
+<text x="6197.0" y="112" class="slot" text-anchor="middle">35</text>
+</g>
+<g id="role-timelines">
+<g id="timeline-sales" class="timeline" transform="translate(0,150)" data-websvg-id="rep:timeline-role:sales">
+<text x="38" y="31" class="role">Myyjä</text>
+<line class="lane-line" x1="255" y1="27" x2="6345" y2="27" />
+<g id="step-sales-identify_need" class="process-step" data-slot="1" transform="translate(275,0)" data-websvg-id="rep:timeline-step:sales.identify_need">
+<rect class="step-box" x="0" y="0" width="148" height="54" rx="4" />
+<text class="step" x="9" y="18"><tspan x="9" dy="0">Tunnista asiakas ja</tspan><tspan x="9" dy="15">tarve</tspan></text>
+<text x="140" y="47" class="meta" text-anchor="end">identify_need</text>
+</g>
+<path class="intra" d="M 423 27 H 439" data-websvg-id="rep:sequence:sales.identify_need:sales.qualify" />
+<g id="step-sales-qualify" class="process-step" data-slot="2" transform="translate(447,0)" data-websvg-id="rep:timeline-step:sales.qualify">
+<rect class="step-box" x="0" y="0" width="148" height="54" rx="4" />
+<text class="step" x="9" y="18"><tspan x="9" dy="0">Kvalifioi opportunity</tspan></text>
+<text x="140" y="47" class="meta" text-anchor="end">qualify</text>
+</g>
+<path class="intra" d="M 595 27 H 611" data-websvg-id="rep:sequence:sales.qualify:sales.scope_solution" />
+<g id="step-sales-scope_solution" class="process-step" data-slot="3" transform="translate(619,0)" data-websvg-id="rep:timeline-step:sales.scope_solution">
+<rect class="step-box" x="0" y="0" width="148" height="54" rx="4" />
+<text class="step" x="9" y="18"><tspan x="9" dy="0">Rajaa ratkaisu</tspan></text>
+<text x="140" y="47" class="meta" text-anchor="end">scope_solution</text>
+</g>
+<path class="intra" d="M 767 27 H 783" data-websvg-id="rep:sequence:sales.scope_solution:sales.prepare_quote" />
+<g id="step-sales-prepare_quote" class="process-step" data-slot="4" transform="translate(791,0)" data-websvg-id="rep:timeline-step:sales.prepare_quote">
+<rect class="step-box" x="0" y="0" width="148" height="54" rx="4" />
+<text class="step" x="9" y="18"><tspan x="9" dy="0">Rakenna tarjous</tspan></text>
+<text x="140" y="47" class="meta" text-anchor="end">prepare_quote</text>
+</g>
+<path class="intra" d="M 939 27 H 955" data-websvg-id="rep:sequence:sales.prepare_quote:sales.send_quote" />
+<g id="step-sales-send_quote" class="process-step" data-slot="5" transform="translate(963,0)" data-websvg-id="rep:timeline-step:sales.send_quote">
+<rect class="step-box" x="0" y="0" width="148" height="54" rx="4" />
+<text class="step" x="9" y="18"><tspan x="9" dy="0">Lähetä tarjous</tspan></text>
+<text x="140" y="47" class="meta" text-anchor="end">send_quote</text>
+</g>
+<path class="intra" d="M 1111 27 H 1127" data-websvg-id="rep:sequence:sales.send_quote:sales.negotiate" />
+<g id="step-sales-negotiate" class="process-step" data-slot="6" transform="translate(1135,0)" data-websvg-id="rep:timeline-step:sales.negotiate">
+<rect class="step-box" x="0" y="0" width="148" height="54" rx="4" />
+<text class="step" x="9" y="18"><tspan x="9" dy="0">Neuvottele ja revisioi</tspan></text>
+<text x="140" y="47" class="meta" text-anchor="end">negotiate</text>
+</g>
+<path class="intra" d="M 1283 27 H 1299" data-websvg-id="rep:sequence:sales.negotiate:sales.confirm_order" />
+<g id="step-sales-confirm_order" class="process-step" data-slot="7" transform="translate(1307,0)" data-websvg-id="rep:timeline-step:sales.confirm_order">
+<rect class="step-box" x="0" y="0" width="148" height="54" rx="4" />
+<text class="step" x="9" y="18"><tspan x="9" dy="0">Vahvista tilaus</tspan></text>
+<text x="140" y="47" class="meta" text-anchor="end">confirm_order</text>
+</g>
+<path class="intra" d="M 1455 27 H 1471" data-websvg-id="rep:sequence:sales.confirm_order:sales.handoff_delivery" />
+<g id="step-sales-handoff_delivery" class="process-step" data-slot="8" transform="translate(1479,0)" data-websvg-id="rep:timeline-step:sales.handoff_delivery">
+<rect class="step-box" x="0" y="0" width="148" height="54" rx="4" />
+<text class="step" x="9" y="18"><tspan x="9" dy="0">Luovuta toteutukseen</tspan></text>
+<text x="140" y="47" class="meta" text-anchor="end">handoff_delivery</text>
+</g>
+</g>
+<g id="timeline-procurement" class="timeline" transform="translate(0,248)" data-websvg-id="rep:timeline-role:procurement">
+<text x="38" y="31" class="role">Hankinta / ostaja</text>
+<line class="lane-line" x1="255" y1="27" x2="6345" y2="27" />
+<g id="step-proc-check_availability" class="process-step" data-slot="8" transform="translate(1479,0)" data-websvg-id="rep:timeline-step:proc.check_availability">
+<rect class="step-box" x="0" y="0" width="148" height="54" rx="4" />
+<text class="step" x="9" y="18"><tspan x="9" dy="0">Tarkista saatavuus</tspan></text>
+<text x="140" y="47" class="meta" text-anchor="end">check_availability</text>
+</g>
+<path class="intra" d="M 1627 27 H 1643" data-websvg-id="rep:sequence:proc.check_availability:proc.create_po" />
+<g id="step-proc-create_po" class="process-step" data-slot="9" transform="translate(1651,0)" data-websvg-id="rep:timeline-step:proc.create_po">
+<rect class="step-box" x="0" y="0" width="148" height="54" rx="4" />
+<text class="step" x="9" y="18"><tspan x="9" dy="0">Luo ostotilaus</tspan></text>
+<text x="140" y="47" class="meta" text-anchor="end">create_po</text>
+</g>
+<path class="intra" d="M 1799 27 H 1815" data-websvg-id="rep:sequence:proc.create_po:proc.send_po" />
+<g id="step-proc-send_po" class="process-step" data-slot="10" transform="translate(1823,0)" data-websvg-id="rep:timeline-step:proc.send_po">
+<rect class="step-box" x="0" y="0" width="148" height="54" rx="4" />
+<text class="step" x="9" y="18"><tspan x="9" dy="0">Lähetä toimittajalle</tspan></text>
+<text x="140" y="47" class="meta" text-anchor="end">send_po</text>
+</g>
+<path class="intra" d="M 1971 27 H 1987" data-websvg-id="rep:sequence:proc.send_po:proc.confirm_delivery" />
+<g id="step-proc-confirm_delivery" class="process-step" data-slot="11" transform="translate(1995,0)" data-websvg-id="rep:timeline-step:proc.confirm_delivery">
+<rect class="step-box" x="0" y="0" width="148" height="54" rx="4" />
+<text class="step" x="9" y="18"><tspan x="9" dy="0">Vahvista toimitus</tspan></text>
+<text x="140" y="47" class="meta" text-anchor="end">confirm_delivery</text>
+</g>
+<path class="intra" d="M 2143 27 H 2503" data-websvg-id="rep:sequence:proc.confirm_delivery:proc.supplier_invoice" />
+<g id="step-proc-supplier_invoice" class="process-step" data-slot="14" transform="translate(2511,0)" data-websvg-id="rep:timeline-step:proc.supplier_invoice">
+<rect class="step-box" x="0" y="0" width="148" height="54" rx="4" />
+<text class="step" x="9" y="18"><tspan x="9" dy="0">Vastaanota</tspan><tspan x="9" dy="15">toimittajalasku</tspan></text>
+<text x="140" y="47" class="meta" text-anchor="end">supplier_invoice</text>
+</g>
+</g>
+<g id="timeline-warehouse" class="timeline" transform="translate(0,346)" data-websvg-id="rep:timeline-role:warehouse">
+<text x="38" y="31" class="role">Varasto</text>
+<line class="lane-line" x1="255" y1="27" x2="6345" y2="27" />
+<g id="step-wh-plan_receipt" class="process-step" data-slot="11" transform="translate(1995,0)" data-websvg-id="rep:timeline-step:wh.plan_receipt">
+<rect class="step-box" x="0" y="0" width="148" height="54" rx="4" />
+<text class="step" x="9" y="18"><tspan x="9" dy="0">Suunnittele</tspan><tspan x="9" dy="15">vastaanotto</tspan></text>
+<text x="140" y="47" class="meta" text-anchor="end">plan_receipt</text>
+</g>
+<path class="intra" d="M 2143 27 H 2159" data-websvg-id="rep:sequence:wh.plan_receipt:wh.receive" />
+<g id="step-wh-receive" class="process-step" data-slot="12" transform="translate(2167,0)" data-websvg-id="rep:timeline-step:wh.receive">
+<rect class="step-box" x="0" y="0" width="148" height="54" rx="4" />
+<text class="step" x="9" y="18"><tspan x="9" dy="0">Vastaanota lähetys</tspan></text>
+<text x="140" y="47" class="meta" text-anchor="end">receive</text>
+</g>
+<path class="intra" d="M 2315 27 H 2331" data-websvg-id="rep:sequence:wh.receive:wh.inspect" />
+<g id="step-wh-inspect" class="process-step" data-slot="13" transform="translate(2339,0)" data-websvg-id="rep:timeline-step:wh.inspect">
+<rect class="step-box" x="0" y="0" width="148" height="54" rx="4" />
+<text class="step" x="9" y="18"><tspan x="9" dy="0">Tarkista tavara</tspan></text>
+<text x="140" y="47" class="meta" text-anchor="end">inspect</text>
+</g>
+<path class="intra" d="M 2487 27 H 2503" data-websvg-id="rep:sequence:wh.inspect:wh.putaway" />
+<g id="step-wh-putaway" class="process-step" data-slot="14" transform="translate(2511,0)" data-websvg-id="rep:timeline-step:wh.putaway">
+<rect class="step-box" x="0" y="0" width="148" height="54" rx="4" />
+<text class="step" x="9" y="18"><tspan x="9" dy="0">Kirjaa varastoon</tspan></text>
+<text x="140" y="47" class="meta" text-anchor="end">putaway</text>
+</g>
+<path class="intra" d="M 2659 27 H 2675" data-websvg-id="rep:sequence:wh.putaway:wh.reserve_project" />
+<g id="step-wh-reserve_project" class="process-step" data-slot="15" transform="translate(2683,0)" data-websvg-id="rep:timeline-step:wh.reserve_project">
+<rect class="step-box" x="0" y="0" width="148" height="54" rx="4" />
+<text class="step" x="9" y="18"><tspan x="9" dy="0">Kohdista projektille</tspan></text>
+<text x="140" y="47" class="meta" text-anchor="end">reserve_project</text>
+</g>
+<path class="intra" d="M 2831 27 H 2847" data-websvg-id="rep:sequence:wh.reserve_project:wh.pick" />
+<g id="step-wh-pick" class="process-step" data-slot="16" transform="translate(2855,0)" data-websvg-id="rep:timeline-step:wh.pick">
+<rect class="step-box" x="0" y="0" width="148" height="54" rx="4" />
+<text class="step" x="9" y="18"><tspan x="9" dy="0">Keräile</tspan></text>
+<text x="140" y="47" class="meta" text-anchor="end">pick</text>
+</g>
+<path class="intra" d="M 3003 27 H 3019" data-websvg-id="rep:sequence:wh.pick:wh.release_install" />
+<g id="step-wh-release_install" class="process-step" data-slot="17" transform="translate(3027,0)" data-websvg-id="rep:timeline-step:wh.release_install">
+<rect class="step-box" x="0" y="0" width="148" height="54" rx="4" />
+<text class="step" x="9" y="18"><tspan x="9" dy="0">Luovuta asennukseen</tspan></text>
+<text x="140" y="47" class="meta" text-anchor="end">release_install</text>
+</g>
+</g>
+<g id="timeline-project" class="timeline" transform="translate(0,444)" data-websvg-id="rep:timeline-role:project">
+<text x="38" y="31" class="role">Projektipäällikkö</text>
+<line class="lane-line" x1="255" y1="27" x2="6345" y2="27" />
+<g id="step-pm-create_project" class="process-step" data-slot="8" transform="translate(1479,0)" data-websvg-id="rep:timeline-step:pm.create_project">
+<rect class="step-box" x="0" y="0" width="148" height="54" rx="4" />
+<text class="step" x="9" y="18"><tspan x="9" dy="0">Perusta</tspan><tspan x="9" dy="15">toimitusprojekti</tspan></text>
+<text x="140" y="47" class="meta" text-anchor="end">create_project</text>
+</g>
+<path class="intra" d="M 1627 27 H 1815" data-websvg-id="rep:sequence:pm.create_project:pm.plan_work" />
+<g id="step-pm-plan_work" class="process-step" data-slot="10" transform="translate(1823,0)" data-websvg-id="rep:timeline-step:pm.plan_work">
+<rect class="step-box" x="0" y="0" width="148" height="54" rx="4" />
+<text class="step" x="9" y="18"><tspan x="9" dy="0">Suunnittele työ</tspan></text>
+<text x="140" y="47" class="meta" text-anchor="end">plan_work</text>
+</g>
+<path class="intra" d="M 1971 27 H 2159" data-websvg-id="rep:sequence:pm.plan_work:pm.schedule" />
+<g id="step-pm-schedule" class="process-step" data-slot="12" transform="translate(2167,0)" data-websvg-id="rep:timeline-step:pm.schedule">
+<rect class="step-box" x="0" y="0" width="148" height="54" rx="4" />
+<text class="step" x="9" y="18"><tspan x="9" dy="0">Aikatauluta resurssit</tspan></text>
+<text x="140" y="47" class="meta" text-anchor="end">schedule</text>
+</g>
+<path class="intra" d="M 2315 27 H 2675" data-websvg-id="rep:sequence:pm.schedule:pm.readiness" />
+<g id="step-pm-readiness" class="process-step" data-slot="15" transform="translate(2683,0)" data-websvg-id="rep:timeline-step:pm.readiness">
+<rect class="step-box" x="0" y="0" width="148" height="54" rx="4" />
+<text class="step" x="9" y="18"><tspan x="9" dy="0">Varmista</tspan><tspan x="9" dy="15">lähtöedellytykset</tspan></text>
+<text x="140" y="47" class="meta" text-anchor="end">readiness</text>
+</g>
+<path class="intra" d="M 2831 27 H 3019" data-websvg-id="rep:sequence:pm.readiness:pm.release_install" />
+<g id="step-pm-release_install" class="process-step" data-slot="17" transform="translate(3027,0)" data-websvg-id="rep:timeline-step:pm.release_install">
+<rect class="step-box" x="0" y="0" width="148" height="54" rx="4" />
+<text class="step" x="9" y="18"><tspan x="9" dy="0">Vapauta asennukseen</tspan></text>
+<text x="140" y="47" class="meta" text-anchor="end">release_install</text>
+</g>
+</g>
+<g id="timeline-installer" class="timeline" transform="translate(0,542)" data-websvg-id="rep:timeline-role:installer">
+<text x="38" y="31" class="role">Asentaja</text>
+<line class="lane-line" x1="255" y1="27" x2="6345" y2="27" />
+<g id="step-inst-accept_work" class="process-step" data-slot="17" transform="translate(3027,0)" data-websvg-id="rep:timeline-step:inst.accept_work">
+<rect class="step-box" x="0" y="0" width="148" height="54" rx="4" />
+<text class="step" x="9" y="18"><tspan x="9" dy="0">Vastaanota työ</tspan></text>
+<text x="140" y="47" class="meta" text-anchor="end">accept_work</text>
+</g>
+<path class="intra" d="M 3175 27 H 3191" data-websvg-id="rep:sequence:inst.accept_work:inst.site_check" />
+<g id="step-inst-site_check" class="process-step" data-slot="18" transform="translate(3199,0)" data-websvg-id="rep:timeline-step:inst.site_check">
+<rect class="step-box" x="0" y="0" width="148" height="54" rx="4" />
+<text class="step" x="9" y="18"><tspan x="9" dy="0">Tarkista kohde</tspan></text>
+<text x="140" y="47" class="meta" text-anchor="end">site_check</text>
+</g>
+<path class="intra" d="M 3347 27 H 3363" data-websvg-id="rep:sequence:inst.site_check:inst.install" />
+<g id="step-inst-install" class="process-step" data-slot="19" transform="translate(3371,0)" data-websvg-id="rep:timeline-step:inst.install">
+<rect class="step-box" x="0" y="0" width="148" height="54" rx="4" />
+<text class="step" x="9" y="18"><tspan x="9" dy="0">Asenna komponentit</tspan></text>
+<text x="140" y="47" class="meta" text-anchor="end">install</text>
+</g>
+<path class="intra" d="M 3519 27 H 3535" data-websvg-id="rep:sequence:inst.install:inst.test" />
+<g id="step-inst-test" class="process-step" data-slot="20" transform="translate(3543,0)" data-websvg-id="rep:timeline-step:inst.test">
+<rect class="step-box" x="0" y="0" width="148" height="54" rx="4" />
+<text class="step" x="9" y="18"><tspan x="9" dy="0">Testaa toteutus</tspan></text>
+<text x="140" y="47" class="meta" text-anchor="end">test</text>
+</g>
+<path class="intra" d="M 3691 27 H 3707" data-websvg-id="rep:sequence:inst.test:inst.document" />
+<g id="step-inst-document" class="process-step" data-slot="21" transform="translate(3715,0)" data-websvg-id="rep:timeline-step:inst.document">
+<rect class="step-box" x="0" y="0" width="148" height="54" rx="4" />
+<text class="step" x="9" y="18"><tspan x="9" dy="0">Dokumentoi asennus</tspan></text>
+<text x="140" y="47" class="meta" text-anchor="end">document</text>
+</g>
+<path class="intra" d="M 3863 27 H 3879" data-websvg-id="rep:sequence:inst.document:inst.handover" />
+<g id="step-inst-handover" class="process-step" data-slot="22" transform="translate(3887,0)" data-websvg-id="rep:timeline-step:inst.handover">
+<rect class="step-box" x="0" y="0" width="148" height="54" rx="4" />
+<text class="step" x="9" y="18"><tspan x="9" dy="0">Luovuta asiakkaalle</tspan></text>
+<text x="140" y="47" class="meta" text-anchor="end">handover</text>
+</g>
+<path class="intra" d="M 4035 27 H 4051" data-websvg-id="rep:sequence:inst.handover:inst.ready_to_bill" />
+<g id="step-inst-ready_to_bill" class="process-step" data-slot="23" transform="translate(4059,0)" data-websvg-id="rep:timeline-step:inst.ready_to_bill">
+<rect class="step-box" x="0" y="0" width="148" height="54" rx="4" />
+<text class="step" x="9" y="18"><tspan x="9" dy="0">Merkitse</tspan><tspan x="9" dy="15">laskutusvalmiiksi</tspan></text>
+<text x="140" y="47" class="meta" text-anchor="end">ready_to_bill</text>
+</g>
+</g>
+<g id="timeline-billing" class="timeline" transform="translate(0,640)" data-websvg-id="rep:timeline-role:billing">
+<text x="38" y="31" class="role">Laskutus</text>
+<line class="lane-line" x1="255" y1="27" x2="6345" y2="27" />
+<g id="step-bill-create_invoice" class="process-step" data-slot="23" transform="translate(4059,0)" data-websvg-id="rep:timeline-step:bill.create_invoice">
+<rect class="step-box" x="0" y="0" width="148" height="54" rx="4" />
+<text class="step" x="9" y="18"><tspan x="9" dy="0">Muodosta laskupohja</tspan></text>
+<text x="140" y="47" class="meta" text-anchor="end">create_invoice</text>
+</g>
+<path class="intra" d="M 4207 27 H 4223" data-websvg-id="rep:sequence:bill.create_invoice:bill.review" />
+<g id="step-bill-review" class="process-step" data-slot="24" transform="translate(4231,0)" data-websvg-id="rep:timeline-step:bill.review">
+<rect class="step-box" x="0" y="0" width="148" height="54" rx="4" />
+<text class="step" x="9" y="18"><tspan x="9" dy="0">Tarkista lasku</tspan></text>
+<text x="140" y="47" class="meta" text-anchor="end">review</text>
+</g>
+<path class="intra" d="M 4379 27 H 4395" data-websvg-id="rep:sequence:bill.review:bill.send" />
+<g id="step-bill-send" class="process-step" data-slot="25" transform="translate(4403,0)" data-websvg-id="rep:timeline-step:bill.send">
+<rect class="step-box" x="0" y="0" width="148" height="54" rx="4" />
+<text class="step" x="9" y="18"><tspan x="9" dy="0">Lähetä lasku</tspan></text>
+<text x="140" y="47" class="meta" text-anchor="end">send</text>
+</g>
+<path class="intra" d="M 4551 27 H 4739" data-websvg-id="rep:sequence:bill.send:bill.follow_due" />
+<g id="step-bill-follow_due" class="process-step" data-slot="27" transform="translate(4747,0)" data-websvg-id="rep:timeline-step:bill.follow_due">
+<rect class="step-box" x="0" y="0" width="148" height="54" rx="4" />
+<text class="step" x="9" y="18"><tspan x="9" dy="0">Seuraa eräpäivää</tspan></text>
+<text x="140" y="47" class="meta" text-anchor="end">follow_due</text>
+</g>
+</g>
+<g id="timeline-payments" class="timeline" transform="translate(0,738)" data-websvg-id="rep:timeline-role:payments">
+<text x="38" y="31" class="role">Maksuliikenne</text>
+<line class="lane-line" x1="255" y1="27" x2="6345" y2="27" />
+<g id="step-pay-receive" class="process-step" data-slot="27" transform="translate(4747,0)" data-websvg-id="rep:timeline-step:pay.receive">
+<rect class="step-box" x="0" y="0" width="148" height="54" rx="4" />
+<text class="step" x="9" y="18"><tspan x="9" dy="0">Vastaanota maksu</tspan></text>
+<text x="140" y="47" class="meta" text-anchor="end">receive</text>
+</g>
+<path class="intra" d="M 4895 27 H 4911" data-websvg-id="rep:sequence:pay.receive:pay.allocate" />
+<g id="step-pay-allocate" class="process-step" data-slot="28" transform="translate(4919,0)" data-websvg-id="rep:timeline-step:pay.allocate">
+<rect class="step-box" x="0" y="0" width="148" height="54" rx="4" />
+<text class="step" x="9" y="18"><tspan x="9" dy="0">Kohdista laskuun</tspan></text>
+<text x="140" y="47" class="meta" text-anchor="end">allocate</text>
+</g>
+<path class="intra" d="M 5067 27 H 5083" data-websvg-id="rep:sequence:pay.allocate:pay.exception" />
+<g id="step-pay-exception" class="process-step" data-slot="29" transform="translate(5091,0)" data-websvg-id="rep:timeline-step:pay.exception">
+<rect class="step-box" x="0" y="0" width="148" height="54" rx="4" />
+<text class="step" x="9" y="18"><tspan x="9" dy="0">Käsittele poikkeama</tspan></text>
+<text x="140" y="47" class="meta" text-anchor="end">exception</text>
+</g>
+</g>
+<g id="timeline-accounting" class="timeline" transform="translate(0,836)" data-websvg-id="rep:timeline-role:accounting">
+<text x="38" y="31" class="role">Kirjanpito</text>
+<line class="lane-line" x1="255" y1="27" x2="6345" y2="27" />
+<g id="step-acc-create_posting" class="process-step" data-slot="28" transform="translate(4919,0)" data-websvg-id="rep:timeline-step:acc.create_posting">
+<rect class="step-box" x="0" y="0" width="148" height="54" rx="4" />
+<text class="step" x="9" y="18"><tspan x="9" dy="0">Muodosta vienti</tspan></text>
+<text x="140" y="47" class="meta" text-anchor="end">create_posting</text>
+</g>
+<path class="intra" d="M 5067 27 H 5083" data-websvg-id="rep:sequence:acc.create_posting:acc.post_ledger" />
+<g id="step-acc-post_ledger" class="process-step" data-slot="29" transform="translate(5091,0)" data-websvg-id="rep:timeline-step:acc.post_ledger">
+<rect class="step-box" x="0" y="0" width="148" height="54" rx="4" />
+<text class="step" x="9" y="18"><tspan x="9" dy="0">Kirjaa reskontra</tspan></text>
+<text x="140" y="47" class="meta" text-anchor="end">post_ledger</text>
+</g>
+<path class="intra" d="M 5239 27 H 5255" data-websvg-id="rep:sequence:acc.post_ledger:acc.reconcile" />
+<g id="step-acc-reconcile" class="process-step" data-slot="30" transform="translate(5263,0)" data-websvg-id="rep:timeline-step:acc.reconcile">
+<rect class="step-box" x="0" y="0" width="148" height="54" rx="4" />
+<text class="step" x="9" y="18"><tspan x="9" dy="0">Täsmäytä tili</tspan></text>
+<text x="140" y="47" class="meta" text-anchor="end">reconcile</text>
+</g>
+<path class="intra" d="M 5411 27 H 5599" data-websvg-id="rep:sequence:acc.reconcile:acc.close_period" />
+<g id="step-acc-close_period" class="process-step" data-slot="32" transform="translate(5607,0)" data-websvg-id="rep:timeline-step:acc.close_period">
+<rect class="step-box" x="0" y="0" width="148" height="54" rx="4" />
+<text class="step" x="9" y="18"><tspan x="9" dy="0">Sulje kausi</tspan></text>
+<text x="140" y="47" class="meta" text-anchor="end">close_period</text>
+</g>
+<path class="intra" d="M 5755 27 H 5943" data-websvg-id="rep:sequence:acc.close_period:acc.management_report" />
+<g id="step-acc-management_report" class="process-step" data-slot="34" transform="translate(5951,0)" data-websvg-id="rep:timeline-step:acc.management_report">
+<rect class="step-box" x="0" y="0" width="148" height="54" rx="4" />
+<text class="step" x="9" y="18"><tspan x="9" dy="0">Tuota talousraportti</tspan></text>
+<text x="140" y="47" class="meta" text-anchor="end">management_report</text>
+</g>
+</g>
+<g id="timeline-service" class="timeline" transform="translate(0,934)" data-websvg-id="rep:timeline-role:service">
+<text x="38" y="31" class="role">Huolto</text>
+<line class="lane-line" x1="255" y1="27" x2="6345" y2="27" />
+<g id="step-svc-request" class="process-step" data-slot="25" transform="translate(4403,0)" data-websvg-id="rep:timeline-step:svc.request">
+<rect class="step-box" x="0" y="0" width="148" height="54" rx="4" />
+<text class="step" x="9" y="18"><tspan x="9" dy="0">Vastaanota</tspan><tspan x="9" dy="15">huoltopyyntö</tspan></text>
+<text x="140" y="47" class="meta" text-anchor="end">request</text>
+</g>
+<path class="intra" d="M 4551 27 H 4567" data-websvg-id="rep:sequence:svc.request:svc.assess" />
+<g id="step-svc-assess" class="process-step" data-slot="26" transform="translate(4575,0)" data-websvg-id="rep:timeline-step:svc.assess">
+<rect class="step-box" x="0" y="0" width="148" height="54" rx="4" />
+<text class="step" x="9" y="18"><tspan x="9" dy="0">Arvioi oikeus ja kiire</tspan></text>
+<text x="140" y="47" class="meta" text-anchor="end">assess</text>
+</g>
+<path class="intra" d="M 4723 27 H 4739" data-websvg-id="rep:sequence:svc.assess:svc.plan" />
+<g id="step-svc-plan" class="process-step" data-slot="27" transform="translate(4747,0)" data-websvg-id="rep:timeline-step:svc.plan">
+<rect class="step-box" x="0" y="0" width="148" height="54" rx="4" />
+<text class="step" x="9" y="18"><tspan x="9" dy="0">Suunnittele huolto</tspan></text>
+<text x="140" y="47" class="meta" text-anchor="end">plan</text>
+</g>
+<path class="intra" d="M 4895 27 H 4911" data-websvg-id="rep:sequence:svc.plan:svc.reserve_parts" />
+<g id="step-svc-reserve_parts" class="process-step" data-slot="28" transform="translate(4919,0)" data-websvg-id="rep:timeline-step:svc.reserve_parts">
+<rect class="step-box" x="0" y="0" width="148" height="54" rx="4" />
+<text class="step" x="9" y="18"><tspan x="9" dy="0">Varaa osat</tspan></text>
+<text x="140" y="47" class="meta" text-anchor="end">reserve_parts</text>
+</g>
+<path class="intra" d="M 5067 27 H 5083" data-websvg-id="rep:sequence:svc.reserve_parts:svc.execute" />
+<g id="step-svc-execute" class="process-step" data-slot="29" transform="translate(5091,0)" data-websvg-id="rep:timeline-step:svc.execute">
+<rect class="step-box" x="0" y="0" width="148" height="54" rx="4" />
+<text class="step" x="9" y="18"><tspan x="9" dy="0">Tee huolto</tspan></text>
+<text x="140" y="47" class="meta" text-anchor="end">execute</text>
+</g>
+<path class="intra" d="M 5239 27 H 5255" data-websvg-id="rep:sequence:svc.execute:svc.document" />
+<g id="step-svc-document" class="process-step" data-slot="30" transform="translate(5263,0)" data-websvg-id="rep:timeline-step:svc.document">
+<rect class="step-box" x="0" y="0" width="148" height="54" rx="4" />
+<text class="step" x="9" y="18"><tspan x="9" dy="0">Dokumentoi huolto</tspan></text>
+<text x="140" y="47" class="meta" text-anchor="end">document</text>
+</g>
+<path class="intra" d="M 5411 27 H 5427" data-websvg-id="rep:sequence:svc.document:svc.close" />
+<g id="step-svc-close" class="process-step" data-slot="31" transform="translate(5435,0)" data-websvg-id="rep:timeline-step:svc.close">
+<rect class="step-box" x="0" y="0" width="148" height="54" rx="4" />
+<text class="step" x="9" y="18"><tspan x="9" dy="0">Sulje case</tspan></text>
+<text x="140" y="47" class="meta" text-anchor="end">close</text>
+</g>
+<path class="intra" d="M 5583 27 H 5771" data-websvg-id="rep:sequence:svc.close:svc.bill" />
+<g id="step-svc-bill" class="process-step" data-slot="33" transform="translate(5779,0)" data-websvg-id="rep:timeline-step:svc.bill">
+<rect class="step-box" x="0" y="0" width="148" height="54" rx="4" />
+<text class="step" x="9" y="18"><tspan x="9" dy="0">Laskuta huolto</tspan></text>
+<text x="140" y="47" class="meta" text-anchor="end">bill</text>
+</g>
+</g>
+<g id="timeline-hr" class="timeline" transform="translate(0,1032)" data-websvg-id="rep:timeline-role:hr">
+<text x="38" y="31" class="role">HR / henkilöstö</text>
+<line class="lane-line" x1="255" y1="27" x2="6345" y2="27" />
+<g id="step-hr-people" class="process-step" data-slot="2" transform="translate(447,0)" data-websvg-id="rep:timeline-step:hr.people">
+<rect class="step-box" x="0" y="0" width="148" height="54" rx="4" />
+<text class="step" x="9" y="18"><tspan x="9" dy="0">Ylläpidä henkilöt ja</tspan><tspan x="9" dy="15">sopimukset</tspan></text>
+<text x="140" y="47" class="meta" text-anchor="end">people</text>
+</g>
+<path class="intra" d="M 595 27 H 1987" data-websvg-id="rep:sequence:hr.people:hr.project_roles" />
+<g id="step-hr-project_roles" class="process-step" data-slot="11" transform="translate(1995,0)" data-websvg-id="rep:timeline-step:hr.project_roles">
+<rect class="step-box" x="0" y="0" width="148" height="54" rx="4" />
+<text class="step" x="9" y="18"><tspan x="9" dy="0">Kohdista</tspan><tspan x="9" dy="15">projektiroolit</tspan></text>
+<text x="140" y="47" class="meta" text-anchor="end">project_roles</text>
+</g>
+<path class="intra" d="M 2143 27 H 3535" data-websvg-id="rep:sequence:hr.project_roles:hr.time" />
+<g id="step-hr-time" class="process-step" data-slot="20" transform="translate(3543,0)" data-websvg-id="rep:timeline-step:hr.time">
+<rect class="step-box" x="0" y="0" width="148" height="54" rx="4" />
+<text class="step" x="9" y="18"><tspan x="9" dy="0">Kirjaa työaika ja</tspan><tspan x="9" dy="15">toteuma</tspan></text>
+<text x="140" y="47" class="meta" text-anchor="end">time</text>
+</g>
+<path class="intra" d="M 3691 27 H 4739" data-websvg-id="rep:sequence:hr.time:hr.payroll_base" />
+<g id="step-hr-payroll_base" class="process-step" data-slot="27" transform="translate(4747,0)" data-websvg-id="rep:timeline-step:hr.payroll_base">
+<rect class="step-box" x="0" y="0" width="148" height="54" rx="4" />
+<text class="step" x="9" y="18"><tspan x="9" dy="0">Valmistele</tspan><tspan x="9" dy="15">palkka-aineisto</tspan></text>
+<text x="140" y="47" class="meta" text-anchor="end">payroll_base</text>
+</g>
+<path class="intra" d="M 4895 27 H 5083" data-websvg-id="rep:sequence:hr.payroll_base:hr.payroll_pay" />
+<g id="step-hr-payroll_pay" class="process-step" data-slot="29" transform="translate(5091,0)" data-websvg-id="rep:timeline-step:hr.payroll_pay">
+<rect class="step-box" x="0" y="0" width="148" height="54" rx="4" />
+<text class="step" x="9" y="18"><tspan x="9" dy="0">Maksa palkat</tspan></text>
+<text x="140" y="47" class="meta" text-anchor="end">payroll_pay</text>
+</g>
+<path class="intra" d="M 5239 27 H 5255" data-websvg-id="rep:sequence:hr.payroll_pay:hr.payroll_post" />
+<g id="step-hr-payroll_post" class="process-step" data-slot="30" transform="translate(5263,0)" data-websvg-id="rep:timeline-step:hr.payroll_post">
+<rect class="step-box" x="0" y="0" width="148" height="54" rx="4" />
+<text class="step" x="9" y="18"><tspan x="9" dy="0">Kirjaa palkat</tspan></text>
+<text x="140" y="47" class="meta" text-anchor="end">payroll_post</text>
+</g>
+</g>
+<g id="timeline-compliance" class="timeline" transform="translate(0,1130)" data-websvg-id="rep:timeline-role:compliance">
+<text x="38" y="31" class="role">Compliance / hallinto</text>
+<line class="lane-line" x1="255" y1="27" x2="6345" y2="27" />
+<g id="step-comp-contracts" class="process-step" data-slot="6" transform="translate(1135,0)" data-websvg-id="rep:timeline-step:comp.contracts">
+<rect class="step-box" x="0" y="0" width="148" height="54" rx="4" />
+<text class="step" x="9" y="18"><tspan x="9" dy="0">Tarkista</tspan><tspan x="9" dy="15">sopimusvelvoitteet</tspan></text>
+<text x="140" y="47" class="meta" text-anchor="end">contracts</text>
+</g>
+<path class="intra" d="M 1283 27 H 2847" data-websvg-id="rep:sequence:comp.contracts:comp.readiness" />
+<g id="step-comp-readiness" class="process-step" data-slot="16" transform="translate(2855,0)" data-websvg-id="rep:timeline-step:comp.readiness">
+<rect class="step-box" x="0" y="0" width="148" height="54" rx="4" />
+<text class="step" x="9" y="18"><tspan x="9" dy="0">Tarkista</tspan><tspan x="9" dy="15">toteutusedellytykset</tspan></text>
+<text x="140" y="47" class="meta" text-anchor="end">readiness</text>
+</g>
+<path class="intra" d="M 3003 27 H 4223" data-websvg-id="rep:sequence:comp.readiness:comp.exception" />
+<g id="step-comp-exception" class="process-step" data-slot="24" transform="translate(4231,0)" data-websvg-id="rep:timeline-step:comp.exception">
+<rect class="step-box" x="0" y="0" width="148" height="54" rx="4" />
+<text class="step" x="9" y="18"><tspan x="9" dy="0">Hyväksy poikkeama</tspan></text>
+<text x="140" y="47" class="meta" text-anchor="end">exception</text>
+</g>
+<path class="intra" d="M 4379 27 H 5599" data-websvg-id="rep:sequence:comp.exception:comp.filing" />
+<g id="step-comp-filing" class="process-step" data-slot="32" transform="translate(5607,0)" data-websvg-id="rep:timeline-step:comp.filing">
+<rect class="step-box" x="0" y="0" width="148" height="54" rx="4" />
+<text class="step" x="9" y="18"><tspan x="9" dy="0">Tee viranomaisilmoitus</tspan></text>
+<text x="140" y="47" class="meta" text-anchor="end">filing</text>
+</g>
+<path class="intra" d="M 5755 27 H 5943" data-websvg-id="rep:sequence:comp.filing:comp.archive" />
+<g id="step-comp-archive" class="process-step" data-slot="34" transform="translate(5951,0)" data-websvg-id="rep:timeline-step:comp.archive">
+<rect class="step-box" x="0" y="0" width="148" height="54" rx="4" />
+<text class="step" x="9" y="18"><tspan x="9" dy="0">Arkistoi evidenssi</tspan></text>
+<text x="140" y="47" class="meta" text-anchor="end">archive</text>
+</g>
+</g>
+<g id="timeline-management" class="timeline" transform="translate(0,1228)" data-websvg-id="rep:timeline-role:management">
+<text x="38" y="31" class="role">Johto / Strategy</text>
+<line class="lane-line" x1="255" y1="27" x2="6345" y2="27" />
+<g id="step-mgmt-pipeline" class="process-step" data-slot="5" transform="translate(963,0)" data-websvg-id="rep:timeline-step:mgmt.pipeline">
+<rect class="step-box" x="0" y="0" width="148" height="54" rx="4" />
+<text class="step" x="9" y="18"><tspan x="9" dy="0">Seuraa pipelinea</tspan></text>
+<text x="140" y="47" class="meta" text-anchor="end">pipeline</text>
+</g>
+<path class="intra" d="M 1111 27 H 2847" data-websvg-id="rep:sequence:mgmt.pipeline:mgmt.delivery" />
+<g id="step-mgmt-delivery" class="process-step" data-slot="16" transform="translate(2855,0)" data-websvg-id="rep:timeline-step:mgmt.delivery">
+<rect class="step-box" x="0" y="0" width="148" height="54" rx="4" />
+<text class="step" x="9" y="18"><tspan x="9" dy="0">Seuraa toimituskykyä</tspan></text>
+<text x="140" y="47" class="meta" text-anchor="end">delivery</text>
+</g>
+<path class="intra" d="M 3003 27 H 5083" data-websvg-id="rep:sequence:mgmt.delivery:mgmt.finance" />
+<g id="step-mgmt-finance" class="process-step" data-slot="29" transform="translate(5091,0)" data-websvg-id="rep:timeline-step:mgmt.finance">
+<rect class="step-box" x="0" y="0" width="148" height="54" rx="4" />
+<text class="step" x="9" y="18"><tspan x="9" dy="0">Seuraa taloutta</tspan></text>
+<text x="140" y="47" class="meta" text-anchor="end">finance</text>
+</g>
+<path class="intra" d="M 5239 27 H 5255" data-websvg-id="rep:sequence:mgmt.finance:mgmt.risk" />
+<g id="step-mgmt-risk" class="process-step" data-slot="30" transform="translate(5263,0)" data-websvg-id="rep:timeline-step:mgmt.risk">
+<rect class="step-box" x="0" y="0" width="148" height="54" rx="4" />
+<text class="step" x="9" y="18"><tspan x="9" dy="0">Arvioi riskit</tspan></text>
+<text x="140" y="47" class="meta" text-anchor="end">risk</text>
+</g>
+<path class="intra" d="M 5411 27 H 5599" data-websvg-id="rep:sequence:mgmt.risk:mgmt.plan" />
+<g id="step-mgmt-plan" class="process-step" data-slot="32" transform="translate(5607,0)" data-websvg-id="rep:timeline-step:mgmt.plan">
+<rect class="step-box" x="0" y="0" width="148" height="54" rx="4" />
+<text class="step" x="9" y="18"><tspan x="9" dy="0">Päivitä suunnitelma</tspan></text>
+<text x="140" y="47" class="meta" text-anchor="end">plan</text>
+</g>
+<path class="intra" d="M 5755 27 H 5771" data-websvg-id="rep:sequence:mgmt.plan:mgmt.actions" />
+<g id="step-mgmt-actions" class="process-step" data-slot="33" transform="translate(5779,0)" data-websvg-id="rep:timeline-step:mgmt.actions">
+<rect class="step-box" x="0" y="0" width="148" height="54" rx="4" />
+<text class="step" x="9" y="18"><tspan x="9" dy="0">Päätä toimenpiteet</tspan></text>
+<text x="140" y="47" class="meta" text-anchor="end">actions</text>
+</g>
+<path class="intra" d="M 5927 27 H 6115" data-websvg-id="rep:sequence:mgmt.actions:mgmt.report" />
+<g id="step-mgmt-report" class="process-step" data-slot="35" transform="translate(6123,0)" data-websvg-id="rep:timeline-step:mgmt.report">
+<rect class="step-box" x="0" y="0" width="148" height="54" rx="4" />
+<text class="step" x="9" y="18"><tspan x="9" dy="0">Johdon raportointi</tspan></text>
+<text x="140" y="47" class="meta" text-anchor="end">report</text>
+</g>
+</g>
+</g>
+<g id="handoffs">
+<g class="handoff-group" data-websvg-id="rep:handoff:sales.confirm_order:proc.check_availability"><path class="handoff" d="M 1455 177.0 C 1467.0 177.0, 1467.0 275.0, 1479 275.0" /></g>
+<g class="handoff-group" data-websvg-id="rep:handoff:sales.handoff_delivery:pm.create_project"><path class="handoff" d="M 1627 177.0 C 1553.0 177.0, 1553.0 471.0, 1479 471.0" /></g>
+<g class="handoff-group" data-websvg-id="rep:handoff:proc.confirm_delivery:wh.plan_receipt"><path class="handoff" d="M 2143 275.0 C 2069.0 275.0, 2069.0 373.0, 1995 373.0" /></g>
+<g class="handoff-group" data-websvg-id="rep:handoff:wh.reserve_project:pm.readiness"><path class="handoff" d="M 2831 373.0 C 2757.0 373.0, 2757.0 471.0, 2683 471.0" /></g>
+<g class="handoff-group" data-websvg-id="rep:handoff:wh.release_install:inst.accept_work"><path class="handoff" d="M 3175 373.0 C 3101.0 373.0, 3101.0 569.0, 3027 569.0" /></g>
+<g class="handoff-group" data-websvg-id="rep:handoff:pm.release_install:inst.accept_work"><path class="handoff" d="M 3175 471.0 C 3101.0 471.0, 3101.0 569.0, 3027 569.0" /></g>
+<g class="handoff-group" data-websvg-id="rep:handoff:inst.ready_to_bill:bill.create_invoice"><path class="handoff" d="M 4207 569.0 C 4133.0 569.0, 4133.0 667.0, 4059 667.0" /></g>
+<g class="handoff-group" data-websvg-id="rep:handoff:bill.send:pay.receive"><path class="handoff" d="M 4551 667.0 C 4649.0 667.0, 4649.0 765.0, 4747 765.0" /></g>
+<g class="handoff-group" data-websvg-id="rep:handoff:pay.allocate:acc.create_posting"><path class="handoff" d="M 5067 765.0 C 4993.0 765.0, 4993.0 863.0, 4919 863.0" /></g>
+<g class="handoff-group" data-websvg-id="rep:handoff:inst.handover:svc.request"><path class="handoff" d="M 4035 569.0 C 4219.0 569.0, 4219.0 961.0, 4403 961.0" /></g>
+<g class="handoff-group" data-websvg-id="rep:handoff:svc.bill:bill.create_invoice"><path class="handoff" d="M 5927 961.0 C 4993.0 961.0, 4993.0 667.0, 4059 667.0" /></g>
+<g class="handoff-group" data-websvg-id="rep:handoff:hr.payroll_pay:hr.payroll_post"><path class="handoff" d="M 5239 1059.0 H 5263" /></g>
+<g class="handoff-group" data-websvg-id="rep:handoff:hr.payroll_post:acc.reconcile"><path class="handoff" d="M 5411 1059.0 C 5337.0 1059.0, 5337.0 863.0, 5263 863.0" /></g>
+<g class="handoff-group" data-websvg-id="rep:handoff:acc.management_report:mgmt.finance"><path class="handoff" d="M 6099 863.0 C 5595.0 863.0, 5595.0 1255.0, 5091 1255.0" /></g>
+</g>
+<g id="legend"><text x="38" y="1404" class="sub">Timeline = role · Step = concrete action · arrows = cross-role handoff/dependency</text></g>
 </svg>
