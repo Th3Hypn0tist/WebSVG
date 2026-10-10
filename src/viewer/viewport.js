@@ -1,5 +1,6 @@
 export function createViewportManager({
   websvg,
+  projection,
   workspaceEl,
   topbarEl,
   isFocusActive
@@ -60,24 +61,57 @@ export function createViewportManager({
   function prepare() {
     for (const record of websvg.documents()) {
       const svg = record.svg;
-      const originalViewBox = parseViewBox(svg.getAttribute("viewBox"));
 
-      if (!originalViewBox) {
-        throw new Error(`WebSVG: SVG has no valid viewBox: ${record.file}`);
+      const documentViewBox =
+        parseViewBox(
+          svg.getAttribute("viewBox")
+        );
+
+      if (!documentViewBox) {
+        throw new Error(
+          `WebSVG: SVG has no valid viewBox: ${record.file}`
+        );
       }
 
+      const config =
+        projection?.configOf(record) || {};
+
+      const projectionBounds =
+        projection?.contentBounds(record) ||
+        documentViewBox;
+
+      const baseViewBox =
+        padBox(
+          projectionBounds,
+          Number(config.fit_padding) || 0
+        );
+
       svgState.set(svg, {
-        originalViewBox: cloneBox(originalViewBox),
-        resetViewBox: cloneBox(originalViewBox),
-        currentViewBox: cloneBox(originalViewBox),
+        documentViewBox:
+          cloneBox(documentViewBox),
+        baseViewBox:
+          cloneBox(baseViewBox),
+        resetViewBox:
+          cloneBox(baseViewBox),
+        currentViewBox:
+          cloneBox(baseViewBox),
         drag: null,
         suppressClickUntil: 0
       });
 
       svg.removeAttribute("width");
       svg.removeAttribute("height");
-      svg.setAttribute("preserveAspectRatio", "xMidYMid meet");
-      svg.classList.add("websvg-document-svg");
+      svg.setAttribute(
+        "preserveAspectRatio",
+        "xMidYMid meet"
+      );
+      svg.classList.add(
+        "websvg-document-svg"
+      );
+      svg.setAttribute(
+        "viewBox",
+        boxString(baseViewBox)
+      );
 
       wireControls(record);
       wireInteractions(record);
@@ -106,7 +140,8 @@ export function createViewportManager({
         article.getBoundingClientRect().width || window.innerWidth;
 
       const ratio =
-        state.originalViewBox.height / state.originalViewBox.width;
+        state.baseViewBox.height /
+        state.baseViewBox.width;
 
       const naturalHeight = Math.max(180, width * ratio);
 
@@ -120,12 +155,15 @@ export function createViewportManager({
       const state = svgState.get(record.svg);
       if (!state) continue;
 
-      state.resetViewBox = cloneBox(state.originalViewBox);
-      state.currentViewBox = cloneBox(state.originalViewBox);
+      state.resetViewBox =
+        cloneBox(state.baseViewBox);
+
+      state.currentViewBox =
+        cloneBox(state.baseViewBox);
 
       record.svg.setAttribute(
         "viewBox",
-        boxString(state.originalViewBox)
+        boxString(state.baseViewBox)
       );
 
       emitViewportChange(record.svg);
@@ -139,26 +177,31 @@ export function createViewportManager({
       const article = record.host?.closest(".svg-document");
       if (article?.hidden) continue;
 
-      let box;
-      try {
-        box = record.svg.getBBox();
-      } catch {
+      const config =
+        projection?.configOf(record) || {};
+
+      const box =
+        projection?.visibleContentBounds(
+          record
+        );
+
+      if (
+        !box ||
+        box.width <= 0 ||
+        box.height <= 0
+      ) {
         continue;
       }
 
-      if (!box || box.width <= 0 || box.height <= 0) continue;
+      const pad =
+        Number(config.focus_padding) ||
+        Number(config.fit_padding) ||
+        0;
 
-      const pad = Math.max(
-        18,
-        Math.min(54, Math.max(box.width, box.height) * 0.035)
+      setResetViewBox(
+        record.svg,
+        padBox(box, pad)
       );
-
-      setResetViewBox(record.svg, {
-        x: box.x - pad,
-        y: box.y - pad,
-        width: box.width + pad * 2,
-        height: box.height + pad * 2
-      });
     }
   }
 
@@ -321,9 +364,8 @@ export function createViewportManager({
       "wheel",
       event => {
         const matrix =
-          svg.querySelector(
-            '[data-websvg-id^="rep:matrix-cell:"]'
-          ) !== null;
+          projection?.typeOf(record) ===
+          "matrix";
 
         if (
           !matrix &&
@@ -552,7 +594,7 @@ export function createViewportManager({
     if (!state) return 1;
 
     return (
-      state.originalViewBox.width /
+      state.baseViewBox.width /
       state.currentViewBox.width
     );
   }
@@ -598,6 +640,20 @@ function parseViewBox(value) {
   if (width <= 0 || height <= 0) return null;
 
   return { x, y, width, height };
+}
+
+function padBox(box, padding) {
+  const pad =
+    Number.isFinite(padding)
+      ? Math.max(0, padding)
+      : 0;
+
+  return {
+    x: box.x - pad,
+    y: box.y - pad,
+    width: box.width + pad * 2,
+    height: box.height + pad * 2
+  };
 }
 
 function cloneBox(box) {
