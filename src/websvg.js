@@ -1,12 +1,3 @@
-const DEFAULT_SEMANTICS = Object.freeze({
-  identity_attribute: "data-semantic-id",
-  kind_attribute: "data-kind",
-  relation_from_attribute: "data-from",
-  relation_to_attribute: "data-to",
-  relation_type_attribute: "data-relation",
-  relation_mode_attribute: "data-mode"
-});
-
 function assert(condition, message) {
   if (!condition) throw new Error(`WebSVG: ${message}`);
 }
@@ -43,29 +34,87 @@ async function fetchSvg(url) {
   return svg;
 }
 
-function normalizedManifest(manifest) {
+function normalizeManifest(manifest) {
   assert(isObject(manifest), "manifest must be an object");
-  assert(typeof manifest.schema === "string", "manifest.schema is required");
-  assert(typeof manifest.document_set === "string", "manifest.document_set is required");
-  assert(Array.isArray(manifest.documents), "manifest.documents must be an array");
+  assert(typeof manifest.schema === "string" && manifest.schema, "manifest.schema is required");
+  assert(typeof manifest.document_set === "string" && manifest.document_set, "manifest.document_set is required");
 
-  const ids = new Set();
-  for (const document of manifest.documents) {
-    assert(isObject(document), "each manifest document must be an object");
-    assert(typeof document.id === "string" && document.id, "document.id is required");
-    assert(typeof document.src === "string" && document.src, `document.src is required for ${document.id}`);
-    assert(!ids.has(document.id), `duplicate document id: ${document.id}`);
-    ids.add(document.id);
+  const documents = Array.isArray(manifest.documents) ? manifest.documents : [];
+  const semantics = isObject(manifest.semantics) ? manifest.semantics : {};
+  const relations = manifest.relations ?? {};
+
+  return { ...manifest, documents, semantics, relations };
+}
+
+function semanticDefinitions(manifest) {
+  const definitions = new Map();
+
+  for (const [kind, definition] of Object.entries(manifest.semantics || {})) {
+    if (!isObject(definition)) continue;
+    if (typeof definition.identity_attribute !== "string") continue;
+
+    definitions.set(kind, {
+      kind,
+      identityAttribute: definition.identity_attribute,
+      selectors: Array.isArray(definition.selectors) ? definition.selectors : []
+    });
+  }
+
+  // Compatibility with the original flat MVP shape.
+  if (
+    definitions.size === 0 &&
+    typeof manifest.semantics?.identity_attribute === "string"
+  ) {
+    definitions.set("semantic", {
+      kind: "semantic",
+      identityAttribute: manifest.semantics.identity_attribute,
+      selectors: []
+    });
+  }
+
+  return definitions;
+}
+
+function relationDefinition(manifest) {
+  const relation = isObject(manifest.semantics?.relation)
+    ? manifest.semantics.relation
+    : null;
+
+  if (relation) {
+    return {
+      sourceAttribute: relation.source_attribute || "data-from",
+      targetAttribute: relation.target_attribute || "data-to",
+      typeAttribute: relation.type_attribute || "data-relation",
+      fallbackClassSemantics: isObject(relation.fallback_class_semantics)
+        ? relation.fallback_class_semantics
+        : {}
+    };
   }
 
   return {
-    ...manifest,
-    semantics: {
-      ...DEFAULT_SEMANTICS,
-      ...(isObject(manifest.semantics) ? manifest.semantics : {})
-    },
-    relations: Array.isArray(manifest.relations) ? manifest.relations : []
+    sourceAttribute: manifest.semantics?.relation_from_attribute || "data-from",
+    targetAttribute: manifest.semantics?.relation_to_attribute || "data-to",
+    typeAttribute: manifest.semantics?.relation_type_attribute || "data-relation",
+    fallbackClassSemantics: {}
   };
+}
+
+function modeDefinition(manifest) {
+  const mode = isObject(manifest.semantics?.mode) ? manifest.semantics.mode : null;
+  return {
+    attribute: mode?.attribute || manifest.semantics?.relation_mode_attribute || "data-mode",
+    values: isObject(mode?.values) ? mode.values : {}
+  };
+}
+
+function documentFile(declaration) {
+  if (!isObject(declaration)) return null;
+  return declaration.file || declaration.src || null;
+}
+
+function documentIdForFile(file, declaration) {
+  if (declaration?.id) return declaration.id;
+  return file.replace(/\.svg$/i, "");
 }
 
 export class WebSVG {
@@ -75,7 +124,8 @@ export class WebSVG {
     this.manifest = null;
     this.manifestUrl = null;
     this._documents = new Map();
-    this._identityIndex = new Map();
+    this._semanticDefinitions = new Map();
+    this._semanticIndex = new Map();
     this._relations = [];
     this._selection = null;
   }
@@ -97,29 +147,49 @@ export class WebSVG {
         : document.baseURI;
     }
 
-    this.manifest = normalizedManifest(manifest);
+    this.manifest = normalizeManifest(manifest);
+    this._semanticDefinitions = semanticDefinitions(this.manifest);
+
+    const declaredByFile = new Map();
+    for (const declaration of this.manifest.documents) {
+      const file = documentFile(declaration);
+      if (file) declaredByFile.set(file, declaration);
+    }
+
+    const files = Array.isArray(options.documentFiles)
+      ? [...options.documentFiles]
+      : this.manifest.documents
+          .map(documentFile)
+          .filter(Boolean);
+
+    assert(files.length > 0, "no SVG documents were supplied or declared");
+
+    const uniqueFiles = [...new Set(files)];
     const hosts = options.hosts || {};
 
-    for (const declaration of this.manifest.documents) {
-      const url = resolveUrl(declaration.src, baseUrl);
-      const svg = await fetchSvg(url);
-      const imported = document.importNode(svg, true);
+    for (const file of uniqueFiles) {
+      assert(typeof file === "string" && /\.svg$/i.test(file), `not an SVG file: ${file}`);
 
-      const host = hosts[declaration.id] || null;
-      if (host) {
-        host.replaceChildren(imported);
-      }
+      const declaration = declaredByFile.get(file) || {};
+      const id = documentIdForFile(file, declaration);
+      assert(!this._documents.has(id), `duplicate document id: ${id}`);
+
+      const url = resolveUrl(file, baseUrl);
+      const svg = document.importNode(await fetchSvg(url), true);
+      const host = hosts[id] || hosts[file] || null;
+
+      if (host) host.replaceChildren(svg);
 
       const record = {
-        id: declaration.id,
-        src: declaration.src,
+        id,
+        file,
         url,
         declaration,
         host,
-        svg: imported
+        svg
       };
 
-      this._documents.set(record.id, record);
+      this._documents.set(id, record);
       this._indexDocument(record);
     }
 
@@ -128,7 +198,8 @@ export class WebSVG {
     this.events.dispatchEvent(new CustomEvent("websvg:loaded", {
       detail: {
         documentSet: this.manifest.document_set,
-        documentCount: this._documents.size
+        documentCount: this._documents.size,
+        semanticKinds: this.semanticKinds()
       }
     }));
 
@@ -140,7 +211,8 @@ export class WebSVG {
     this.manifest = null;
     this.manifestUrl = null;
     this._documents.clear();
-    this._identityIndex.clear();
+    this._semanticDefinitions.clear();
+    this._semanticIndex.clear();
     this._relations = [];
   }
 
@@ -148,116 +220,194 @@ export class WebSVG {
     return Array.from(this._documents.values());
   }
 
-  get(identity) {
-    return [...(this._identityIndex.get(identity) || [])];
+  semanticKinds() {
+    return [...this._semanticDefinitions.keys()];
   }
 
-  select(identity) {
+  identities(kind) {
+    const index = this._semanticIndex.get(kind);
+    return index ? [...index.keys()].sort() : [];
+  }
+
+  get(identity, kind = null) {
+    if (kind !== null) {
+      return [...(this._semanticIndex.get(kind)?.get(identity) || [])];
+    }
+
+    const matches = [];
+    for (const index of this._semanticIndex.values()) {
+      matches.push(...(index.get(identity) || []));
+    }
+    return matches;
+  }
+
+  select(identity, kind = null) {
     this.clearSelection();
 
-    const matches = this.get(identity);
+    const matches = this.get(identity, kind);
     for (const item of matches) {
       item.element.setAttribute("data-websvg-selected", "true");
     }
 
-    this._selection = identity;
+    this._selection = { identity, kind };
 
     this.events.dispatchEvent(new CustomEvent("websvg:selectionchange", {
-      detail: { identity, matches }
+      detail: { identity, kind, matches }
     }));
 
     return matches;
   }
 
   clearSelection() {
-    if (this._selection !== null) {
-      for (const item of this.get(this._selection)) {
+    if (this._selection) {
+      for (const item of this.get(this._selection.identity, this._selection.kind)) {
         item.element.removeAttribute("data-websvg-selected");
       }
     }
     this._selection = null;
   }
 
-  relations(identity = null) {
-    if (identity === null) return this._relations.map(relation => ({ ...relation }));
+  relations(identity = null, kind = null) {
+    if (identity === null) {
+      return this._relations.map(relation => ({ ...relation }));
+    }
 
     return this._relations
-      .filter(relation => relation.from === identity || relation.to === identity)
+      .filter(relation => this._relationTouches(relation, identity, kind))
       .map(relation => ({ ...relation }));
   }
 
   resolveRelation(relation) {
     assert(isObject(relation), "relation must be an object");
-    return {
-      ...relation,
-      source: this.get(relation.from),
-      target: this.get(relation.to)
-    };
+
+    const resolved = {};
+    if (relation.from) resolved.from = this.get(relation.from);
+    if (relation.to) resolved.to = this.get(relation.to);
+
+    if (isObject(relation.refs)) {
+      for (const [kind, identity] of Object.entries(relation.refs)) {
+        resolved[kind] = this.get(identity, kind);
+      }
+    }
+
+    return { ...relation, resolved };
   }
 
   _indexDocument(record) {
-    const identityAttribute = this.manifest.semantics.identity_attribute;
-    const elements = [
-      ...(record.svg.hasAttribute(identityAttribute) ? [record.svg] : []),
-      ...record.svg.querySelectorAll(`[${identityAttribute}]`)
-    ];
-
-    for (const element of elements) {
-      const identity = element.getAttribute(identityAttribute);
-      if (!identity) continue;
-
-      if (!this._identityIndex.has(identity)) {
-        this._identityIndex.set(identity, []);
+    for (const definition of this._semanticDefinitions.values()) {
+      if (!this._semanticIndex.has(definition.kind)) {
+        this._semanticIndex.set(definition.kind, new Map());
       }
 
-      this._identityIndex.get(identity).push({
-        documentId: record.id,
-        document: record,
-        element,
-        kind: element.getAttribute(this.manifest.semantics.kind_attribute)
-      });
+      const kindIndex = this._semanticIndex.get(definition.kind);
+      const selector = definition.selectors.length > 0
+        ? definition.selectors.join(",")
+        : `[${definition.identityAttribute}]`;
+
+      const candidates = new Set();
+      if (record.svg.matches(selector)) candidates.add(record.svg);
+      for (const element of record.svg.querySelectorAll(selector)) candidates.add(element);
+
+      for (const element of candidates) {
+        const identity = element.getAttribute(definition.identityAttribute);
+        if (!identity) continue;
+
+        if (!kindIndex.has(identity)) kindIndex.set(identity, []);
+        kindIndex.get(identity).push({
+          kind: definition.kind,
+          identity,
+          documentId: record.id,
+          document: record,
+          element
+        });
+      }
     }
   }
 
   _collectRelations() {
-    const semantics = this.manifest.semantics;
     const relations = [];
+    const relationSemantics = relationDefinition(this.manifest);
+    const modeSemantics = modeDefinition(this.manifest);
 
     for (const record of this._documents.values()) {
-      const selector = `[${semantics.relation_from_attribute}][${semantics.relation_to_attribute}]`;
-      const elements = [
-        ...(record.svg.matches(selector) ? [record.svg] : []),
-        ...record.svg.querySelectorAll(selector)
-      ];
+      const selector =
+        `[${relationSemantics.sourceAttribute}][${relationSemantics.targetAttribute}]`;
 
-      for (const element of elements) {
+      const candidates = new Set();
+      if (record.svg.matches(selector)) candidates.add(record.svg);
+      for (const element of record.svg.querySelectorAll(selector)) candidates.add(element);
+
+      for (const element of candidates) {
+        let relationType = element.getAttribute(relationSemantics.typeAttribute);
+
+        if (!relationType) {
+          for (const [className, semanticType] of Object.entries(
+            relationSemantics.fallbackClassSemantics
+          )) {
+            if (element.classList.contains(className)) {
+              relationType = semanticType;
+              break;
+            }
+          }
+        }
+
         relations.push({
           source: "svg",
           documentId: record.id,
           element,
-          from: element.getAttribute(semantics.relation_from_attribute),
-          to: element.getAttribute(semantics.relation_to_attribute),
-          relation: element.getAttribute(semantics.relation_type_attribute) || "relation",
-          mode: element.getAttribute(semantics.relation_mode_attribute) || null
+          from: element.getAttribute(relationSemantics.sourceAttribute),
+          to: element.getAttribute(relationSemantics.targetAttribute),
+          relation: relationType || "relation",
+          mode: element.getAttribute(modeSemantics.attribute) || null
         });
       }
     }
 
-    for (const relation of this.manifest.relations) {
-      if (!isObject(relation)) continue;
-      if (typeof relation.from !== "string" || typeof relation.to !== "string") continue;
+    const manifestRelations = this.manifest.relations;
 
-      relations.push({
-        source: "manifest",
-        from: relation.from,
-        to: relation.to,
-        relation: relation.relation || "relation",
-        mode: relation.mode || null,
-        ...relation
-      });
+    if (Array.isArray(manifestRelations)) {
+      for (const relation of manifestRelations) {
+        if (!isObject(relation)) continue;
+        relations.push(this._normalizeManifestRelation("relation", relation));
+      }
+    } else if (isObject(manifestRelations)) {
+      for (const [group, items] of Object.entries(manifestRelations)) {
+        if (!Array.isArray(items)) continue;
+        for (const relation of items) {
+          if (!isObject(relation)) continue;
+          relations.push(this._normalizeManifestRelation(group, relation));
+        }
+      }
     }
 
     return relations;
+  }
+
+  _normalizeManifestRelation(group, relation) {
+    const refs = {};
+
+    for (const kind of this.semanticKinds()) {
+      if (typeof relation[kind] === "string") refs[kind] = relation[kind];
+    }
+
+    return {
+      source: "manifest",
+      group,
+      relation: relation.relation || group,
+      from: typeof relation.from === "string" ? relation.from : null,
+      to: typeof relation.to === "string" ? relation.to : null,
+      refs,
+      mode: relation.mode || null,
+      raw: relation
+    };
+  }
+
+  _relationTouches(relation, identity, kind) {
+    if (relation.from === identity || relation.to === identity) return true;
+    if (!isObject(relation.refs)) return false;
+
+    if (kind !== null) return relation.refs[kind] === identity;
+    return Object.values(relation.refs).includes(identity);
   }
 }
 
