@@ -70,7 +70,6 @@ export function createProjectionSelectionVisuals({ websvg }) {
         if (!ref) continue;
 
         stepRefs.add(ref);
-        mark(step, "primary");
       }
     }
 
