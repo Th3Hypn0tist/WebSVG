@@ -118,14 +118,6 @@
       "chrome_selector": "[data-websvg-view=\"chrome\"]",
       "pin_sources": [
         {
-          "name": "top-role",
-          "edge": "top"
-        },
-        {
-          "name": "top-step",
-          "edge": "top"
-        },
-        {
           "name": "left",
           "edge": "left"
         }
