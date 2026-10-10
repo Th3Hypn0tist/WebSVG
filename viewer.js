@@ -5,6 +5,7 @@ import { createNavigationController } from "./src/viewer/navigation.js";
 import { createFocusController } from "./src/viewer/focus.js";
 import { createMatrixLabelManager } from "./src/viewer/matrix-labels.js";
 import { resolveGroupRepresentationRef } from "./src/viewer/groups.js";
+import { createProjectionSelectionVisuals } from "./src/viewer/selection-visuals.js";
 
 const topbarEl = document.querySelector(".topbar");
 const statusEl = document.querySelector("#status");
@@ -44,6 +45,11 @@ const matrixLabels = createMatrixLabelManager({
   viewport,
   selectRepresentation: handleRepresentationClick
 });
+
+const projectionSelectionVisuals =
+  createProjectionSelectionVisuals({
+    websvg
+  });
 
 clearButton.addEventListener("click", clearSelection);
 
@@ -267,6 +273,10 @@ function selectRepresentation(representationRef) {
       representationRef;
   }
 
+  projectionSelectionVisuals.apply(
+    currentSelection
+  );
+
   focusButton.disabled = false;
 
   if (focusActive) {
@@ -333,6 +343,7 @@ function clearSelection() {
   focusedGroupRepresentationRef = null;
 
   focus.restore();
+  projectionSelectionVisuals.clear();
   websvg.clearSelection();
 
   currentSelection = null;
