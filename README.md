@@ -2,120 +2,89 @@
 
 WebSVG is a small, dependency-free browser library for **semantic SVG document sets**.
 
-It treats SVG as the native visual document and keeps semantic metadata on the real SVG DOM. A companion JSON manifest describes document membership, interpretation rules, and cross-document relations.
+SVG owns the visual document: geometry, groups, text, local visual/datapoint values, and stable **representation identities**.
 
-WebSVG is **not** a canonical semantic authority and it does not replace Structure. Its first role is to make structured SVGs directly viewable and inspectable during early design work. Later, Structure can derive an unlocked CW candidate from such design material, while canonical CW can also be projected back to SVG.
+JSON owns the semantic layer: bindings from representation identities to semantic identities, bindings from visual relation geometry to semantic relation identities, and the semantic relations themselves.
 
-## Core rules
+WebSVG is not canonical semantic authority and does not replace Structure. It is a lightweight design/viewer layer that can later feed CW derivation, while CW can also project into WebSVG.
 
-- SVG DOM stays real SVG DOM; no private scene graph becomes the source of truth.
-- Semantic elements are identified generically with `data-semantic-id`.
-- Local DOM identity remains `id`; cross-document identity uses `data-semantic-id`.
-- Relations use generic `data-from`, `data-to`, `data-relation`, and optional `data-mode`.
-- Unknown SVG attributes and metadata are left untouched.
-- Domain concepts are not hardcoded into the core.
-- Geometry, color, proximity, and rendering do not define semantic meaning.
-- One manifest may bind multiple related SVG documents into one document set.
+## Core invariant
 
-## MVP
+**SVG says what is drawn. JSON says what it means and what it is related to.**
 
-The MVP can:
+A representation can be anything in SVG: a single cell, a box, a path, a group, or half of the picture.
 
-- load a `.websvg.json` manifest,
-- load multiple SVG files,
-- mount the actual parsed SVG DOM into supplied host elements,
-- index semantic identities across all loaded documents,
-- find every representation of one semantic identity,
-- select/highlight the same semantic identity across documents,
-- enumerate semantic relations from SVG metadata and the manifest,
-- resolve relation endpoints by semantic identity,
-- emit browser events when loading or semantic selection changes.
+Example SVG:
 
-## Manifest
+```xml
+<g data-websvg-id="rep:timeline:sales">...</g>
+```
 
-Minimal example:
+Example JSON:
 
 ```json
 {
-  "schema": "websvg/0.1",
-  "document_set": "example",
-  "documents": [
-    { "id": "timeline", "src": "./timeline.svg" },
-    { "id": "matrix", "src": "./matrix.svg" }
-  ],
-  "semantics": {
-    "identity_attribute": "data-semantic-id",
-    "kind_attribute": "data-kind"
-  },
-  "relations": []
+  "representation_ref": "rep:timeline:sales",
+  "semantic_ref": "abstraction:sales",
+  "kind": "abstraction"
 }
 ```
 
-See `schema/websvg-manifest.schema.json` and `examples/`.
+The same semantic identity may have multiple SVG representations across multiple files.
 
-## Usage
+## Relations
 
-```html
-<div id="timeline"></div>
-<div id="matrix"></div>
+Semantic relations live only in JSON.
 
-<script type="module">
-  import { WebSVG } from "./src/websvg.js";
+SVG may contain a path or group that visually represents a relation, but that geometry is connected to the semantic relation through an explicit JSON binding:
 
-  const websvg = new WebSVG();
-
-  await websvg.load("./examples/demo.websvg.json", {
-    hosts: {
-      timeline: document.querySelector("#timeline"),
-      matrix: document.querySelector("#matrix")
-    }
-  });
-
-  websvg.select("step:sales.prepare_quote");
-</script>
+```json
+{
+  "representation_ref": "rep:handoff:001",
+  "relation_ref": "rel:handoff:001"
+}
 ```
 
-## API
+This prevents duplicate relation authority.
 
-### `new WebSVG(options?)`
+## Local datapoint values
 
-Creates an isolated WebSVG runtime.
+Values intrinsic to a visual datapoint may stay in SVG.
 
-### `load(manifestOrUrl, { hosts }?)`
+For example a matrix cell may carry:
 
-Loads a manifest object or URL and its SVG documents. `hosts` is an object keyed by manifest document id. When a host is supplied, the parsed SVG root is mounted there.
+```xml
+<g data-websvg-id="rep:matrix-cell:001" data-mode="R">...</g>
+```
 
-### `get(identity)`
+Here `R` is the cell's own displayed value. The semantic relation between the Step and Universal is still defined only in JSON.
 
-Returns all indexed SVG elements matching one cross-document semantic identity.
+## Demo
 
-### `select(identity)`
+The repository root is directly deployable. Put WebSVG under any public path, for example `/r/svg/`.
 
-Marks all matching elements with `data-websvg-selected="true"` and emits `websvg:selectionchange`.
+```text
+/
+├── index.html
+├── viewer.js
+├── styles.css
+├── src/
+└── input/
+    ├── *.svg
+    └── exactly-one.websvg.json
+```
 
-### `clearSelection()`
+The viewer resolves paths dynamically from its own URL. It discovers all SVG files in the public `input/` directory and requires exactly one JSON manifest.
 
-Clears the current semantic selection.
+The included MMDemo subset demonstrates:
 
-### `relations(identity?)`
-
-Returns normalized relations. With an identity, returns only relations touching that semantic identity.
-
-### `resolveRelation(relation)`
-
-Returns relation metadata plus resolved source/target SVG elements from every loaded document.
-
-### `documents()`
-
-Returns loaded document records.
-
-## Browser events
-
-WebSVG dispatches these events on its `events` EventTarget:
-
-- `websvg:loaded`
-- `websvg:selectionchange`
+- a large Sales region bound to `abstraction:sales`
+- a Procurement region bound to `abstraction:procurement`
+- the same Step represented in both timeline and matrix SVGs
+- sequence and handoff paths bound to JSON relation identities
+- matrix C/R/W values stored as local SVG datapoint values
+- Step → Universal relations stored only in JSON
 
 ## Status
 
-MVP / early dogfooding. The public contract is intentionally small.
+MVP / early dogfooding.
