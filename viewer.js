@@ -29,7 +29,10 @@ focusButton.addEventListener("click", () => {
   applyFocusState();
 });
 
-window.addEventListener("resize", updateViewerMetrics);
+window.addEventListener("resize", () => {
+  updateViewerMetrics();
+  if (focusActive) fitFocusedDocuments();
+});
 
 window.addEventListener("keydown", event => {
   if (event.altKey || event.ctrlKey || event.metaKey) return;
@@ -59,15 +62,30 @@ window.addEventListener("keydown", event => {
   }
 });
 
-function updateViewerMetrics() {
+function freeViewerHeight() {
   const topbarHeight = topbarEl?.getBoundingClientRect().height || 52;
-  const verticalChrome = topbarHeight + 24;
-  const freeHeight = Math.max(300, window.innerHeight - verticalChrome);
+  return Math.max(300, window.innerHeight - topbarHeight - 24);
+}
 
-  document.documentElement.style.setProperty(
-    "--websvg-stage-height",
-    `${freeHeight}px`
-  );
+function updateViewerMetrics() {
+  const freeHeight = freeViewerHeight();
+
+  for (const record of websvg.documents()) {
+    const article = record.host?.closest(".svg-document");
+    const state = svgState.get(record.svg);
+    if (!article || !state) continue;
+
+    if (focusActive && !article.hidden) {
+      article.style.height = `${freeHeight}px`;
+      continue;
+    }
+
+    const width = article.getBoundingClientRect().width || window.innerWidth;
+    const ratio = state.originalViewBox.height / state.originalViewBox.width;
+    const naturalHeight = Math.max(180, width * ratio);
+
+    article.style.height = `${Math.min(freeHeight, naturalHeight)}px`;
+  }
 }
 
 function fail(error) {
@@ -750,6 +768,10 @@ function selectRepresentation(representationRef) {
 
   if (focusActive) {
     applyFocusState();
+  } else if (currentSelection?.type === "semantic") {
+    ensureSemanticVisible(currentSelection);
+  } else if (currentSelection?.type === "relation") {
+    ensureRelationVisible(currentSelection);
   } else {
     ensureRepresentationVisible(representationRef);
   }
@@ -797,6 +819,7 @@ function clearSelection() {
 
   focusButton.disabled = true;
   focusButton.textContent = "Hide others";
+  updateViewerMetrics();
 }
 
 function elementBoundsInSvg(element) {
@@ -881,6 +904,93 @@ function ensureRepresentationVisible(representationRef) {
   });
 }
 
+function ensureSemanticVisible(selection) {
+  const byDocument = new Map();
+
+  for (const ref of selection.directRepresentationRefs || []) {
+    for (const item of websvg.representation(ref)) {
+      if (!byDocument.has(item.documentId)) {
+        byDocument.set(item.documentId, []);
+      }
+      byDocument.get(item.documentId).push(item);
+    }
+  }
+
+  for (const items of byDocument.values()) {
+    ensureItemsVisible(items);
+  }
+}
+
+function ensureRelationVisible(selection) {
+  const refs = [
+    ...(selection.relationRepresentationRefs || []),
+    ...(selection.endpointRepresentationRefs || [])
+  ];
+
+  const byDocument = new Map();
+
+  for (const ref of refs) {
+    for (const item of websvg.representation(ref)) {
+      if (!byDocument.has(item.documentId)) {
+        byDocument.set(item.documentId, []);
+      }
+      byDocument.get(item.documentId).push(item);
+    }
+  }
+
+  for (const items of byDocument.values()) {
+    ensureItemsVisible(items);
+  }
+}
+
+function ensureItemsVisible(items) {
+  if (!items?.length) return;
+
+  const svg = items[0].document.svg;
+  const state = svgState.get(svg);
+  if (!state) return;
+
+  const boxes = items
+    .map(item => elementBoundsInSvg(item.element))
+    .filter(Boolean);
+
+  if (!boxes.length) return;
+
+  const minX = Math.min(...boxes.map(box => box.x));
+  const minY = Math.min(...boxes.map(box => box.y));
+  const maxX = Math.max(...boxes.map(box => box.x + box.width));
+  const maxY = Math.max(...boxes.map(box => box.y + box.height));
+
+  const bounds = {
+    x: minX,
+    y: minY,
+    width: maxX - minX,
+    height: maxY - minY
+  };
+
+  const view = state.currentViewBox;
+  const marginX = view.width * 0.12;
+  const marginY = view.height * 0.12;
+
+  const inside =
+    bounds.x >= view.x + marginX &&
+    bounds.y >= view.y + marginY &&
+    bounds.x + bounds.width <= view.x + view.width - marginX &&
+    bounds.y + bounds.height <= view.y + view.height - marginY;
+
+  if (!inside) {
+    const centerX = bounds.x + bounds.width / 2;
+    const centerY = bounds.y + bounds.height / 2;
+
+    setViewBox(svg, {
+      x: centerX - view.width / 2,
+      y: centerY - view.height / 2,
+      width: view.width,
+      height: view.height
+    });
+  }
+}
+
 function relevantRepresentationSets(selection) {
   const full = new Set();
   const anchors = new Set();
@@ -937,6 +1047,7 @@ function applyFocusState() {
 
   if (!focusActive || !currentSelection) {
     focusButton.textContent = "Hide others";
+    updateViewerMetrics();
     return;
   }
 
@@ -1058,6 +1169,7 @@ function applyFocusState() {
     }
   }
 
+  updateViewerMetrics();
   fitFocusedDocuments();
   focusButton.textContent = "Show all";
 }
@@ -1195,8 +1307,8 @@ async function start() {
       hosts
     });
 
-    updateViewerMetrics();
     prepareSvgDocuments();
+    updateViewerMetrics();
     buildNavigationModel();
     wireRepresentationClicks();
 
