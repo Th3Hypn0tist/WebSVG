@@ -442,9 +442,6 @@ export function createViewportManager({
     const state = svgState.get(svg);
     if (!state) return;
 
-    const rect = svg.getBoundingClientRect();
-    if (rect.width <= 0 || rect.height <= 0) return;
-
     const current = state.currentViewBox;
     const reset = state.resetViewBox;
     const minWidth = reset.width * 0.02;
@@ -455,30 +452,69 @@ export function createViewportManager({
     );
 
     const scale = targetWidth / current.width;
+
     const targetHeight = Math.min(
       reset.height,
       current.height * scale
     );
 
+    const anchor =
+      clientPointToSvg(svg, clientX, clientY);
+
+    if (!anchor) return;
+
     const rx = Math.min(
       1,
-      Math.max(0, (clientX - rect.left) / rect.width)
+      Math.max(
+        0,
+        (anchor.x - current.x) /
+          current.width
+      )
     );
 
     const ry = Math.min(
       1,
-      Math.max(0, (clientY - rect.top) / rect.height)
+      Math.max(
+        0,
+        (anchor.y - current.y) /
+          current.height
+      )
     );
 
-    const anchorX = current.x + current.width * rx;
-    const anchorY = current.y + current.height * ry;
-
     setViewBox(svg, {
-      x: anchorX - targetWidth * rx,
-      y: anchorY - targetHeight * ry,
+      x: anchor.x - targetWidth * rx,
+      y: anchor.y - targetHeight * ry,
       width: targetWidth,
       height: targetHeight
     });
+  }
+
+  function clientPointToSvg(
+    svg,
+    clientX,
+    clientY
+  ) {
+    const matrix =
+      svg.getScreenCTM();
+
+    if (!matrix) return null;
+
+    try {
+      const inverse = matrix.inverse();
+
+      return {
+        x:
+          inverse.a * clientX +
+          inverse.c * clientY +
+          inverse.e,
+        y:
+          inverse.b * clientX +
+          inverse.d * clientY +
+          inverse.f
+      };
+    } catch {
+      return null;
+    }
   }
 
   function resetViewport(svg) {
