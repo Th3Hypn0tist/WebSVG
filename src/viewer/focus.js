@@ -5,7 +5,8 @@ export function createFocusController({
   function apply({
     active,
     selection,
-    currentRepresentationRef
+    currentRepresentationRef,
+    groupRepresentationRef = null
   }) {
     restore();
 
@@ -14,10 +15,12 @@ export function createFocusController({
       return;
     }
 
-    const refs = collectRelevantRefs(
-      selection,
-      currentRepresentationRef
-    );
+    const refs = groupRepresentationRef
+      ? collectGroupRefs(groupRepresentationRef)
+      : collectRelevantRefs(
+          selection,
+          currentRepresentationRef
+        );
 
     const identityAttribute =
       websvg.manifest.representation.identity_attribute ||
@@ -48,6 +51,47 @@ export function createFocusController({
     }
 
     viewport.restoreAllViewBoxes();
+  }
+
+  function collectGroupRefs(groupRef) {
+    const full = new Set([groupRef]);
+    const anchors = new Set([groupRef]);
+
+    if (groupRef.startsWith("rep:matrix-role:")) {
+      for (const item of websvg.representation(groupRef)) {
+        const stepRefs = [
+          ...item.element.querySelectorAll(
+            '[data-websvg-id^="rep:matrix-step:"]'
+          )
+        ]
+          .map(element =>
+            element.getAttribute("data-websvg-id")
+          )
+          .filter(Boolean);
+
+        for (const stepRef of stepRefs) {
+          full.add(stepRef);
+          anchors.add(stepRef);
+
+          const step =
+            stepRef.slice(
+              "rep:matrix-step:".length
+            );
+
+          const cellPrefix =
+            `rep:matrix-cell:${step}:`;
+
+          for (const ref of websvg.representationIds()) {
+            if (ref.startsWith(cellPrefix)) {
+              full.add(ref);
+              anchors.add(ref);
+            }
+          }
+        }
+      }
+    }
+
+    return { full, anchors };
   }
 
   function collectRelevantRefs(selection, currentRef) {
