@@ -38,13 +38,15 @@ function normalizeManifest(manifest) {
   assert(isObject(manifest), "manifest must be an object");
   assert(typeof manifest.schema === "string" && manifest.schema, "manifest.schema is required");
   assert(typeof manifest.document_set === "string" && manifest.document_set, "manifest.document_set is required");
-  assert(Array.isArray(manifest.bindings), "manifest.bindings must be an array");
-
   return {
     ...manifest,
     documents: Array.isArray(manifest.documents) ? manifest.documents : [],
     representation: isObject(manifest.representation) ? manifest.representation : {},
-    bindings: manifest.bindings,
+    bindings: Array.isArray(manifest.bindings) ? manifest.bindings : [],
+    binding_rules: Array.isArray(manifest.binding_rules) ? manifest.binding_rules : [],
+    relation_binding_rules: Array.isArray(manifest.relation_binding_rules)
+      ? manifest.relation_binding_rules
+      : [],
     relations: manifest.relations ?? {}
   };
 }
@@ -175,7 +177,10 @@ export class WebSVG {
         documentSet: this.manifest.document_set,
         documentCount: this._documents.size,
         representationCount: this._representations.size,
-        bindingCount: this.manifest.bindings.length,
+        bindingCount:
+          this.manifest.bindings.length +
+          this.manifest.binding_rules.length +
+          this.manifest.relation_binding_rules.length,
         relationCount: this._relations.length,
         semanticKinds: this.semanticKinds()
       }
@@ -427,7 +432,13 @@ export class WebSVG {
   }
 
   _indexBindings() {
-    for (const binding of this.manifest.bindings) {
+    const bindings = [
+      ...this.manifest.bindings,
+      ...this._expandSemanticBindingRules(),
+      ...this._expandRelationBindingRules()
+    ];
+
+    for (const binding of bindings) {
       assert(isObject(binding), "every binding must be an object");
       assert(
         typeof binding.representation_ref === "string" && binding.representation_ref,
@@ -435,10 +446,9 @@ export class WebSVG {
       );
 
       const representationRef = binding.representation_ref;
-      assert(
-        this._representations.has(representationRef),
-        `binding points to missing representation: ${representationRef}`
-      );
+      if (!this._representations.has(representationRef)) {
+        continue;
+      }
 
       if (!this._bindingsByRepresentation.has(representationRef)) {
         this._bindingsByRepresentation.set(representationRef, []);
@@ -462,10 +472,9 @@ export class WebSVG {
       }
 
       if (typeof binding.relation_ref === "string") {
-        assert(
-          this._relationsById.has(binding.relation_ref),
-          `binding points to missing relation: ${binding.relation_ref}`
-        );
+        if (!this._relationsById.has(binding.relation_ref)) {
+          continue;
+        }
 
         if (!this._relationBindings.has(binding.relation_ref)) {
           this._relationBindings.set(binding.relation_ref, []);
@@ -473,6 +482,81 @@ export class WebSVG {
         this._relationBindings.get(binding.relation_ref).push(binding);
       }
     }
+  }
+
+  _expandSemanticBindingRules() {
+    const bindings = [];
+
+    for (const rule of this.manifest.binding_rules) {
+      if (!isObject(rule)) continue;
+
+      const prefixes = Array.isArray(rule.representation_prefixes)
+        ? rule.representation_prefixes
+        : [];
+      const semanticPrefix = typeof rule.semantic_prefix === "string"
+        ? rule.semantic_prefix
+        : "";
+      const kind = typeof rule.kind === "string" && rule.kind
+        ? rule.kind
+        : "semantic";
+
+      for (const representationRef of this._representations.keys()) {
+        for (const prefix of prefixes) {
+          if (typeof prefix !== "string" || !representationRef.startsWith(prefix)) continue;
+
+          const suffix = representationRef.slice(prefix.length);
+          if (!suffix) continue;
+
+          bindings.push({
+            representation_ref: representationRef,
+            semantic_ref: semanticPrefix + suffix,
+            kind,
+            generated_by: "binding_rule"
+          });
+          break;
+        }
+      }
+    }
+
+    return bindings;
+  }
+
+  _expandRelationBindingRules() {
+    const bindings = [];
+
+    const stripPrefix = (value, prefix) => {
+      if (typeof value !== "string") return "";
+      if (typeof prefix === "string" && prefix && value.startsWith(prefix)) {
+        return value.slice(prefix.length);
+      }
+      return value;
+    };
+
+    for (const rule of this.manifest.relation_binding_rules) {
+      if (!isObject(rule)) continue;
+      if (typeof rule.relation_type !== "string") continue;
+      if (typeof rule.representation_template !== "string") continue;
+
+      for (const relation of this._relations) {
+        if (relation.type !== rule.relation_type) continue;
+
+        const from = stripPrefix(relation.from, rule.from_prefix);
+        const to = stripPrefix(relation.to, rule.to_prefix);
+
+        const representationRef = rule.representation_template
+          .replaceAll("{from}", from)
+          .replaceAll("{to}", to)
+          .replaceAll("{id}", relation.id);
+
+        bindings.push({
+          representation_ref: representationRef,
+          relation_ref: relation.id,
+          generated_by: "relation_binding_rule"
+        });
+      }
+    }
+
+    return bindings;
   }
 }
 
