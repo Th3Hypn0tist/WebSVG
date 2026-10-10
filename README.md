@@ -88,3 +88,31 @@ The included MMDemo subset demonstrates:
 ## Status
 
 MVP / early dogfooding.
+
+
+## Projection contract
+
+WebSVG projection behavior is declared, not hard-coded.
+
+SVG owns projection-local metadata:
+
+- `data-websvg-projection` identifies the projection type.
+- `data-websvg-view="content"` marks geometry that belongs to fit/reset/focus bounds.
+- `data-websvg-view="chrome"` marks titles, explanatory text and other non-content UI.
+- `data-websvg-pin-source="<name>"` marks source geometry for edge-pinned viewer labels.
+
+The manifest owns the registry of projection types and their generic editor capabilities. Current catalog includes matrix, timeline, flowchart, swimlane, state machine, sequence diagram, dependency graph, hierarchy tree, Gantt, event chain, value stream, data flow, process map and decision tree.
+
+## Structure bridge
+
+WebSVG is designed to become a Structure 2D projection/edit surface.
+
+The manifest declares an optional `structure` bridge contract. The important authority split remains:
+
+- SVG owns representation geometry and projection behavior.
+- JSON binds representation identities to semantic identities.
+- When canonical CW exists, CW is semantic authority.
+- Structure may derive/import an SVG+manifest design surface and project/export canonical structure back into WebSVG.
+- `semantic_ref` is the identity bridge between WebSVG representation bindings and Structure/CW semantics.
+
+The bridge does not make WebSVG depend on Structure at runtime. It defines the round-trip contract early enough that the viewer can evolve into an editor without changing identity semantics.
