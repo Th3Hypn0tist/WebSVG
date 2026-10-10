@@ -127,6 +127,8 @@ export function createViewportManager({
         "viewBox",
         boxString(state.originalViewBox)
       );
+
+      emitViewportChange(record.svg);
     }
   }
 
@@ -318,7 +320,18 @@ export function createViewportManager({
     svg.addEventListener(
       "wheel",
       event => {
-        if (!event.ctrlKey && !event.metaKey) return;
+        const matrix =
+          svg.querySelector(
+            '[data-websvg-id^="rep:matrix-cell:"]'
+          ) !== null;
+
+        if (
+          !matrix &&
+          !event.ctrlKey &&
+          !event.metaKey
+        ) {
+          return;
+        }
 
         event.preventDefault();
 
@@ -483,6 +496,7 @@ export function createViewportManager({
     state.currentViewBox = constrained;
 
     svg.setAttribute("viewBox", boxString(constrained));
+    emitViewportChange(svg);
   }
 
   function setResetViewBox(svg, box) {
@@ -493,6 +507,27 @@ export function createViewportManager({
     state.currentViewBox = cloneBox(box);
 
     svg.setAttribute("viewBox", boxString(box));
+    emitViewportChange(svg);
+  }
+
+  function getZoomScale(svg) {
+    const state = svgState.get(svg);
+
+    if (!state) return 1;
+
+    return (
+      state.originalViewBox.width /
+      state.currentViewBox.width
+    );
+  }
+
+  function emitViewportChange(svg) {
+    svg.dispatchEvent(
+      new CustomEvent(
+        "websvg:viewportchange",
+        { bubbles: false }
+      )
+    );
   }
 
   return {
@@ -504,7 +539,8 @@ export function createViewportManager({
     ensureRepresentationVisible,
     ensureSemanticVisible,
     ensureRelationVisible,
-    isClickSuppressed
+    isClickSuppressed,
+    getZoomScale
   };
 }
 
