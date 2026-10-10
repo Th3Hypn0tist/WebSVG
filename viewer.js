@@ -30,11 +30,43 @@ function fail(error) {
 async function discoverInputFiles() {
   const response = await fetch(inputUrl, { cache: "no-store" });
   if (!response.ok) {
-    throw new Error(`input directory listing failed (${response.status})`);
+    throw new Error(`input discovery failed (${response.status})`);
   }
 
-  const html = await response.text();
-  const listing = new DOMParser().parseFromString(html, "text/html");
+  const contentType = response.headers.get("content-type") || "";
+  const body = await response.text();
+
+  // Preferred deployment path: input/index.php returns a tiny JSON inventory.
+  if (contentType.includes("application/json")) {
+    let inventory;
+    try {
+      inventory = JSON.parse(body);
+    } catch {
+      throw new Error("input discovery returned invalid JSON");
+    }
+
+    if (!inventory.ok) {
+      throw new Error(inventory.error || "input discovery failed");
+    }
+
+    const manifest = inventory.manifest;
+    const svgFiles = Array.isArray(inventory.svg_files)
+      ? inventory.svg_files
+      : [];
+
+    if (typeof manifest !== "string" || !/\.json$/i.test(manifest)) {
+      throw new Error("input discovery did not return exactly one JSON manifest");
+    }
+
+    if (svgFiles.length === 0) {
+      throw new Error("input/ contains no SVG files");
+    }
+
+    return { manifest, svgFiles };
+  }
+
+  // Fallback for servers that expose a normal directory index.
+  const listing = new DOMParser().parseFromString(body, "text/html");
   const names = new Set();
 
   for (const anchor of listing.querySelectorAll("a[href]")) {
