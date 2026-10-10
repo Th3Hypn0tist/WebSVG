@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1220" height="360" viewBox="0 0 1220 360" id="mmdemo-process-timelines">
+  <rect width="100%" height="100%" fill="#05090C"/>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#658FA9"/>
+    </marker>
+    <style>
+      text{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;fill:#E5F3F9}
+      .title{font-size:26px;font-weight:700}.sub{font-size:13px;fill:#90B7D1}
+      .role{font-size:14px;font-weight:700}.step{font-size:12px;font-weight:600}
+      .meta{font-size:9px;fill:#658FA9}.lane{stroke:#274E63;stroke-width:1}
+      .box{fill:#0F222E;stroke:#436983;stroke-width:1}.seq{fill:none;stroke:#274E63;marker-end:url(#arrow)}
+      .handoff{fill:none;stroke:#D88351;stroke-width:1.6;marker-end:url(#arrow)}
+    </style>
+  </defs>
+
+  <text x="28" y="38" class="title">MMDemo — process timeline</text>
+  <text x="28" y="62" class="sub">SVG owns visual structure and representation identities. JSON owns semantic meaning and relations.</text>
+
+  <!-- This entire visual region is bound by JSON to abstraction:sales. -->
+  <g class="timeline" data-websvg-id="rep:timeline:sales" transform="translate(0,92)">
+    <text x="28" y="33" class="role">Sales</text>
+    <line x1="150" y1="28" x2="1155" y2="28" class="lane"/>
+
+    <g class="process-step" data-websvg-id="rep:timeline-step:sales.identify_need" data-slot="1" transform="translate(170,0)">
+      <rect class="box" width="170" height="56" rx="5"/>
+      <text x="10" y="22" class="step">Identify need</text>
+      <text x="160" y="47" class="meta" text-anchor="end">slot 1</text>
+    </g>
+
+    <path class="seq" d="M340 28 H375" data-websvg-id="rep:sequence:001"/>
+
+    <g class="process-step" data-websvg-id="rep:timeline-step:sales.prepare_quote" data-slot="2" transform="translate(380,0)">
+      <rect class="box" width="170" height="56" rx="5"/>
+      <text x="10" y="22" class="step">Prepare quote</text>
+      <text x="160" y="47" class="meta" text-anchor="end">slot 2</text>
+    </g>
+
+    <path class="seq" d="M550 28 H585" data-websvg-id="rep:sequence:002"/>
+
+    <g class="process-step" data-websvg-id="rep:timeline-step:sales.confirm_order" data-slot="3" transform="translate(590,0)">
+      <rect class="box" width="170" height="56" rx="5"/>
+      <text x="10" y="22" class="step">Confirm order</text>
+      <text x="160" y="47" class="meta" text-anchor="end">slot 3</text>
+    </g>
+  </g>
+
+  <!-- Another large visual region bound to abstraction:procurement. -->
+  <g class="timeline" data-websvg-id="rep:timeline:procurement" transform="translate(0,220)">
+    <text x="28" y="33" class="role">Procurement</text>
+    <line x1="150" y1="28" x2="1155" y2="28" class="lane"/>
+
+    <g class="process-step" data-websvg-id="rep:timeline-step:proc.check_availability" data-slot="3" transform="translate(590,0)">
+      <rect class="box" width="170" height="56" rx="5"/>
+      <text x="10" y="22" class="step">Check availability</text>
+      <text x="160" y="47" class="meta" text-anchor="end">slot 3</text>
+    </g>
+
+    <path class="seq" d="M760 28 H795" data-websvg-id="rep:sequence:003"/>
+
+    <g class="process-step" data-websvg-id="rep:timeline-step:proc.create_po" data-slot="4" transform="translate(800,0)">
+      <rect class="box" width="170" height="56" rx="5"/>
+      <text x="10" y="22" class="step">Create PO</text>
+      <text x="160" y="47" class="meta" text-anchor="end">slot 4</text>
+    </g>
+  </g>
+
+  <!-- Pure representation of the JSON handoff relation. -->
+  <path class="handoff" d="M760 120 C790 120 560 248 590 248" data-websvg-id="rep:handoff:001"/>
+</svg>
