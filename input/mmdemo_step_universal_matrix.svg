@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<svg xmlns="http://www.w3.org/2000/svg" width="4350" height="1365" viewBox="0 0 4350 1365" id="mmdemo-step-universal-matrix">
+<svg xmlns="http://www.w3.org/2000/svg" data-websvg-projection="matrix" width="4350" height="1365" viewBox="0 0 4350 1365" id="mmdemo-step-universal-matrix">
 <rect id="document-background" width="100%" height="100%" fill="#05090C" />
 
 <defs>
@@ -23,421 +23,339 @@
 </style>
 </defs>
 
-<g id="document-header"><text x="28" y="40" class="title">MMDemo — Step × Business Universal matrix</text><text x="28" y="66" class="sub">All 32 Business Universals · columns are concrete role steps · Project is the universal work context · C=create, R=read/reference, W=write/transition</text></g>
-<g id="matrix-columns">
-<g id="matrix-role-sales" class="matrix-role" transform="translate(210,0)" data-websvg-id="rep:matrix-role:sales">
+<g id="document-header" data-websvg-view="chrome"><text x="28" y="40" class="title">MMDemo — Step × Business Universal matrix</text><text x="28" y="66" class="sub">All 32 Business Universals · columns are concrete role steps · Project is the universal work context · C=create, R=read/reference, W=write/transition</text></g>
+<g id="matrix-columns" data-websvg-view="content">
+<g id="matrix-role-sales" class="matrix-role" transform="translate(210,0)" data-websvg-id="rep:matrix-role:sales" data-websvg-pin-source="top-role">
 <rect class="header-bg" x="0" y="92" width="464" height="28" />
 <text x="232.0" y="112" class="role" text-anchor="middle">Myyjä</text>
-<line class="group" x1="0" y1="92" x2="0" y2="1300" />
-<g id="matrix-col-sales-identify_need" class="step-column" transform="translate(0,0)" data-websvg-id="rep:matrix-step:sales.identify_need">
+<g id="matrix-col-sales-identify_need" class="step-column" transform="translate(0,0)" data-websvg-id="rep:matrix-step:sales.identify_need" data-websvg-pin-source="top-step">
 <text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Tunnista asiakas ja tarve</text>
 <text x="29.0" y="132" class="step-head" text-anchor="middle">1</text>
-<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
 </g>
-<g id="matrix-col-sales-qualify" class="step-column" transform="translate(58,0)" data-websvg-id="rep:matrix-step:sales.qualify">
+<g id="matrix-col-sales-qualify" class="step-column" transform="translate(58,0)" data-websvg-id="rep:matrix-step:sales.qualify" data-websvg-pin-source="top-step">
 <text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Kvalifioi opportunity</text>
 <text x="29.0" y="132" class="step-head" text-anchor="middle">2</text>
-<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
 </g>
-<g id="matrix-col-sales-scope_solution" class="step-column" transform="translate(116,0)" data-websvg-id="rep:matrix-step:sales.scope_solution">
+<g id="matrix-col-sales-scope_solution" class="step-column" transform="translate(116,0)" data-websvg-id="rep:matrix-step:sales.scope_solution" data-websvg-pin-source="top-step">
 <text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Rajaa ratkaisu</text>
 <text x="29.0" y="132" class="step-head" text-anchor="middle">3</text>
-<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
 </g>
-<g id="matrix-col-sales-prepare_quote" class="step-column" transform="translate(174,0)" data-websvg-id="rep:matrix-step:sales.prepare_quote">
+<g id="matrix-col-sales-prepare_quote" class="step-column" transform="translate(174,0)" data-websvg-id="rep:matrix-step:sales.prepare_quote" data-websvg-pin-source="top-step">
 <text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Rakenna tarjous</text>
 <text x="29.0" y="132" class="step-head" text-anchor="middle">4</text>
-<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
 </g>
-<g id="matrix-col-sales-send_quote" class="step-column" transform="translate(232,0)" data-websvg-id="rep:matrix-step:sales.send_quote">
+<g id="matrix-col-sales-send_quote" class="step-column" transform="translate(232,0)" data-websvg-id="rep:matrix-step:sales.send_quote" data-websvg-pin-source="top-step">
 <text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Lähetä tarjous</text>
 <text x="29.0" y="132" class="step-head" text-anchor="middle">5</text>
-<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
 </g>
-<g id="matrix-col-sales-negotiate" class="step-column" transform="translate(290,0)" data-websvg-id="rep:matrix-step:sales.negotiate">
+<g id="matrix-col-sales-negotiate" class="step-column" transform="translate(290,0)" data-websvg-id="rep:matrix-step:sales.negotiate" data-websvg-pin-source="top-step">
 <text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Neuvottele ja revisioi</text>
 <text x="29.0" y="132" class="step-head" text-anchor="middle">6</text>
-<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
 </g>
-<g id="matrix-col-sales-confirm_order" class="step-column" transform="translate(348,0)" data-websvg-id="rep:matrix-step:sales.confirm_order">
+<g id="matrix-col-sales-confirm_order" class="step-column" transform="translate(348,0)" data-websvg-id="rep:matrix-step:sales.confirm_order" data-websvg-pin-source="top-step">
 <text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Vahvista tilaus</text>
 <text x="29.0" y="132" class="step-head" text-anchor="middle">7</text>
-<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
 </g>
-<g id="matrix-col-sales-handoff_delivery" class="step-column" transform="translate(406,0)" data-websvg-id="rep:matrix-step:sales.handoff_delivery">
+<g id="matrix-col-sales-handoff_delivery" class="step-column" transform="translate(406,0)" data-websvg-id="rep:matrix-step:sales.handoff_delivery" data-websvg-pin-source="top-step">
 <text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Luovuta toteutukseen</text>
 <text x="29.0" y="132" class="step-head" text-anchor="middle">8</text>
-<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
 </g>
 </g>
-<g id="matrix-role-procurement" class="matrix-role" transform="translate(674,0)" data-websvg-id="rep:matrix-role:procurement">
+<g id="matrix-role-procurement" class="matrix-role" transform="translate(674,0)" data-websvg-id="rep:matrix-role:procurement" data-websvg-pin-source="top-role">
 <rect class="header-bg" x="0" y="92" width="290" height="28" />
 <text x="145.0" y="112" class="role" text-anchor="middle">Hankinta / ostaja</text>
-<line class="group" x1="0" y1="92" x2="0" y2="1300" />
-<g id="matrix-col-proc-check_availability" class="step-column" transform="translate(0,0)" data-websvg-id="rep:matrix-step:proc.check_availability">
+<g id="matrix-col-proc-check_availability" class="step-column" transform="translate(0,0)" data-websvg-id="rep:matrix-step:proc.check_availability" data-websvg-pin-source="top-step">
 <text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Tarkista saatavuus</text>
 <text x="29.0" y="132" class="step-head" text-anchor="middle">9</text>
-<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
 </g>
-<g id="matrix-col-proc-create_po" class="step-column" transform="translate(58,0)" data-websvg-id="rep:matrix-step:proc.create_po">
+<g id="matrix-col-proc-create_po" class="step-column" transform="translate(58,0)" data-websvg-id="rep:matrix-step:proc.create_po" data-websvg-pin-source="top-step">
 <text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Luo ostotilaus</text>
 <text x="29.0" y="132" class="step-head" text-anchor="middle">10</text>
-<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
 </g>
-<g id="matrix-col-proc-send_po" class="step-column" transform="translate(116,0)" data-websvg-id="rep:matrix-step:proc.send_po">
+<g id="matrix-col-proc-send_po" class="step-column" transform="translate(116,0)" data-websvg-id="rep:matrix-step:proc.send_po" data-websvg-pin-source="top-step">
 <text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Lähetä toimittajalle</text>
 <text x="29.0" y="132" class="step-head" text-anchor="middle">11</text>
-<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
 </g>
-<g id="matrix-col-proc-confirm_delivery" class="step-column" transform="translate(174,0)" data-websvg-id="rep:matrix-step:proc.confirm_delivery">
+<g id="matrix-col-proc-confirm_delivery" class="step-column" transform="translate(174,0)" data-websvg-id="rep:matrix-step:proc.confirm_delivery" data-websvg-pin-source="top-step">
 <text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Vahvista toimitus</text>
 <text x="29.0" y="132" class="step-head" text-anchor="middle">12</text>
-<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
 </g>
-<g id="matrix-col-proc-supplier_invoice" class="step-column" transform="translate(232,0)" data-websvg-id="rep:matrix-step:proc.supplier_invoice">
+<g id="matrix-col-proc-supplier_invoice" class="step-column" transform="translate(232,0)" data-websvg-id="rep:matrix-step:proc.supplier_invoice" data-websvg-pin-source="top-step">
 <text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Vastaanota toimittajalasku</text>
 <text x="29.0" y="132" class="step-head" text-anchor="middle">13</text>
-<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
 </g>
 </g>
-<g id="matrix-role-warehouse" class="matrix-role" transform="translate(964,0)" data-websvg-id="rep:matrix-role:warehouse">
+<g id="matrix-role-warehouse" class="matrix-role" transform="translate(964,0)" data-websvg-id="rep:matrix-role:warehouse" data-websvg-pin-source="top-role">
 <rect class="header-bg" x="0" y="92" width="406" height="28" />
 <text x="203.0" y="112" class="role" text-anchor="middle">Varasto</text>
-<line class="group" x1="0" y1="92" x2="0" y2="1300" />
-<g id="matrix-col-wh-plan_receipt" class="step-column" transform="translate(0,0)" data-websvg-id="rep:matrix-step:wh.plan_receipt">
+<g id="matrix-col-wh-plan_receipt" class="step-column" transform="translate(0,0)" data-websvg-id="rep:matrix-step:wh.plan_receipt" data-websvg-pin-source="top-step">
 <text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Suunnittele vastaanotto</text>
 <text x="29.0" y="132" class="step-head" text-anchor="middle">14</text>
-<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
 </g>
-<g id="matrix-col-wh-receive" class="step-column" transform="translate(58,0)" data-websvg-id="rep:matrix-step:wh.receive">
+<g id="matrix-col-wh-receive" class="step-column" transform="translate(58,0)" data-websvg-id="rep:matrix-step:wh.receive" data-websvg-pin-source="top-step">
 <text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Vastaanota lähetys</text>
 <text x="29.0" y="132" class="step-head" text-anchor="middle">15</text>
-<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
 </g>
-<g id="matrix-col-wh-inspect" class="step-column" transform="translate(116,0)" data-websvg-id="rep:matrix-step:wh.inspect">
+<g id="matrix-col-wh-inspect" class="step-column" transform="translate(116,0)" data-websvg-id="rep:matrix-step:wh.inspect" data-websvg-pin-source="top-step">
 <text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Tarkista tavara</text>
 <text x="29.0" y="132" class="step-head" text-anchor="middle">16</text>
-<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
 </g>
-<g id="matrix-col-wh-putaway" class="step-column" transform="translate(174,0)" data-websvg-id="rep:matrix-step:wh.putaway">
+<g id="matrix-col-wh-putaway" class="step-column" transform="translate(174,0)" data-websvg-id="rep:matrix-step:wh.putaway" data-websvg-pin-source="top-step">
 <text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Kirjaa varastoon</text>
 <text x="29.0" y="132" class="step-head" text-anchor="middle">17</text>
-<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
 </g>
-<g id="matrix-col-wh-reserve_project" class="step-column" transform="translate(232,0)" data-websvg-id="rep:matrix-step:wh.reserve_project">
+<g id="matrix-col-wh-reserve_project" class="step-column" transform="translate(232,0)" data-websvg-id="rep:matrix-step:wh.reserve_project" data-websvg-pin-source="top-step">
 <text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Kohdista projektille</text>
 <text x="29.0" y="132" class="step-head" text-anchor="middle">18</text>
-<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
 </g>
-<g id="matrix-col-wh-pick" class="step-column" transform="translate(290,0)" data-websvg-id="rep:matrix-step:wh.pick">
+<g id="matrix-col-wh-pick" class="step-column" transform="translate(290,0)" data-websvg-id="rep:matrix-step:wh.pick" data-websvg-pin-source="top-step">
 <text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Keräile</text>
 <text x="29.0" y="132" class="step-head" text-anchor="middle">19</text>
-<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
 </g>
-<g id="matrix-col-wh-release_install" class="step-column" transform="translate(348,0)" data-websvg-id="rep:matrix-step:wh.release_install">
+<g id="matrix-col-wh-release_install" class="step-column" transform="translate(348,0)" data-websvg-id="rep:matrix-step:wh.release_install" data-websvg-pin-source="top-step">
 <text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Luovuta asennukseen</text>
 <text x="29.0" y="132" class="step-head" text-anchor="middle">20</text>
-<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
 </g>
 </g>
-<g id="matrix-role-project" class="matrix-role" transform="translate(1370,0)" data-websvg-id="rep:matrix-role:project">
+<g id="matrix-role-project" class="matrix-role" transform="translate(1370,0)" data-websvg-id="rep:matrix-role:project" data-websvg-pin-source="top-role">
 <rect class="header-bg" x="0" y="92" width="290" height="28" />
 <text x="145.0" y="112" class="role" text-anchor="middle">Projektipäällikkö</text>
-<line class="group" x1="0" y1="92" x2="0" y2="1300" />
-<g id="matrix-col-pm-create_project" class="step-column" transform="translate(0,0)" data-websvg-id="rep:matrix-step:pm.create_project">
+<g id="matrix-col-pm-create_project" class="step-column" transform="translate(0,0)" data-websvg-id="rep:matrix-step:pm.create_project" data-websvg-pin-source="top-step">
 <text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Perusta toimitusprojekti</text>
 <text x="29.0" y="132" class="step-head" text-anchor="middle">21</text>
-<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
 </g>
-<g id="matrix-col-pm-plan_work" class="step-column" transform="translate(58,0)" data-websvg-id="rep:matrix-step:pm.plan_work">
+<g id="matrix-col-pm-plan_work" class="step-column" transform="translate(58,0)" data-websvg-id="rep:matrix-step:pm.plan_work" data-websvg-pin-source="top-step">
 <text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Suunnittele työ</text>
 <text x="29.0" y="132" class="step-head" text-anchor="middle">22</text>
-<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
 </g>
-<g id="matrix-col-pm-schedule" class="step-column" transform="translate(116,0)" data-websvg-id="rep:matrix-step:pm.schedule">
+<g id="matrix-col-pm-schedule" class="step-column" transform="translate(116,0)" data-websvg-id="rep:matrix-step:pm.schedule" data-websvg-pin-source="top-step">
 <text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Aikatauluta resurssit</text>
 <text x="29.0" y="132" class="step-head" text-anchor="middle">23</text>
-<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
 </g>
-<g id="matrix-col-pm-readiness" class="step-column" transform="translate(174,0)" data-websvg-id="rep:matrix-step:pm.readiness">
+<g id="matrix-col-pm-readiness" class="step-column" transform="translate(174,0)" data-websvg-id="rep:matrix-step:pm.readiness" data-websvg-pin-source="top-step">
 <text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Varmista lähtöedellytykset</text>
 <text x="29.0" y="132" class="step-head" text-anchor="middle">24</text>
-<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
 </g>
-<g id="matrix-col-pm-release_install" class="step-column" transform="translate(232,0)" data-websvg-id="rep:matrix-step:pm.release_install">
+<g id="matrix-col-pm-release_install" class="step-column" transform="translate(232,0)" data-websvg-id="rep:matrix-step:pm.release_install" data-websvg-pin-source="top-step">
 <text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Vapauta asennukseen</text>
 <text x="29.0" y="132" class="step-head" text-anchor="middle">25</text>
-<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
 </g>
 </g>
-<g id="matrix-role-installer" class="matrix-role" transform="translate(1660,0)" data-websvg-id="rep:matrix-role:installer">
+<g id="matrix-role-installer" class="matrix-role" transform="translate(1660,0)" data-websvg-id="rep:matrix-role:installer" data-websvg-pin-source="top-role">
 <rect class="header-bg" x="0" y="92" width="406" height="28" />
 <text x="203.0" y="112" class="role" text-anchor="middle">Asentaja</text>
-<line class="group" x1="0" y1="92" x2="0" y2="1300" />
-<g id="matrix-col-inst-accept_work" class="step-column" transform="translate(0,0)" data-websvg-id="rep:matrix-step:inst.accept_work">
+<g id="matrix-col-inst-accept_work" class="step-column" transform="translate(0,0)" data-websvg-id="rep:matrix-step:inst.accept_work" data-websvg-pin-source="top-step">
 <text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Vastaanota työ</text>
 <text x="29.0" y="132" class="step-head" text-anchor="middle">26</text>
-<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
 </g>
-<g id="matrix-col-inst-site_check" class="step-column" transform="translate(58,0)" data-websvg-id="rep:matrix-step:inst.site_check">
+<g id="matrix-col-inst-site_check" class="step-column" transform="translate(58,0)" data-websvg-id="rep:matrix-step:inst.site_check" data-websvg-pin-source="top-step">
 <text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Tarkista kohde</text>
 <text x="29.0" y="132" class="step-head" text-anchor="middle">27</text>
-<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
 </g>
-<g id="matrix-col-inst-install" class="step-column" transform="translate(116,0)" data-websvg-id="rep:matrix-step:inst.install">
+<g id="matrix-col-inst-install" class="step-column" transform="translate(116,0)" data-websvg-id="rep:matrix-step:inst.install" data-websvg-pin-source="top-step">
 <text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Asenna komponentit</text>
 <text x="29.0" y="132" class="step-head" text-anchor="middle">28</text>
-<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
 </g>
-<g id="matrix-col-inst-test" class="step-column" transform="translate(174,0)" data-websvg-id="rep:matrix-step:inst.test">
+<g id="matrix-col-inst-test" class="step-column" transform="translate(174,0)" data-websvg-id="rep:matrix-step:inst.test" data-websvg-pin-source="top-step">
 <text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Testaa toteutus</text>
 <text x="29.0" y="132" class="step-head" text-anchor="middle">29</text>
-<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
 </g>
-<g id="matrix-col-inst-document" class="step-column" transform="translate(232,0)" data-websvg-id="rep:matrix-step:inst.document">
+<g id="matrix-col-inst-document" class="step-column" transform="translate(232,0)" data-websvg-id="rep:matrix-step:inst.document" data-websvg-pin-source="top-step">
 <text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Dokumentoi asennus</text>
 <text x="29.0" y="132" class="step-head" text-anchor="middle">30</text>
-<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
 </g>
-<g id="matrix-col-inst-handover" class="step-column" transform="translate(290,0)" data-websvg-id="rep:matrix-step:inst.handover">
+<g id="matrix-col-inst-handover" class="step-column" transform="translate(290,0)" data-websvg-id="rep:matrix-step:inst.handover" data-websvg-pin-source="top-step">
 <text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Luovuta asiakkaalle</text>
 <text x="29.0" y="132" class="step-head" text-anchor="middle">31</text>
-<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
 </g>
-<g id="matrix-col-inst-ready_to_bill" class="step-column" transform="translate(348,0)" data-websvg-id="rep:matrix-step:inst.ready_to_bill">
+<g id="matrix-col-inst-ready_to_bill" class="step-column" transform="translate(348,0)" data-websvg-id="rep:matrix-step:inst.ready_to_bill" data-websvg-pin-source="top-step">
 <text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Merkitse laskutusvalmiiksi</text>
 <text x="29.0" y="132" class="step-head" text-anchor="middle">32</text>
-<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
 </g>
 </g>
-<g id="matrix-role-billing" class="matrix-role" transform="translate(2066,0)" data-websvg-id="rep:matrix-role:billing">
+<g id="matrix-role-billing" class="matrix-role" transform="translate(2066,0)" data-websvg-id="rep:matrix-role:billing" data-websvg-pin-source="top-role">
 <rect class="header-bg" x="0" y="92" width="232" height="28" />
 <text x="116.0" y="112" class="role" text-anchor="middle">Laskutus</text>
-<line class="group" x1="0" y1="92" x2="0" y2="1300" />
-<g id="matrix-col-bill-create_invoice" class="step-column" transform="translate(0,0)" data-websvg-id="rep:matrix-step:bill.create_invoice">
+<g id="matrix-col-bill-create_invoice" class="step-column" transform="translate(0,0)" data-websvg-id="rep:matrix-step:bill.create_invoice" data-websvg-pin-source="top-step">
 <text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Muodosta laskupohja</text>
 <text x="29.0" y="132" class="step-head" text-anchor="middle">33</text>
-<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
 </g>
-<g id="matrix-col-bill-review" class="step-column" transform="translate(58,0)" data-websvg-id="rep:matrix-step:bill.review">
+<g id="matrix-col-bill-review" class="step-column" transform="translate(58,0)" data-websvg-id="rep:matrix-step:bill.review" data-websvg-pin-source="top-step">
 <text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Tarkista lasku</text>
 <text x="29.0" y="132" class="step-head" text-anchor="middle">34</text>
-<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
 </g>
-<g id="matrix-col-bill-send" class="step-column" transform="translate(116,0)" data-websvg-id="rep:matrix-step:bill.send">
+<g id="matrix-col-bill-send" class="step-column" transform="translate(116,0)" data-websvg-id="rep:matrix-step:bill.send" data-websvg-pin-source="top-step">
 <text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Lähetä lasku</text>
 <text x="29.0" y="132" class="step-head" text-anchor="middle">35</text>
-<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
 </g>
-<g id="matrix-col-bill-follow_due" class="step-column" transform="translate(174,0)" data-websvg-id="rep:matrix-step:bill.follow_due">
+<g id="matrix-col-bill-follow_due" class="step-column" transform="translate(174,0)" data-websvg-id="rep:matrix-step:bill.follow_due" data-websvg-pin-source="top-step">
 <text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Seuraa eräpäivää</text>
 <text x="29.0" y="132" class="step-head" text-anchor="middle">36</text>
-<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
 </g>
 </g>
-<g id="matrix-role-payments" class="matrix-role" transform="translate(2298,0)" data-websvg-id="rep:matrix-role:payments">
+<g id="matrix-role-payments" class="matrix-role" transform="translate(2298,0)" data-websvg-id="rep:matrix-role:payments" data-websvg-pin-source="top-role">
 <rect class="header-bg" x="0" y="92" width="174" height="28" />
 <text x="87.0" y="112" class="role" text-anchor="middle">Maksuliikenne</text>
-<line class="group" x1="0" y1="92" x2="0" y2="1300" />
-<g id="matrix-col-pay-receive" class="step-column" transform="translate(0,0)" data-websvg-id="rep:matrix-step:pay.receive">
+<g id="matrix-col-pay-receive" class="step-column" transform="translate(0,0)" data-websvg-id="rep:matrix-step:pay.receive" data-websvg-pin-source="top-step">
 <text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Vastaanota maksu</text>
 <text x="29.0" y="132" class="step-head" text-anchor="middle">37</text>
-<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
 </g>
-<g id="matrix-col-pay-allocate" class="step-column" transform="translate(58,0)" data-websvg-id="rep:matrix-step:pay.allocate">
+<g id="matrix-col-pay-allocate" class="step-column" transform="translate(58,0)" data-websvg-id="rep:matrix-step:pay.allocate" data-websvg-pin-source="top-step">
 <text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Kohdista laskuun</text>
 <text x="29.0" y="132" class="step-head" text-anchor="middle">38</text>
-<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
 </g>
-<g id="matrix-col-pay-exception" class="step-column" transform="translate(116,0)" data-websvg-id="rep:matrix-step:pay.exception">
+<g id="matrix-col-pay-exception" class="step-column" transform="translate(116,0)" data-websvg-id="rep:matrix-step:pay.exception" data-websvg-pin-source="top-step">
 <text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Käsittele poikkeama</text>
 <text x="29.0" y="132" class="step-head" text-anchor="middle">39</text>
-<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
 </g>
 </g>
-<g id="matrix-role-accounting" class="matrix-role" transform="translate(2472,0)" data-websvg-id="rep:matrix-role:accounting">
+<g id="matrix-role-accounting" class="matrix-role" transform="translate(2472,0)" data-websvg-id="rep:matrix-role:accounting" data-websvg-pin-source="top-role">
 <rect class="header-bg" x="0" y="92" width="290" height="28" />
 <text x="145.0" y="112" class="role" text-anchor="middle">Kirjanpito</text>
-<line class="group" x1="0" y1="92" x2="0" y2="1300" />
-<g id="matrix-col-acc-create_posting" class="step-column" transform="translate(0,0)" data-websvg-id="rep:matrix-step:acc.create_posting">
+<g id="matrix-col-acc-create_posting" class="step-column" transform="translate(0,0)" data-websvg-id="rep:matrix-step:acc.create_posting" data-websvg-pin-source="top-step">
 <text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Muodosta vienti</text>
 <text x="29.0" y="132" class="step-head" text-anchor="middle">40</text>
-<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
 </g>
-<g id="matrix-col-acc-post_ledger" class="step-column" transform="translate(58,0)" data-websvg-id="rep:matrix-step:acc.post_ledger">
+<g id="matrix-col-acc-post_ledger" class="step-column" transform="translate(58,0)" data-websvg-id="rep:matrix-step:acc.post_ledger" data-websvg-pin-source="top-step">
 <text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Kirjaa reskontra</text>
 <text x="29.0" y="132" class="step-head" text-anchor="middle">41</text>
-<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
 </g>
-<g id="matrix-col-acc-reconcile" class="step-column" transform="translate(116,0)" data-websvg-id="rep:matrix-step:acc.reconcile">
+<g id="matrix-col-acc-reconcile" class="step-column" transform="translate(116,0)" data-websvg-id="rep:matrix-step:acc.reconcile" data-websvg-pin-source="top-step">
 <text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Täsmäytä tili</text>
 <text x="29.0" y="132" class="step-head" text-anchor="middle">42</text>
-<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
 </g>
-<g id="matrix-col-acc-close_period" class="step-column" transform="translate(174,0)" data-websvg-id="rep:matrix-step:acc.close_period">
+<g id="matrix-col-acc-close_period" class="step-column" transform="translate(174,0)" data-websvg-id="rep:matrix-step:acc.close_period" data-websvg-pin-source="top-step">
 <text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Sulje kausi</text>
 <text x="29.0" y="132" class="step-head" text-anchor="middle">43</text>
-<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
 </g>
-<g id="matrix-col-acc-management_report" class="step-column" transform="translate(232,0)" data-websvg-id="rep:matrix-step:acc.management_report">
+<g id="matrix-col-acc-management_report" class="step-column" transform="translate(232,0)" data-websvg-id="rep:matrix-step:acc.management_report" data-websvg-pin-source="top-step">
 <text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Tuota talousraportti</text>
 <text x="29.0" y="132" class="step-head" text-anchor="middle">44</text>
-<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
 </g>
 </g>
-<g id="matrix-role-service" class="matrix-role" transform="translate(2762,0)" data-websvg-id="rep:matrix-role:service">
+<g id="matrix-role-service" class="matrix-role" transform="translate(2762,0)" data-websvg-id="rep:matrix-role:service" data-websvg-pin-source="top-role">
 <rect class="header-bg" x="0" y="92" width="464" height="28" />
 <text x="232.0" y="112" class="role" text-anchor="middle">Huolto</text>
-<line class="group" x1="0" y1="92" x2="0" y2="1300" />
-<g id="matrix-col-svc-request" class="step-column" transform="translate(0,0)" data-websvg-id="rep:matrix-step:svc.request">
+<g id="matrix-col-svc-request" class="step-column" transform="translate(0,0)" data-websvg-id="rep:matrix-step:svc.request" data-websvg-pin-source="top-step">
 <text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Vastaanota huoltopyyntö</text>
 <text x="29.0" y="132" class="step-head" text-anchor="middle">45</text>
-<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
 </g>
-<g id="matrix-col-svc-assess" class="step-column" transform="translate(58,0)" data-websvg-id="rep:matrix-step:svc.assess">
+<g id="matrix-col-svc-assess" class="step-column" transform="translate(58,0)" data-websvg-id="rep:matrix-step:svc.assess" data-websvg-pin-source="top-step">
 <text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Arvioi oikeus ja kiire</text>
 <text x="29.0" y="132" class="step-head" text-anchor="middle">46</text>
-<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
 </g>
-<g id="matrix-col-svc-plan" class="step-column" transform="translate(116,0)" data-websvg-id="rep:matrix-step:svc.plan">
+<g id="matrix-col-svc-plan" class="step-column" transform="translate(116,0)" data-websvg-id="rep:matrix-step:svc.plan" data-websvg-pin-source="top-step">
 <text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Suunnittele huolto</text>
 <text x="29.0" y="132" class="step-head" text-anchor="middle">47</text>
-<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
 </g>
-<g id="matrix-col-svc-reserve_parts" class="step-column" transform="translate(174,0)" data-websvg-id="rep:matrix-step:svc.reserve_parts">
+<g id="matrix-col-svc-reserve_parts" class="step-column" transform="translate(174,0)" data-websvg-id="rep:matrix-step:svc.reserve_parts" data-websvg-pin-source="top-step">
 <text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Varaa osat</text>
 <text x="29.0" y="132" class="step-head" text-anchor="middle">48</text>
-<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
 </g>
-<g id="matrix-col-svc-execute" class="step-column" transform="translate(232,0)" data-websvg-id="rep:matrix-step:svc.execute">
+<g id="matrix-col-svc-execute" class="step-column" transform="translate(232,0)" data-websvg-id="rep:matrix-step:svc.execute" data-websvg-pin-source="top-step">
 <text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Tee huolto</text>
 <text x="29.0" y="132" class="step-head" text-anchor="middle">49</text>
-<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
 </g>
-<g id="matrix-col-svc-document" class="step-column" transform="translate(290,0)" data-websvg-id="rep:matrix-step:svc.document">
+<g id="matrix-col-svc-document" class="step-column" transform="translate(290,0)" data-websvg-id="rep:matrix-step:svc.document" data-websvg-pin-source="top-step">
 <text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Dokumentoi huolto</text>
 <text x="29.0" y="132" class="step-head" text-anchor="middle">50</text>
-<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
 </g>
-<g id="matrix-col-svc-close" class="step-column" transform="translate(348,0)" data-websvg-id="rep:matrix-step:svc.close">
+<g id="matrix-col-svc-close" class="step-column" transform="translate(348,0)" data-websvg-id="rep:matrix-step:svc.close" data-websvg-pin-source="top-step">
 <text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Sulje case</text>
 <text x="29.0" y="132" class="step-head" text-anchor="middle">51</text>
-<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
 </g>
-<g id="matrix-col-svc-bill" class="step-column" transform="translate(406,0)" data-websvg-id="rep:matrix-step:svc.bill">
+<g id="matrix-col-svc-bill" class="step-column" transform="translate(406,0)" data-websvg-id="rep:matrix-step:svc.bill" data-websvg-pin-source="top-step">
 <text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Laskuta huolto</text>
 <text x="29.0" y="132" class="step-head" text-anchor="middle">52</text>
-<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
 </g>
 </g>
-<g id="matrix-role-hr" class="matrix-role" transform="translate(3226,0)" data-websvg-id="rep:matrix-role:hr">
+<g id="matrix-role-hr" class="matrix-role" transform="translate(3226,0)" data-websvg-id="rep:matrix-role:hr" data-websvg-pin-source="top-role">
 <rect class="header-bg" x="0" y="92" width="348" height="28" />
 <text x="174.0" y="112" class="role" text-anchor="middle">HR / henkilöstö</text>
-<line class="group" x1="0" y1="92" x2="0" y2="1300" />
-<g id="matrix-col-hr-people" class="step-column" transform="translate(0,0)" data-websvg-id="rep:matrix-step:hr.people">
+<g id="matrix-col-hr-people" class="step-column" transform="translate(0,0)" data-websvg-id="rep:matrix-step:hr.people" data-websvg-pin-source="top-step">
 <text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Ylläpidä henkilöt ja sopimukset</text>
 <text x="29.0" y="132" class="step-head" text-anchor="middle">53</text>
-<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
 </g>
-<g id="matrix-col-hr-project_roles" class="step-column" transform="translate(58,0)" data-websvg-id="rep:matrix-step:hr.project_roles">
+<g id="matrix-col-hr-project_roles" class="step-column" transform="translate(58,0)" data-websvg-id="rep:matrix-step:hr.project_roles" data-websvg-pin-source="top-step">
 <text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Kohdista projektiroolit</text>
 <text x="29.0" y="132" class="step-head" text-anchor="middle">54</text>
-<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
 </g>
-<g id="matrix-col-hr-time" class="step-column" transform="translate(116,0)" data-websvg-id="rep:matrix-step:hr.time">
+<g id="matrix-col-hr-time" class="step-column" transform="translate(116,0)" data-websvg-id="rep:matrix-step:hr.time" data-websvg-pin-source="top-step">
 <text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Kirjaa työaika ja toteuma</text>
 <text x="29.0" y="132" class="step-head" text-anchor="middle">55</text>
-<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
 </g>
-<g id="matrix-col-hr-payroll_base" class="step-column" transform="translate(174,0)" data-websvg-id="rep:matrix-step:hr.payroll_base">
+<g id="matrix-col-hr-payroll_base" class="step-column" transform="translate(174,0)" data-websvg-id="rep:matrix-step:hr.payroll_base" data-websvg-pin-source="top-step">
 <text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Valmistele palkka-aineisto</text>
 <text x="29.0" y="132" class="step-head" text-anchor="middle">56</text>
-<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
 </g>
-<g id="matrix-col-hr-payroll_pay" class="step-column" transform="translate(232,0)" data-websvg-id="rep:matrix-step:hr.payroll_pay">
+<g id="matrix-col-hr-payroll_pay" class="step-column" transform="translate(232,0)" data-websvg-id="rep:matrix-step:hr.payroll_pay" data-websvg-pin-source="top-step">
 <text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Maksa palkat</text>
 <text x="29.0" y="132" class="step-head" text-anchor="middle">57</text>
-<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
 </g>
-<g id="matrix-col-hr-payroll_post" class="step-column" transform="translate(290,0)" data-websvg-id="rep:matrix-step:hr.payroll_post">
+<g id="matrix-col-hr-payroll_post" class="step-column" transform="translate(290,0)" data-websvg-id="rep:matrix-step:hr.payroll_post" data-websvg-pin-source="top-step">
 <text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Kirjaa palkat</text>
 <text x="29.0" y="132" class="step-head" text-anchor="middle">58</text>
-<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
 </g>
 </g>
-<g id="matrix-role-compliance" class="matrix-role" transform="translate(3574,0)" data-websvg-id="rep:matrix-role:compliance">
+<g id="matrix-role-compliance" class="matrix-role" transform="translate(3574,0)" data-websvg-id="rep:matrix-role:compliance" data-websvg-pin-source="top-role">
 <rect class="header-bg" x="0" y="92" width="290" height="28" />
 <text x="145.0" y="112" class="role" text-anchor="middle">Compliance / hallinto</text>
-<line class="group" x1="0" y1="92" x2="0" y2="1300" />
-<g id="matrix-col-comp-contracts" class="step-column" transform="translate(0,0)" data-websvg-id="rep:matrix-step:comp.contracts">
+<g id="matrix-col-comp-contracts" class="step-column" transform="translate(0,0)" data-websvg-id="rep:matrix-step:comp.contracts" data-websvg-pin-source="top-step">
 <text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Tarkista sopimusvelvoitteet</text>
 <text x="29.0" y="132" class="step-head" text-anchor="middle">59</text>
-<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
 </g>
-<g id="matrix-col-comp-readiness" class="step-column" transform="translate(58,0)" data-websvg-id="rep:matrix-step:comp.readiness">
+<g id="matrix-col-comp-readiness" class="step-column" transform="translate(58,0)" data-websvg-id="rep:matrix-step:comp.readiness" data-websvg-pin-source="top-step">
 <text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Tarkista toteutusedellytykset</text>
 <text x="29.0" y="132" class="step-head" text-anchor="middle">60</text>
-<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
 </g>
-<g id="matrix-col-comp-exception" class="step-column" transform="translate(116,0)" data-websvg-id="rep:matrix-step:comp.exception">
+<g id="matrix-col-comp-exception" class="step-column" transform="translate(116,0)" data-websvg-id="rep:matrix-step:comp.exception" data-websvg-pin-source="top-step">
 <text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Hyväksy poikkeama</text>
 <text x="29.0" y="132" class="step-head" text-anchor="middle">61</text>
-<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
 </g>
-<g id="matrix-col-comp-filing" class="step-column" transform="translate(174,0)" data-websvg-id="rep:matrix-step:comp.filing">
+<g id="matrix-col-comp-filing" class="step-column" transform="translate(174,0)" data-websvg-id="rep:matrix-step:comp.filing" data-websvg-pin-source="top-step">
 <text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Tee viranomaisilmoitus</text>
 <text x="29.0" y="132" class="step-head" text-anchor="middle">62</text>
-<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
 </g>
-<g id="matrix-col-comp-archive" class="step-column" transform="translate(232,0)" data-websvg-id="rep:matrix-step:comp.archive">
+<g id="matrix-col-comp-archive" class="step-column" transform="translate(232,0)" data-websvg-id="rep:matrix-step:comp.archive" data-websvg-pin-source="top-step">
 <text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Arkistoi evidenssi</text>
 <text x="29.0" y="132" class="step-head" text-anchor="middle">63</text>
-<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
 </g>
 </g>
-<g id="matrix-role-management" class="matrix-role" transform="translate(3864,0)" data-websvg-id="rep:matrix-role:management">
+<g id="matrix-role-management" class="matrix-role" transform="translate(3864,0)" data-websvg-id="rep:matrix-role:management" data-websvg-pin-source="top-role">
 <rect class="header-bg" x="0" y="92" width="406" height="28" />
-<text x="203.0" y="112" class="role" text-anchor="middle">Johto / Strategy</text><line class="group" x1="0" y1="92" x2="0" y2="1300" />
-<g id="matrix-col-mgmt-pipeline" class="step-column" transform="translate(0,0)" data-websvg-id="rep:matrix-step:mgmt.pipeline">
+<text x="203.0" y="112" class="role" text-anchor="middle">Johto / Strategy</text>
+<g id="matrix-col-mgmt-pipeline" class="step-column" transform="translate(0,0)" data-websvg-id="rep:matrix-step:mgmt.pipeline" data-websvg-pin-source="top-step">
 <text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Seuraa pipelinea</text>
 <text x="29.0" y="132" class="step-head" text-anchor="middle">64</text>
-<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
 </g>
-<g id="matrix-col-mgmt-delivery" class="step-column" transform="translate(58,0)" data-websvg-id="rep:matrix-step:mgmt.delivery">
+<g id="matrix-col-mgmt-delivery" class="step-column" transform="translate(58,0)" data-websvg-id="rep:matrix-step:mgmt.delivery" data-websvg-pin-source="top-step">
 <text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Seuraa toimituskykyä</text>
 <text x="29.0" y="132" class="step-head" text-anchor="middle">65</text>
-<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
 </g>
-<g id="matrix-col-mgmt-finance" class="step-column" transform="translate(116,0)" data-websvg-id="rep:matrix-step:mgmt.finance">
+<g id="matrix-col-mgmt-finance" class="step-column" transform="translate(116,0)" data-websvg-id="rep:matrix-step:mgmt.finance" data-websvg-pin-source="top-step">
 <text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Seuraa taloutta</text>
 <text x="29.0" y="132" class="step-head" text-anchor="middle">66</text>
-<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
 </g>
-<g id="matrix-col-mgmt-risk" class="step-column" transform="translate(174,0)" data-websvg-id="rep:matrix-step:mgmt.risk">
+<g id="matrix-col-mgmt-risk" class="step-column" transform="translate(174,0)" data-websvg-id="rep:matrix-step:mgmt.risk" data-websvg-pin-source="top-step">
 <text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Arvioi riskit</text>
 <text x="29.0" y="132" class="step-head" text-anchor="middle">67</text>
-<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
 </g>
-<g id="matrix-col-mgmt-plan" class="step-column" transform="translate(232,0)" data-websvg-id="rep:matrix-step:mgmt.plan">
+<g id="matrix-col-mgmt-plan" class="step-column" transform="translate(232,0)" data-websvg-id="rep:matrix-step:mgmt.plan" data-websvg-pin-source="top-step">
 <text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Päivitä suunnitelma</text>
 <text x="29.0" y="132" class="step-head" text-anchor="middle">68</text>
-<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
 </g>
-<g id="matrix-col-mgmt-actions" class="step-column" transform="translate(290,0)" data-websvg-id="rep:matrix-step:mgmt.actions">
+<g id="matrix-col-mgmt-actions" class="step-column" transform="translate(290,0)" data-websvg-id="rep:matrix-step:mgmt.actions" data-websvg-pin-source="top-step">
 <text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Päätä toimenpiteet</text>
 <text x="29.0" y="132" class="step-head" text-anchor="middle">69</text>
-<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
 </g>
-<g id="matrix-col-mgmt-report" class="step-column" transform="translate(348,0)" data-websvg-id="rep:matrix-step:mgmt.report">
+<g id="matrix-col-mgmt-report" class="step-column" transform="translate(348,0)" data-websvg-id="rep:matrix-step:mgmt.report" data-websvg-pin-source="top-step">
 <text class="step-head" transform="translate(29.0,285) rotate(-62)" text-anchor="start">Johdon raportointi</text>
 <text x="29.0" y="132" class="step-head" text-anchor="middle">70</text>
-<line class="grid" x1="0" y1="300" x2="0" y2="1260" />
 </g>
 </g>
-<line class="group" x1="4270" y1="92" x2="4270" y2="1300" />
 </g>
-<g id="matrix-rows" transform="translate(0,0)">
-<g id="row-Identity" class="universal-row" transform="translate(0,300)" data-websvg-id="rep:matrix-universal:Identity">
+<g id="matrix-rows" transform="translate(0,0)" data-websvg-view="content">
+<g id="row-Identity" class="universal-row" transform="translate(0,300)" data-websvg-id="rep:matrix-universal:Identity" data-websvg-pin-source="left">
 <text x="24" y="20" class="u">Identity</text>
 <line class="grid" x1="0" y1="30" x2="4310" y2="30" />
 <g class="matrix-cell" data-mode="R" transform="translate(210,0)" data-websvg-id="rep:matrix-cell:sales.identify_need:Identity">
@@ -557,7 +475,7 @@
 <text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
 </g>
 </g>
-<g id="row-Project" class="universal-row" transform="translate(0,330)" data-websvg-id="rep:matrix-universal:Project">
+<g id="row-Project" class="universal-row" transform="translate(0,330)" data-websvg-id="rep:matrix-universal:Project" data-websvg-pin-source="left">
 <rect class="row-alt" x="0" y="0" width="4310" height="30" />
 <text x="24" y="20" class="u">Project</text>
 <line class="grid" x1="0" y1="30" x2="4310" y2="30" />
@@ -842,7 +760,7 @@
 <text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
 </g>
 </g>
-<g id="row-Location" class="universal-row" transform="translate(0,360)" data-websvg-id="rep:matrix-universal:Location">
+<g id="row-Location" class="universal-row" transform="translate(0,360)" data-websvg-id="rep:matrix-universal:Location" data-websvg-pin-source="left">
 <text x="24" y="20" class="u">Location</text>
 <line class="grid" x1="0" y1="30" x2="4310" y2="30" />
 <g class="matrix-cell" data-mode="R" transform="translate(964,0)" data-websvg-id="rep:matrix-cell:wh.plan_receipt:Location">
@@ -886,7 +804,7 @@
 <text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
 </g>
 </g>
-<g id="row-Asset" class="universal-row" transform="translate(0,390)" data-websvg-id="rep:matrix-universal:Asset">
+<g id="row-Asset" class="universal-row" transform="translate(0,390)" data-websvg-id="rep:matrix-universal:Asset" data-websvg-pin-source="left">
 <rect class="row-alt" x="0" y="0" width="4310" height="30" />
 <text x="24" y="20" class="u">Asset</text>
 <line class="grid" x1="0" y1="30" x2="4310" y2="30" />
@@ -919,7 +837,7 @@
 <text x="29.0" y="20" class="cell" text-anchor="middle">W</text>
 </g>
 </g>
-<g id="row-CatalogItem" class="universal-row" transform="translate(0,420)" data-websvg-id="rep:matrix-universal:CatalogItem">
+<g id="row-CatalogItem" class="universal-row" transform="translate(0,420)" data-websvg-id="rep:matrix-universal:CatalogItem" data-websvg-pin-source="left">
 <text x="24" y="20" class="u">CatalogItem</text>
 <line class="grid" x1="0" y1="30" x2="4310" y2="30" />
 <g class="matrix-cell" data-mode="R" transform="translate(326,0)" data-websvg-id="rep:matrix-cell:sales.scope_solution:CatalogItem">
@@ -963,7 +881,7 @@
 <text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
 </g>
 </g>
-<g id="row-Specification" class="universal-row" transform="translate(0,450)" data-websvg-id="rep:matrix-universal:Specification">
+<g id="row-Specification" class="universal-row" transform="translate(0,450)" data-websvg-id="rep:matrix-universal:Specification" data-websvg-pin-source="left">
 <rect class="row-alt" x="0" y="0" width="4310" height="30" />
 <text x="24" y="20" class="u">Specification</text>
 <line class="grid" x1="0" y1="30" x2="4310" y2="30" />
@@ -995,7 +913,7 @@
 <text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
 </g>
 </g>
-<g id="row-Opportunity" class="universal-row" transform="translate(0,480)" data-websvg-id="rep:matrix-universal:Opportunity">
+<g id="row-Opportunity" class="universal-row" transform="translate(0,480)" data-websvg-id="rep:matrix-universal:Opportunity" data-websvg-pin-source="left">
 <text x="24" y="20" class="u">Opportunity</text>
 <line class="grid" x1="0" y1="30" x2="4310" y2="30" />
 <g class="matrix-cell" data-mode="C" transform="translate(210,0)" data-websvg-id="rep:matrix-cell:sales.identify_need:Opportunity">
@@ -1023,7 +941,7 @@
 <text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
 </g>
 </g>
-<g id="row-LineItem" class="universal-row" transform="translate(0,510)" data-websvg-id="rep:matrix-universal:LineItem">
+<g id="row-LineItem" class="universal-row" transform="translate(0,510)" data-websvg-id="rep:matrix-universal:LineItem" data-websvg-pin-source="left">
 <rect class="row-alt" x="0" y="0" width="4310" height="30" />
 <text x="24" y="20" class="u">LineItem</text>
 <line class="grid" x1="0" y1="30" x2="4310" y2="30" />
@@ -1056,7 +974,7 @@
 <text x="29.0" y="20" class="cell" text-anchor="middle">C</text>
 </g>
 </g>
-<g id="row-Quote" class="universal-row" transform="translate(0,540)" data-websvg-id="rep:matrix-universal:Quote">
+<g id="row-Quote" class="universal-row" transform="translate(0,540)" data-websvg-id="rep:matrix-universal:Quote" data-websvg-pin-source="left">
 <text x="24" y="20" class="u">Quote</text>
 <line class="grid" x1="0" y1="30" x2="4310" y2="30" />
 <g class="matrix-cell" data-mode="C" transform="translate(384,0)" data-websvg-id="rep:matrix-cell:sales.prepare_quote:Quote">
@@ -1080,7 +998,7 @@
 <text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
 </g>
 </g>
-<g id="row-Order" class="universal-row" transform="translate(0,570)" data-websvg-id="rep:matrix-universal:Order">
+<g id="row-Order" class="universal-row" transform="translate(0,570)" data-websvg-id="rep:matrix-universal:Order" data-websvg-pin-source="left">
 <rect class="row-alt" x="0" y="0" width="4310" height="30" />
 <text x="24" y="20" class="u">Order</text>
 <line class="grid" x1="0" y1="30" x2="4310" y2="30" />
@@ -1129,7 +1047,7 @@
 <text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
 </g>
 </g>
-<g id="row-Invoice" class="universal-row" transform="translate(0,600)" data-websvg-id="rep:matrix-universal:Invoice">
+<g id="row-Invoice" class="universal-row" transform="translate(0,600)" data-websvg-id="rep:matrix-universal:Invoice" data-websvg-pin-source="left">
 <text x="24" y="20" class="u">Invoice</text>
 <line class="grid" x1="0" y1="30" x2="4310" y2="30" />
 <g class="matrix-cell" data-mode="C" transform="translate(906,0)" data-websvg-id="rep:matrix-cell:proc.supplier_invoice:Invoice">
@@ -1177,7 +1095,7 @@
 <text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
 </g>
 </g>
-<g id="row-BalanceAccount" class="universal-row" transform="translate(0,630)" data-websvg-id="rep:matrix-universal:BalanceAccount">
+<g id="row-BalanceAccount" class="universal-row" transform="translate(0,630)" data-websvg-id="rep:matrix-universal:BalanceAccount" data-websvg-pin-source="left">
 <rect class="row-alt" x="0" y="0" width="4310" height="30" />
 <text x="24" y="20" class="u">BalanceAccount</text>
 <line class="grid" x1="0" y1="30" x2="4310" y2="30" />
@@ -1202,7 +1120,7 @@
 <text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
 </g>
 </g>
-<g id="row-BalanceTransaction" class="universal-row" transform="translate(0,660)" data-websvg-id="rep:matrix-universal:BalanceTransaction">
+<g id="row-BalanceTransaction" class="universal-row" transform="translate(0,660)" data-websvg-id="rep:matrix-universal:BalanceTransaction" data-websvg-pin-source="left">
 <text x="24" y="20" class="u">BalanceTransaction</text>
 <line class="grid" x1="0" y1="30" x2="4310" y2="30" />
 <g class="matrix-cell" data-mode="C" transform="translate(2298,0)" data-websvg-id="rep:matrix-cell:pay.receive:BalanceTransaction">
@@ -1226,7 +1144,7 @@
 <text x="29.0" y="20" class="cell" text-anchor="middle">C</text>
 </g>
 </g>
-<g id="row-Settlement" class="universal-row" transform="translate(0,690)" data-websvg-id="rep:matrix-universal:Settlement">
+<g id="row-Settlement" class="universal-row" transform="translate(0,690)" data-websvg-id="rep:matrix-universal:Settlement" data-websvg-pin-source="left">
 <rect class="row-alt" x="0" y="0" width="4310" height="30" />
 <text x="24" y="20" class="u">Settlement</text>
 <line class="grid" x1="0" y1="30" x2="4310" y2="30" />
@@ -1255,7 +1173,7 @@
 <text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
 </g>
 </g>
-<g id="row-Account" class="universal-row" transform="translate(0,720)" data-websvg-id="rep:matrix-universal:Account">
+<g id="row-Account" class="universal-row" transform="translate(0,720)" data-websvg-id="rep:matrix-universal:Account" data-websvg-pin-source="left">
 <text x="24" y="20" class="u">Account</text>
 <line class="grid" x1="0" y1="30" x2="4310" y2="30" />
 <g class="matrix-cell" data-mode="R" transform="translate(2298,0)" data-websvg-id="rep:matrix-cell:pay.receive:Account">
@@ -1283,7 +1201,7 @@
 <text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
 </g>
 </g>
-<g id="row-JournalEntry" class="universal-row" transform="translate(0,750)" data-websvg-id="rep:matrix-universal:JournalEntry">
+<g id="row-JournalEntry" class="universal-row" transform="translate(0,750)" data-websvg-id="rep:matrix-universal:JournalEntry" data-websvg-pin-source="left">
 <rect class="row-alt" x="0" y="0" width="4310" height="30" />
 <text x="24" y="20" class="u">JournalEntry</text>
 <line class="grid" x1="0" y1="30" x2="4310" y2="30" />
@@ -1304,7 +1222,7 @@
 <text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
 </g>
 </g>
-<g id="row-LedgerEntry" class="universal-row" transform="translate(0,780)" data-websvg-id="rep:matrix-universal:LedgerEntry">
+<g id="row-LedgerEntry" class="universal-row" transform="translate(0,780)" data-websvg-id="rep:matrix-universal:LedgerEntry" data-websvg-pin-source="left">
 <text x="24" y="20" class="u">LedgerEntry</text>
 <line class="grid" x1="0" y1="30" x2="4310" y2="30" />
 <g class="matrix-cell" data-mode="C" transform="translate(2472,0)" data-websvg-id="rep:matrix-cell:acc.create_posting:LedgerEntry">
@@ -1332,7 +1250,7 @@
 <text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
 </g>
 </g>
-<g id="row-StockMovement" class="universal-row" transform="translate(0,810)" data-websvg-id="rep:matrix-universal:StockMovement">
+<g id="row-StockMovement" class="universal-row" transform="translate(0,810)" data-websvg-id="rep:matrix-universal:StockMovement" data-websvg-pin-source="left">
 <rect class="row-alt" x="0" y="0" width="4310" height="30" />
 <text x="24" y="20" class="u">StockMovement</text>
 <line class="grid" x1="0" y1="30" x2="4310" y2="30" />
@@ -1369,7 +1287,7 @@
 <text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
 </g>
 </g>
-<g id="row-Lot" class="universal-row" transform="translate(0,840)" data-websvg-id="rep:matrix-universal:Lot">
+<g id="row-Lot" class="universal-row" transform="translate(0,840)" data-websvg-id="rep:matrix-universal:Lot" data-websvg-pin-source="left">
 <text x="24" y="20" class="u">Lot</text>
 <line class="grid" x1="0" y1="30" x2="4310" y2="30" />
 <g class="matrix-cell" data-mode="C" transform="translate(1138,0)" data-websvg-id="rep:matrix-cell:wh.putaway:Lot">
@@ -1381,7 +1299,7 @@
 <text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
 </g>
 </g>
-<g id="row-Shipment" class="universal-row" transform="translate(0,870)" data-websvg-id="rep:matrix-universal:Shipment">
+<g id="row-Shipment" class="universal-row" transform="translate(0,870)" data-websvg-id="rep:matrix-universal:Shipment" data-websvg-pin-source="left">
 <rect class="row-alt" x="0" y="0" width="4310" height="30" />
 <text x="24" y="20" class="u">Shipment</text>
 <line class="grid" x1="0" y1="30" x2="4310" y2="30" />
@@ -1405,7 +1323,7 @@
 <text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
 </g>
 </g>
-<g id="row-HandlingUnit" class="universal-row" transform="translate(0,900)" data-websvg-id="rep:matrix-universal:HandlingUnit">
+<g id="row-HandlingUnit" class="universal-row" transform="translate(0,900)" data-websvg-id="rep:matrix-universal:HandlingUnit" data-websvg-pin-source="left">
 <text x="24" y="20" class="u">HandlingUnit</text>
 <line class="grid" x1="0" y1="30" x2="4310" y2="30" />
 <g class="matrix-cell" data-mode="R" transform="translate(964,0)" data-websvg-id="rep:matrix-cell:wh.plan_receipt:HandlingUnit">
@@ -1425,7 +1343,7 @@
 <text x="29.0" y="20" class="cell" text-anchor="middle">W</text>
 </g>
 </g>
-<g id="row-Case" class="universal-row" transform="translate(0,930)" data-websvg-id="rep:matrix-universal:Case">
+<g id="row-Case" class="universal-row" transform="translate(0,930)" data-websvg-id="rep:matrix-universal:Case" data-websvg-pin-source="left">
 <rect class="row-alt" x="0" y="0" width="4310" height="30" />
 <text x="24" y="20" class="u">Case</text>
 <line class="grid" x1="0" y1="30" x2="4310" y2="30" />
@@ -1462,7 +1380,7 @@
 <text x="29.0" y="20" class="cell" text-anchor="middle">R/W</text>
 </g>
 </g>
-<g id="row-Assessment" class="universal-row" transform="translate(0,960)" data-websvg-id="rep:matrix-universal:Assessment">
+<g id="row-Assessment" class="universal-row" transform="translate(0,960)" data-websvg-id="rep:matrix-universal:Assessment" data-websvg-pin-source="left">
 <text x="24" y="20" class="u">Assessment</text>
 <line class="grid" x1="0" y1="30" x2="4310" y2="30" />
 <g class="matrix-cell" data-mode="C" transform="translate(268,0)" data-websvg-id="rep:matrix-cell:sales.qualify:Assessment">
@@ -1522,7 +1440,7 @@
 <text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
 </g>
 </g>
-<g id="row-Reservation" class="universal-row" transform="translate(0,990)" data-websvg-id="rep:matrix-universal:Reservation">
+<g id="row-Reservation" class="universal-row" transform="translate(0,990)" data-websvg-id="rep:matrix-universal:Reservation" data-websvg-pin-source="left">
 <rect class="row-alt" x="0" y="0" width="4310" height="30" />
 <text x="24" y="20" class="u">Reservation</text>
 <line class="grid" x1="0" y1="30" x2="4310" y2="30" />
@@ -1551,7 +1469,7 @@
 <text x="29.0" y="20" class="cell" text-anchor="middle">C</text>
 </g>
 </g>
-<g id="row-Entitlement" class="universal-row" transform="translate(0,1020)" data-websvg-id="rep:matrix-universal:Entitlement">
+<g id="row-Entitlement" class="universal-row" transform="translate(0,1020)" data-websvg-id="rep:matrix-universal:Entitlement" data-websvg-pin-source="left">
 <text x="24" y="20" class="u">Entitlement</text>
 <line class="grid" x1="0" y1="30" x2="4310" y2="30" />
 <g class="matrix-cell" data-mode="C" transform="translate(1950,0)" data-websvg-id="rep:matrix-cell:inst.handover:Entitlement">
@@ -1571,7 +1489,7 @@
 <text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
 </g>
 </g>
-<g id="row-Contract" class="universal-row" transform="translate(0,1050)" data-websvg-id="rep:matrix-universal:Contract">
+<g id="row-Contract" class="universal-row" transform="translate(0,1050)" data-websvg-id="rep:matrix-universal:Contract" data-websvg-pin-source="left">
 <rect class="row-alt" x="0" y="0" width="4310" height="30" />
 <text x="24" y="20" class="u">Contract</text>
 <line class="grid" x1="0" y1="30" x2="4310" y2="30" />
@@ -1644,7 +1562,7 @@
 <text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
 </g>
 </g>
-<g id="row-Plan" class="universal-row" transform="translate(0,1080)" data-websvg-id="rep:matrix-universal:Plan">
+<g id="row-Plan" class="universal-row" transform="translate(0,1080)" data-websvg-id="rep:matrix-universal:Plan" data-websvg-pin-source="left">
 <text x="24" y="20" class="u">Plan</text>
 <line class="grid" x1="0" y1="30" x2="4310" y2="30" />
 <g class="matrix-cell" data-mode="C" transform="translate(1428,0)" data-websvg-id="rep:matrix-cell:pm.plan_work:Plan">
@@ -1680,7 +1598,7 @@
 <text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
 </g>
 </g>
-<g id="row-Filing" class="universal-row" transform="translate(0,1110)" data-websvg-id="rep:matrix-universal:Filing">
+<g id="row-Filing" class="universal-row" transform="translate(0,1110)" data-websvg-id="rep:matrix-universal:Filing" data-websvg-pin-source="left">
 <rect class="row-alt" x="0" y="0" width="4310" height="30" />
 <text x="24" y="20" class="u">Filing</text>
 <line class="grid" x1="0" y1="30" x2="4310" y2="30" />
@@ -1701,7 +1619,7 @@
 <text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
 </g>
 </g>
-<g id="row-Measurement" class="universal-row" transform="translate(0,1140)" data-websvg-id="rep:matrix-universal:Measurement">
+<g id="row-Measurement" class="universal-row" transform="translate(0,1140)" data-websvg-id="rep:matrix-universal:Measurement" data-websvg-pin-source="left">
 <text x="24" y="20" class="u">Measurement</text>
 <line class="grid" x1="0" y1="30" x2="4310" y2="30" />
 <g class="matrix-cell" data-mode="C" transform="translate(1080,0)" data-websvg-id="rep:matrix-cell:wh.inspect:Measurement">
@@ -1765,7 +1683,7 @@
 <text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
 </g>
 </g>
-<g id="row-RuleSet" class="universal-row" transform="translate(0,1170)" data-websvg-id="rep:matrix-universal:RuleSet">
+<g id="row-RuleSet" class="universal-row" transform="translate(0,1170)" data-websvg-id="rep:matrix-universal:RuleSet" data-websvg-pin-source="left">
 <rect class="row-alt" x="0" y="0" width="4310" height="30" />
 <text x="24" y="20" class="u">RuleSet</text>
 <line class="grid" x1="0" y1="30" x2="4310" y2="30" />
@@ -1805,7 +1723,7 @@
 <text x="29.0" y="20" class="cell" text-anchor="middle">R</text>
 </g>
 </g>
-<g id="row-Text" class="universal-row" transform="translate(0,1200)" data-websvg-id="rep:matrix-universal:Text">
+<g id="row-Text" class="universal-row" transform="translate(0,1200)" data-websvg-id="rep:matrix-universal:Text" data-websvg-pin-source="left">
 <text x="24" y="20" class="u">Text</text>
 <line class="grid" x1="0" y1="30" x2="4310" y2="30" />
 <g class="matrix-cell" data-mode="C" transform="translate(210,0)" data-websvg-id="rep:matrix-cell:sales.identify_need:Text">
@@ -1877,7 +1795,7 @@
 <text x="29.0" y="20" class="cell" text-anchor="middle">C</text>
 </g>
 </g>
-<g id="row-FileResource" class="universal-row" transform="translate(0,1230)" data-websvg-id="rep:matrix-universal:FileResource">
+<g id="row-FileResource" class="universal-row" transform="translate(0,1230)" data-websvg-id="rep:matrix-universal:FileResource" data-websvg-pin-source="left">
 <rect class="row-alt" x="0" y="0" width="4310" height="30" />
 <text x="24" y="20" class="u">FileResource</text>
 <line class="grid" x1="0" y1="30" x2="4310" y2="30" />
