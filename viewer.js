@@ -3,6 +3,7 @@ import { discoverInputFiles } from "./src/viewer/discovery.js";
 import { createViewportManager } from "./src/viewer/viewport.js";
 import { createNavigationController } from "./src/viewer/navigation.js";
 import { createFocusController } from "./src/viewer/focus.js";
+import { createMatrixLabelManager } from "./src/viewer/matrix-labels.js";
 
 const topbarEl = document.querySelector(".topbar");
 const statusEl = document.querySelector("#status");
@@ -36,6 +37,12 @@ const navigation = createNavigationController({
   selectRepresentation
 });
 
+const matrixLabels = createMatrixLabelManager({
+  websvg,
+  viewport,
+  selectRepresentation
+});
+
 clearButton.addEventListener("click", clearSelection);
 
 focusButton.addEventListener("click", () => {
@@ -51,6 +58,8 @@ window.addEventListener("resize", () => {
   if (focusActive) {
     viewport.fitFocusedDocuments();
   }
+
+  matrixLabels.refreshAll();
 });
 
 window.addEventListener("keydown", event => {
@@ -185,10 +194,12 @@ function selectRepresentation(representationRef) {
 
   if (focusActive) {
     applyFocus();
+    matrixLabels.refreshAll();
     return;
   }
 
   keepSelectionVisible();
+  matrixLabels.refreshAll();
 }
 
 function keepSelectionVisible() {
@@ -234,6 +245,8 @@ function applyFocus() {
   if (!focusActive) {
     keepSelectionVisible();
   }
+
+  matrixLabels.refreshAll();
 }
 
 function clearSelection() {
@@ -351,6 +364,15 @@ async function start() {
 
     viewport.prepare();
     viewport.updateMetrics();
+
+    matrixLabels.prepare();
+
+    for (const record of websvg.documents()) {
+      record.svg.addEventListener(
+        "websvg:viewportchange",
+        () => matrixLabels.refresh(record.svg)
+      );
+    }
 
     navigation.build();
     wireRepresentationClicks();
