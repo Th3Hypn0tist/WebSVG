@@ -24,7 +24,7 @@
 </defs>
 
 <g id="document-header" data-websvg-view="chrome"><text x="28" y="40" class="title">MMDemo — Step × Business Universal matrix</text><text x="28" y="66" class="sub">All 32 Business Universals · columns are concrete role steps · Project is the universal work context · C=create, R=read/reference, W=write/transition</text></g>
-<g id="matrix-columns" data-websvg-view="content">
+<g id="matrix-columns" data-websvg-view="chrome">
 <g id="matrix-role-sales" class="matrix-role" transform="translate(210,0)" data-websvg-id="rep:matrix-role:sales" data-websvg-pin-source="top-role">
 <rect class="header-bg" x="0" y="92" width="464" height="28" />
 <text x="232.0" y="112" class="role" text-anchor="middle">Myyjä</text>
@@ -354,6 +354,7 @@
 </g>
 </g>
 </g>
+<rect id="matrix-content-bounds" data-websvg-view="content-bounds" x="210" y="300" width="4060" height="960" fill="none" pointer-events="none" />
 <g id="matrix-rows" transform="translate(0,0)" data-websvg-view="content">
 <g id="row-Identity" class="universal-row" transform="translate(0,300)" data-websvg-id="rep:matrix-universal:Identity" data-websvg-pin-source="left">
 <text x="24" y="20" class="u">Identity</text>
