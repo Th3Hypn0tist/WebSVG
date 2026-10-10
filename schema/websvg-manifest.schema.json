@@ -270,6 +270,14 @@
               }
             },
             "additionalProperties": true
+          },
+          "focus_selector": {
+            "type": "string",
+            "minLength": 1
+          },
+          "fit_padding": {
+            "type": "number",
+            "minimum": 0
           }
         },
         "additionalProperties": true
