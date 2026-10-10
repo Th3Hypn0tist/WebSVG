@@ -1,0 +1,703 @@
+{
+  "schema": "websvg/svg-types/0.1",
+  "id": "WEBSVG_SVG_TYPES",
+  "version": "0.1.0",
+  "status": "draft",
+  "purpose": "Canonical registry of WebSVG projection types. Document/demo manifests reference this registry and only declare which type each SVG document uses.",
+  "invariants": [
+    "projection_type describes rendering/topology behavior, not semantic authority",
+    "SVG geometry remains representation authority",
+    "semantic meaning is never inferred from projection type or geometry",
+    "a document manifest MUST NOT redefine canonical projection types when a referenced registry provides them"
+  ],
+  "types": {
+    "freeform": {
+      "family": "freeform",
+      "axes": [],
+      "description": "Unconstrained authored 2D diagram surface.",
+      "editor": {
+        "selectable": true,
+        "movable": true,
+        "resizable": true,
+        "linkable": true,
+        "groupable": true,
+        "reorderable": false,
+        "editable_text": true
+      }
+    },
+    "mindmap": {
+      "family": "knowledge",
+      "axes": [
+        "branch",
+        "depth"
+      ],
+      "description": "Mind map over a structured graph; suitable for CW dogfooding in 2D.",
+      "editor": {
+        "selectable": true,
+        "movable": true,
+        "resizable": true,
+        "linkable": true,
+        "groupable": true,
+        "reorderable": true,
+        "editable_text": true
+      }
+    },
+    "concept_map": {
+      "family": "knowledge",
+      "axes": [],
+      "description": "Concept graph with explicit labelled relations.",
+      "editor": {
+        "selectable": true,
+        "movable": true,
+        "resizable": true,
+        "linkable": true,
+        "groupable": true,
+        "reorderable": false,
+        "editable_text": true
+      }
+    },
+    "hierarchy_tree": {
+      "family": "tree",
+      "axes": [
+        "depth",
+        "order"
+      ],
+      "description": "Parent-child hierarchy rendered as a directional tree.",
+      "editor": {
+        "selectable": true,
+        "movable": true,
+        "resizable": true,
+        "linkable": true,
+        "groupable": true,
+        "reorderable": true,
+        "editable_text": true
+      }
+    },
+    "radial_tree": {
+      "family": "tree",
+      "axes": [
+        "radius",
+        "branch"
+      ],
+      "description": "Hierarchy rendered radially.",
+      "editor": {
+        "selectable": true,
+        "movable": true,
+        "resizable": true,
+        "linkable": true,
+        "groupable": true,
+        "reorderable": true,
+        "editable_text": true
+      }
+    },
+    "org_chart": {
+      "family": "tree",
+      "axes": [
+        "level",
+        "order"
+      ],
+      "description": "Organizational hierarchy.",
+      "editor": {
+        "selectable": true,
+        "movable": true,
+        "resizable": true,
+        "linkable": true,
+        "groupable": true,
+        "reorderable": true,
+        "editable_text": true
+      }
+    },
+    "decision_tree": {
+      "family": "tree",
+      "axes": [
+        "depth",
+        "branch"
+      ],
+      "description": "Decision and outcome hierarchy.",
+      "editor": {
+        "selectable": true,
+        "movable": true,
+        "resizable": true,
+        "linkable": true,
+        "groupable": true,
+        "reorderable": true,
+        "editable_text": true
+      }
+    },
+    "flowchart": {
+      "family": "process",
+      "axes": [
+        "flow"
+      ],
+      "description": "Generic process or control-flow diagram.",
+      "editor": {
+        "selectable": true,
+        "movable": true,
+        "resizable": true,
+        "linkable": true,
+        "groupable": true,
+        "reorderable": true,
+        "editable_text": true
+      }
+    },
+    "process_map": {
+      "family": "process",
+      "axes": [
+        "flow"
+      ],
+      "description": "Process stages, steps and transitions.",
+      "editor": {
+        "selectable": true,
+        "movable": true,
+        "resizable": true,
+        "linkable": true,
+        "groupable": true,
+        "reorderable": true,
+        "editable_text": true
+      }
+    },
+    "swimlane": {
+      "family": "process",
+      "axes": [
+        "lane",
+        "flow"
+      ],
+      "description": "Process flow grouped by role, owner or other lane.",
+      "editor": {
+        "selectable": true,
+        "movable": true,
+        "resizable": true,
+        "linkable": true,
+        "groupable": true,
+        "reorderable": true,
+        "editable_text": true
+      }
+    },
+    "bpmn": {
+      "family": "process",
+      "axes": [
+        "lane",
+        "flow"
+      ],
+      "description": "BPMN-style process projection.",
+      "editor": {
+        "selectable": true,
+        "movable": true,
+        "resizable": true,
+        "linkable": true,
+        "groupable": true,
+        "reorderable": true,
+        "editable_text": true
+      }
+    },
+    "activity_diagram": {
+      "family": "process",
+      "axes": [
+        "flow"
+      ],
+      "description": "Activity and control-flow diagram.",
+      "editor": {
+        "selectable": true,
+        "movable": true,
+        "resizable": true,
+        "linkable": true,
+        "groupable": true,
+        "reorderable": true,
+        "editable_text": true
+      }
+    },
+    "event_chain": {
+      "family": "event",
+      "axes": [
+        "flow"
+      ],
+      "description": "Ordered event / trigger / action chain.",
+      "editor": {
+        "selectable": true,
+        "movable": true,
+        "resizable": true,
+        "linkable": true,
+        "groupable": true,
+        "reorderable": true,
+        "editable_text": true
+      }
+    },
+    "value_stream": {
+      "family": "process",
+      "axes": [
+        "flow",
+        "stage"
+      ],
+      "description": "Value-stream map.",
+      "editor": {
+        "selectable": true,
+        "movable": true,
+        "resizable": true,
+        "linkable": true,
+        "groupable": true,
+        "reorderable": true,
+        "editable_text": true
+      }
+    },
+    "service_blueprint": {
+      "family": "process",
+      "axes": [
+        "lane",
+        "stage"
+      ],
+      "description": "Service blueprint across actors, frontstage and backstage.",
+      "editor": {
+        "selectable": true,
+        "movable": true,
+        "resizable": true,
+        "linkable": true,
+        "groupable": true,
+        "reorderable": true,
+        "editable_text": true
+      }
+    },
+    "journey_map": {
+      "family": "process",
+      "axes": [
+        "stage",
+        "lane"
+      ],
+      "description": "Journey or experience map across stages and lanes.",
+      "editor": {
+        "selectable": true,
+        "movable": true,
+        "resizable": true,
+        "linkable": true,
+        "groupable": true,
+        "reorderable": true,
+        "editable_text": true
+      }
+    },
+    "causal_loop": {
+      "family": "analysis",
+      "axes": [],
+      "description": "Causal loop / influence diagram.",
+      "editor": {
+        "selectable": true,
+        "movable": true,
+        "resizable": true,
+        "linkable": true,
+        "groupable": true,
+        "reorderable": false,
+        "editable_text": true
+      }
+    },
+    "fishbone": {
+      "family": "analysis",
+      "axes": [
+        "cause",
+        "effect"
+      ],
+      "description": "Ishikawa / fishbone cause analysis.",
+      "editor": {
+        "selectable": true,
+        "movable": true,
+        "resizable": true,
+        "linkable": true,
+        "groupable": true,
+        "reorderable": true,
+        "editable_text": true
+      }
+    },
+    "timeline": {
+      "family": "timeline",
+      "axes": [
+        "time",
+        "lane"
+      ],
+      "description": "Ordered temporal sequence, optionally grouped into lanes.",
+      "content_selector": "[data-websvg-view=\"content\"]",
+      "chrome_selector": "[data-websvg-view=\"chrome\"]",
+      "focus_selector": ".process-step, .intra, .handoff",
+      "fit_padding": 12,
+      "pin_sources": [
+        {
+          "name": "left-role",
+          "edge": "left"
+        },
+        {
+          "name": "top-slot",
+          "edge": "top"
+        }
+      ],
+      "editor": {
+        "selectable": true,
+        "movable": true,
+        "resizable": true,
+        "linkable": true,
+        "groupable": true,
+        "reorderable": true,
+        "editable_text": true
+      }
+    },
+    "gantt": {
+      "family": "schedule",
+      "axes": [
+        "time",
+        "lane"
+      ],
+      "description": "Tasks over time with dependencies.",
+      "editor": {
+        "selectable": true,
+        "movable": true,
+        "resizable": true,
+        "linkable": true,
+        "groupable": true,
+        "reorderable": true,
+        "editable_text": true
+      }
+    },
+    "roadmap": {
+      "family": "schedule",
+      "axes": [
+        "time",
+        "lane"
+      ],
+      "description": "Roadmap over time and lanes.",
+      "editor": {
+        "selectable": true,
+        "movable": true,
+        "resizable": true,
+        "linkable": true,
+        "groupable": true,
+        "reorderable": true,
+        "editable_text": true
+      }
+    },
+    "kanban": {
+      "family": "board",
+      "axes": [
+        "column",
+        "order"
+      ],
+      "description": "Column-based work board.",
+      "editor": {
+        "selectable": true,
+        "movable": true,
+        "resizable": true,
+        "linkable": true,
+        "groupable": true,
+        "reorderable": true,
+        "editable_text": true
+      }
+    },
+    "matrix": {
+      "family": "matrix",
+      "axes": [
+        "column",
+        "row"
+      ],
+      "description": "Two-dimensional relation or value matrix.",
+      "content_selector": "[data-websvg-view=\"content-bounds\"]",
+      "chrome_selector": "[data-websvg-view=\"chrome\"]",
+      "focus_selector": ".matrix-cell",
+      "fit_padding": 0,
+      "pin_sources": [
+        {
+          "name": "left",
+          "edge": "left"
+        }
+      ],
+      "editor": {
+        "selectable": true,
+        "movable": true,
+        "resizable": false,
+        "linkable": true,
+        "groupable": true,
+        "reorderable": true,
+        "editable_text": true
+      }
+    },
+    "table": {
+      "family": "matrix",
+      "axes": [
+        "column",
+        "row"
+      ],
+      "description": "Structured table rendered as SVG.",
+      "editor": {
+        "selectable": true,
+        "movable": true,
+        "resizable": false,
+        "linkable": true,
+        "groupable": true,
+        "reorderable": true,
+        "editable_text": true
+      }
+    },
+    "heatmap": {
+      "family": "matrix",
+      "axes": [
+        "column",
+        "row"
+      ],
+      "description": "Matrix whose cell appearance encodes a local value.",
+      "editor": {
+        "selectable": true,
+        "movable": true,
+        "resizable": false,
+        "linkable": true,
+        "groupable": true,
+        "reorderable": true,
+        "editable_text": true
+      }
+    },
+    "quadrant": {
+      "family": "analysis",
+      "axes": [
+        "x",
+        "y"
+      ],
+      "description": "Two-axis / four-quadrant classification surface.",
+      "editor": {
+        "selectable": true,
+        "movable": true,
+        "resizable": true,
+        "linkable": true,
+        "groupable": true,
+        "reorderable": false,
+        "editable_text": true
+      }
+    },
+    "venn": {
+      "family": "analysis",
+      "axes": [],
+      "description": "Overlapping-set diagram.",
+      "editor": {
+        "selectable": true,
+        "movable": true,
+        "resizable": true,
+        "linkable": true,
+        "groupable": true,
+        "reorderable": false,
+        "editable_text": true
+      }
+    },
+    "treemap": {
+      "family": "analysis",
+      "axes": [
+        "area"
+      ],
+      "description": "Hierarchical area partition.",
+      "editor": {
+        "selectable": true,
+        "movable": true,
+        "resizable": true,
+        "linkable": false,
+        "groupable": true,
+        "reorderable": false,
+        "editable_text": true
+      }
+    },
+    "sankey": {
+      "family": "flow",
+      "axes": [
+        "flow"
+      ],
+      "description": "Weighted flow diagram.",
+      "editor": {
+        "selectable": true,
+        "movable": true,
+        "resizable": true,
+        "linkable": true,
+        "groupable": true,
+        "reorderable": false,
+        "editable_text": true
+      }
+    },
+    "chord": {
+      "family": "flow",
+      "axes": [
+        "radial"
+      ],
+      "description": "Radial relation or flow diagram.",
+      "editor": {
+        "selectable": true,
+        "movable": true,
+        "resizable": true,
+        "linkable": true,
+        "groupable": true,
+        "reorderable": false,
+        "editable_text": true
+      }
+    },
+    "state_machine": {
+      "family": "state",
+      "axes": [],
+      "description": "States and transitions.",
+      "editor": {
+        "selectable": true,
+        "movable": true,
+        "resizable": true,
+        "linkable": true,
+        "groupable": true,
+        "reorderable": false,
+        "editable_text": true
+      }
+    },
+    "sequence_diagram": {
+      "family": "interaction",
+      "axes": [
+        "participant",
+        "time"
+      ],
+      "description": "Participant interactions ordered in time.",
+      "editor": {
+        "selectable": true,
+        "movable": true,
+        "resizable": false,
+        "linkable": true,
+        "groupable": true,
+        "reorderable": true,
+        "editable_text": true
+      }
+    },
+    "use_case": {
+      "family": "interaction",
+      "axes": [],
+      "description": "Actors and use-case relationships.",
+      "editor": {
+        "selectable": true,
+        "movable": true,
+        "resizable": true,
+        "linkable": true,
+        "groupable": true,
+        "reorderable": false,
+        "editable_text": true
+      }
+    },
+    "dependency_graph": {
+      "family": "graph",
+      "axes": [],
+      "description": "Explicit dependency graph.",
+      "editor": {
+        "selectable": true,
+        "movable": true,
+        "resizable": true,
+        "linkable": true,
+        "groupable": true,
+        "reorderable": false,
+        "editable_text": true
+      }
+    },
+    "network_graph": {
+      "family": "graph",
+      "axes": [],
+      "description": "Generic network / relation graph.",
+      "editor": {
+        "selectable": true,
+        "movable": true,
+        "resizable": true,
+        "linkable": true,
+        "groupable": true,
+        "reorderable": false,
+        "editable_text": true
+      }
+    },
+    "data_flow": {
+      "family": "graph",
+      "axes": [
+        "flow"
+      ],
+      "description": "Data sources, transforms, stores and flows.",
+      "editor": {
+        "selectable": true,
+        "movable": true,
+        "resizable": true,
+        "linkable": true,
+        "groupable": true,
+        "reorderable": false,
+        "editable_text": true
+      }
+    },
+    "architecture_diagram": {
+      "family": "system",
+      "axes": [],
+      "description": "System or software architecture diagram.",
+      "editor": {
+        "selectable": true,
+        "movable": true,
+        "resizable": true,
+        "linkable": true,
+        "groupable": true,
+        "reorderable": false,
+        "editable_text": true
+      }
+    },
+    "component_diagram": {
+      "family": "system",
+      "axes": [],
+      "description": "Components, interfaces and dependencies.",
+      "editor": {
+        "selectable": true,
+        "movable": true,
+        "resizable": true,
+        "linkable": true,
+        "groupable": true,
+        "reorderable": false,
+        "editable_text": true
+      }
+    },
+    "deployment_diagram": {
+      "family": "system",
+      "axes": [],
+      "description": "Runtime/deployment nodes and their relationships.",
+      "editor": {
+        "selectable": true,
+        "movable": true,
+        "resizable": true,
+        "linkable": true,
+        "groupable": true,
+        "reorderable": false,
+        "editable_text": true
+      }
+    },
+    "topology_map": {
+      "family": "system",
+      "axes": [],
+      "description": "Infrastructure, AV, network or physical/logical topology.",
+      "editor": {
+        "selectable": true,
+        "movable": true,
+        "resizable": true,
+        "linkable": true,
+        "groupable": true,
+        "reorderable": false,
+        "editable_text": true
+      }
+    },
+    "entity_relationship": {
+      "family": "data",
+      "axes": [],
+      "description": "Entity-relationship diagram.",
+      "editor": {
+        "selectable": true,
+        "movable": true,
+        "resizable": true,
+        "linkable": true,
+        "groupable": true,
+        "reorderable": false,
+        "editable_text": true
+      }
+    },
+    "class_diagram": {
+      "family": "data",
+      "axes": [],
+      "description": "Class/type structure and relationships.",
+      "editor": {
+        "selectable": true,
+        "movable": true,
+        "resizable": true,
+        "linkable": true,
+        "groupable": true,
+        "reorderable": false,
+        "editable_text": true
+      }
+    }
+  }
+}
