@@ -88,6 +88,7 @@ button:disabled { opacity: .35; cursor: default; }
 }
 
 .svg-document {
+  position: relative;
   width: 100%;
   min-width: 0;
   border: 1px solid #173748;
@@ -104,6 +105,30 @@ button:disabled { opacity: .35; cursor: default; }
   overflow: hidden;
 }
 
+.svg-controls {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 20;
+  display: flex;
+  gap: 4px;
+  padding: 4px;
+  border: 1px solid #274e63;
+  border-radius: 6px;
+  background: rgba(8, 17, 25, .88);
+  backdrop-filter: blur(8px);
+}
+
+.svg-controls button {
+  min-width: 30px;
+  padding: 5px 7px;
+  font-size: 10px;
+}
+
+.websvg-document-svg.is-panning {
+  cursor: grabbing !important;
+}
+
 .websvg-document-svg {
   display: block;
   width: 100%;
@@ -114,39 +139,46 @@ button:disabled { opacity: .35; cursor: default; }
 .websvg-interactive { cursor: pointer; }
 
 .svg-host [data-websvg-highlight="primary"] {
-  filter: drop-shadow(0 0 8px rgba(221, 173, 104, .95));
+  filter:
+    drop-shadow(0 0 2px rgba(255,255,255,1))
+    drop-shadow(0 0 8px rgba(0,229,255,1))
+    drop-shadow(0 0 16px rgba(0,229,255,.95));
 }
 
 .svg-host [data-websvg-highlight="relation"] {
-  filter: drop-shadow(0 0 7px rgba(216, 131, 81, .95));
+  filter:
+    drop-shadow(0 0 3px rgba(255,179,71,1))
+    drop-shadow(0 0 10px rgba(255,111,0,.95));
 }
 
 .svg-host [data-websvg-highlight="related"] {
-  filter: drop-shadow(0 0 5px rgba(101, 143, 169, .9));
+  filter:
+    drop-shadow(0 0 3px rgba(67,183,255,.95))
+    drop-shadow(0 0 8px rgba(67,183,255,.75));
 }
 
 .svg-host [data-websvg-highlight="primary"] rect,
 .svg-host [data-websvg-highlight="primary"] path,
 .svg-host [data-websvg-highlight="primary"] line,
 .svg-host [data-websvg-highlight="primary"] polygon {
-  stroke: #ddad68 !important;
-  stroke-width: 2.5px !important;
+  stroke: #00e5ff !important;
+  stroke-width: 3.2px !important;
 }
 
 .svg-host [data-websvg-highlight="relation"] rect,
 .svg-host [data-websvg-highlight="relation"] path,
 .svg-host [data-websvg-highlight="relation"] line,
 .svg-host [data-websvg-highlight="relation"] polygon {
-  stroke: #d88351 !important;
-  stroke-width: 2.2px !important;
+  stroke: #ff8a00 !important;
+  stroke-width: 2.6px !important;
 }
 
 .svg-host [data-websvg-highlight="related"] rect,
 .svg-host [data-websvg-highlight="related"] path,
 .svg-host [data-websvg-highlight="related"] line,
 .svg-host [data-websvg-highlight="related"] polygon {
-  stroke: #658fa9 !important;
-  stroke-width: 1.8px !important;
+  stroke: #43b7ff !important;
+  stroke-width: 2px !important;
 }
 
 .error {
