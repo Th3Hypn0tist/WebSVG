@@ -100,9 +100,22 @@ export function createProjectionManager({ websvg }) {
 
     if (!projection) return null;
 
+    const focusSelector =
+      projection.config.focus_selector;
+
+    const candidates =
+      typeof focusSelector === "string" &&
+      focusSelector
+        ? [
+            ...projection.record.svg.querySelectorAll(
+              focusSelector
+            )
+          ]
+        : projection.contentElements;
+
     const elements =
-      projection.contentElements.length
-        ? projection.contentElements.filter(
+      candidates.length
+        ? candidates.filter(
             element =>
               element.style.display !==
               "none"
