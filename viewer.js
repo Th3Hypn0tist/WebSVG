@@ -1,6 +1,7 @@
 import { WebSVG } from "./src/websvg.js";
 import { discoverInputFiles } from "./src/viewer/discovery.js";
 import { createViewportManager } from "./src/viewer/viewport.js";
+import { createProjectionManager } from "./src/viewer/projection.js";
 import { createNavigationController } from "./src/viewer/navigation.js";
 import { createFocusController } from "./src/viewer/focus.js";
 import { createMatrixLabelManager } from "./src/viewer/matrix-labels.js";
@@ -23,8 +24,14 @@ let currentRepresentationRef = null;
 let focusActive = false;
 let focusedGroupRepresentationRef = null;
 
+const projection =
+  createProjectionManager({
+    websvg
+  });
+
 const viewport = createViewportManager({
   websvg,
+  projection,
   workspaceEl,
   topbarEl,
   isFocusActive: () => focusActive
@@ -42,6 +49,7 @@ const navigation = createNavigationController({
 
 const matrixLabels = createMatrixLabelManager({
   websvg,
+  projection,
   viewport,
   selectRepresentation: handleRepresentationClick
 });
@@ -453,6 +461,7 @@ async function start() {
       hosts
     });
 
+    projection.prepare();
     viewport.prepare();
     viewport.updateMetrics();
 
