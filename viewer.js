@@ -4,6 +4,7 @@ import { createViewportManager } from "./src/viewer/viewport.js";
 import { createNavigationController } from "./src/viewer/navigation.js";
 import { createFocusController } from "./src/viewer/focus.js";
 import { createMatrixLabelManager } from "./src/viewer/matrix-labels.js";
+import { resolveGroupRepresentationRef } from "./src/viewer/groups.js";
 
 const topbarEl = document.querySelector(".topbar");
 const statusEl = document.querySelector("#status");
@@ -19,6 +20,7 @@ const inputUrl = new URL("input/", rootUrl);
 let currentSelection = null;
 let currentRepresentationRef = null;
 let focusActive = false;
+let focusedGroupRepresentationRef = null;
 
 const viewport = createViewportManager({
   websvg,
@@ -40,7 +42,7 @@ const navigation = createNavigationController({
 const matrixLabels = createMatrixLabelManager({
   websvg,
   viewport,
-  selectRepresentation
+  selectRepresentation: handleRepresentationClick
 });
 
 clearButton.addEventListener("click", clearSelection);
@@ -48,7 +50,24 @@ clearButton.addEventListener("click", clearSelection);
 focusButton.addEventListener("click", () => {
   if (!currentSelection) return;
 
-  focusActive = !focusActive;
+  if (focusActive) {
+    focusActive = false;
+    focusedGroupRepresentationRef = null;
+    applyFocus();
+    return;
+  }
+
+  const item =
+    websvg.representation(
+      currentRepresentationRef
+    )[0];
+
+  focusedGroupRepresentationRef =
+    resolveGroupRepresentationRef(
+      item?.element
+    );
+
+  focusActive = true;
   applyFocus();
 });
 
@@ -131,11 +150,69 @@ function wireRepresentationClicks() {
           );
 
         if (ref) {
-          selectRepresentation(ref);
+          handleRepresentationClick(
+            ref,
+            element
+          );
         }
       });
     }
   }
+}
+
+function handleRepresentationClick(
+  representationRef,
+  sourceElement = null
+) {
+  const element =
+    sourceElement ||
+    websvg.representation(
+      representationRef
+    )[0]?.element;
+
+  const groupRef =
+    resolveGroupRepresentationRef(
+      element
+    );
+
+  const repeated =
+    representationRef ===
+    currentRepresentationRef;
+
+  if (repeated && groupRef) {
+    if (
+      focusActive &&
+      focusedGroupRepresentationRef ===
+        groupRef
+    ) {
+      focusActive = false;
+      focusedGroupRepresentationRef = null;
+      applyFocus();
+      return;
+    }
+
+    if (!focusActive) {
+      focusActive = true;
+      focusedGroupRepresentationRef =
+        groupRef;
+      applyFocus();
+      return;
+    }
+  }
+
+  if (
+    focusActive &&
+    groupRef &&
+    groupRef !==
+      focusedGroupRepresentationRef
+  ) {
+    focusedGroupRepresentationRef =
+      groupRef;
+  }
+
+  selectRepresentation(
+    representationRef
+  );
 }
 
 function selectRepresentation(representationRef) {
@@ -234,7 +311,9 @@ function applyFocus() {
   focus.apply({
     active: focusActive,
     selection: currentSelection,
-    currentRepresentationRef
+    currentRepresentationRef,
+    groupRepresentationRef:
+      focusedGroupRepresentationRef
   });
 
   focusButton.textContent =
@@ -251,6 +330,7 @@ function applyFocus() {
 
 function clearSelection() {
   focusActive = false;
+  focusedGroupRepresentationRef = null;
 
   focus.restore();
   websvg.clearSelection();
