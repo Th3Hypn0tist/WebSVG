@@ -47,6 +47,9 @@ function normalizeManifest(manifest) {
     relation_binding_rules: Array.isArray(manifest.relation_binding_rules)
       ? manifest.relation_binding_rules
       : [],
+    relation_rules: Array.isArray(manifest.relation_rules)
+      ? manifest.relation_rules
+      : [],
     relations: manifest.relations ?? {}
   };
 }
@@ -121,13 +124,6 @@ export class WebSVG {
     }
 
     this.manifest = normalizeManifest(manifest);
-    this._relations = flattenRelations(this.manifest.relations);
-
-    for (const relation of this._relations) {
-      assert(typeof relation.id === "string" && relation.id, "every relation requires id");
-      assert(!this._relationsById.has(relation.id), `duplicate relation id: ${relation.id}`);
-      this._relationsById.set(relation.id, relation);
-    }
 
     const declaredByFile = new Map();
     for (const declaration of this.manifest.documents) {
@@ -168,6 +164,17 @@ export class WebSVG {
 
       this._documents.set(id, record);
       this._indexRepresentations(record);
+    }
+
+    this._relations = [
+      ...flattenRelations(this.manifest.relations),
+      ...this._expandRelationRules()
+    ];
+
+    for (const relation of this._relations) {
+      assert(typeof relation.id === "string" && relation.id, "every relation requires id");
+      assert(!this._relationsById.has(relation.id), `duplicate relation id: ${relation.id}`);
+      this._relationsById.set(relation.id, relation);
     }
 
     this._indexBindings();
@@ -482,6 +489,59 @@ export class WebSVG {
         this._relationBindings.get(binding.relation_ref).push(binding);
       }
     }
+  }
+
+  _expandRelationRules() {
+    const relations = [];
+
+    for (const rule of this.manifest.relation_rules) {
+      if (!isObject(rule)) continue;
+      if (typeof rule.representation_prefix !== "string") continue;
+      if (typeof rule.type !== "string" || !rule.type) continue;
+
+      const separator = typeof rule.separator === "string" ? rule.separator : ":";
+      const fromPrefix = typeof rule.from_semantic_prefix === "string"
+        ? rule.from_semantic_prefix
+        : "";
+      const toPrefix = typeof rule.to_semantic_prefix === "string"
+        ? rule.to_semantic_prefix
+        : "";
+      const modeAttribute = typeof rule.mode_attribute === "string"
+        ? rule.mode_attribute
+        : null;
+
+      for (const [representationRef, items] of this._representations.entries()) {
+        if (!representationRef.startsWith(rule.representation_prefix)) continue;
+
+        const tail = representationRef.slice(rule.representation_prefix.length);
+        const splitAt = tail.indexOf(separator);
+        if (splitAt <= 0) continue;
+
+        const fromToken = tail.slice(0, splitAt);
+        const toToken = tail.slice(splitAt + separator.length);
+        if (!fromToken || !toToken) continue;
+
+        let mode = null;
+        if (modeAttribute) {
+          mode = items
+            .map(item => item.element.getAttribute(modeAttribute))
+            .find(Boolean) || null;
+        }
+
+        const relation = {
+          id: `rel:${rule.type}:${fromToken}:${toToken}`,
+          type: rule.type,
+          from: fromPrefix + fromToken,
+          to: toPrefix + toToken,
+          generated_by: "relation_rule"
+        };
+
+        if (mode) relation.mode = mode;
+        relations.push(relation);
+      }
+    }
+
+    return relations;
   }
 
   _expandSemanticBindingRules() {
