@@ -8,33 +8,15 @@
 </head>
 <body>
   <header class="topbar">
-    <div>
+    <div class="brand">
       <h1>WebSVG</h1>
-      <p id="status">Loading input…</p>
+      <span id="status">Loading…</span>
     </div>
-    <button id="clear-selection" type="button">Clear selection</button>
+    <div id="selection-summary">Click an SVG element to follow its bindings</div>
+    <button id="clear-selection" type="button">Clear</button>
   </header>
 
-  <main>
-    <aside>
-      <section>
-        <h2>Documents</h2>
-        <div id="documents"></div>
-      </section>
-
-      <section>
-        <h2>Semantics</h2>
-        <div id="semantics"></div>
-      </section>
-
-      <section>
-        <h2>Selection</h2>
-        <pre id="selection">none</pre>
-      </section>
-    </aside>
-
-    <section id="workspace" aria-label="SVG workspace"></section>
-  </main>
+  <main id="workspace" aria-label="WebSVG documents"></main>
 
   <script type="module" src="./viewer.js"></script>
 </body>
