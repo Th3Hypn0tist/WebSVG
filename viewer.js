@@ -389,10 +389,9 @@ function wireViewportInteractions(record) {
       startX: event.clientX,
       startY: event.clientY,
       startBox: cloneBox(state.currentViewBox),
-      moved: false
+      moved: false,
+      captured: false
     };
-
-    svg.setPointerCapture?.(event.pointerId);
   });
 
   svg.addEventListener("pointermove", event => {
@@ -407,6 +406,12 @@ function wireViewportInteractions(record) {
     if (!drag.moved && Math.hypot(dx, dy) < 4) return;
 
     drag.moved = true;
+
+    if (!drag.captured) {
+      svg.setPointerCapture?.(event.pointerId);
+      drag.captured = true;
+    }
+
     svg.classList.add("is-panning");
 
     const rect = svg.getBoundingClientRect();
@@ -433,7 +438,7 @@ function wireViewportInteractions(record) {
     state.drag = null;
     svg.classList.remove("is-panning");
 
-    if (svg.hasPointerCapture?.(event.pointerId)) {
+    if (drag.captured && svg.hasPointerCapture?.(event.pointerId)) {
       svg.releasePointerCapture(event.pointerId);
     }
   };
