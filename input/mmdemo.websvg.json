@@ -1,0 +1,297 @@
+{
+  "schema": "websvg/0.2",
+  "document_set": "mmdemo",
+  "title": "MMDemo WebSVG representation-binding demo",
+  "description": "SVG owns representation identities and local visual/datapoint values. JSON binds representations to semantic identities and owns semantic relations.",
+  "documents": [
+    {
+      "id": "mmdemo.process.timelines",
+      "file": "mmdemo_process_timelines.svg",
+      "type": "role-timelines"
+    },
+    {
+      "id": "mmdemo.step-universal.matrix",
+      "file": "mmdemo_step_universal_matrix.svg",
+      "type": "step-universal-matrix"
+    }
+  ],
+  "representation": {
+    "identity_attribute": "data-websvg-id",
+    "local_value_attributes": [
+      "data-mode",
+      "data-slot"
+    ]
+  },
+  "binding_model": {
+    "semantic_relations_from_svg": false,
+    "many_representations_per_semantic": true,
+    "rule": "SVG identifies visual representations. JSON binds them to semantics and relations."
+  },
+  "bindings": [
+    {
+      "representation_ref": "rep:timeline:sales",
+      "semantic_ref": "abstraction:sales",
+      "kind": "abstraction"
+    },
+    {
+      "representation_ref": "rep:timeline:procurement",
+      "semantic_ref": "abstraction:procurement",
+      "kind": "abstraction"
+    },
+
+    {
+      "representation_ref": "rep:timeline-step:sales.identify_need",
+      "semantic_ref": "step:sales.identify_need",
+      "kind": "step"
+    },
+    {
+      "representation_ref": "rep:matrix-step:sales.identify_need",
+      "semantic_ref": "step:sales.identify_need",
+      "kind": "step"
+    },
+    {
+      "representation_ref": "rep:timeline-step:sales.prepare_quote",
+      "semantic_ref": "step:sales.prepare_quote",
+      "kind": "step"
+    },
+    {
+      "representation_ref": "rep:matrix-step:sales.prepare_quote",
+      "semantic_ref": "step:sales.prepare_quote",
+      "kind": "step"
+    },
+    {
+      "representation_ref": "rep:timeline-step:sales.confirm_order",
+      "semantic_ref": "step:sales.confirm_order",
+      "kind": "step"
+    },
+    {
+      "representation_ref": "rep:matrix-step:sales.confirm_order",
+      "semantic_ref": "step:sales.confirm_order",
+      "kind": "step"
+    },
+    {
+      "representation_ref": "rep:timeline-step:proc.check_availability",
+      "semantic_ref": "step:proc.check_availability",
+      "kind": "step"
+    },
+    {
+      "representation_ref": "rep:matrix-step:proc.check_availability",
+      "semantic_ref": "step:proc.check_availability",
+      "kind": "step"
+    },
+    {
+      "representation_ref": "rep:timeline-step:proc.create_po",
+      "semantic_ref": "step:proc.create_po",
+      "kind": "step"
+    },
+    {
+      "representation_ref": "rep:matrix-step:proc.create_po",
+      "semantic_ref": "step:proc.create_po",
+      "kind": "step"
+    },
+
+    {
+      "representation_ref": "rep:matrix-universal:Identity",
+      "semantic_ref": "universal:Identity",
+      "kind": "universal"
+    },
+    {
+      "representation_ref": "rep:matrix-universal:Quote",
+      "semantic_ref": "universal:Quote",
+      "kind": "universal"
+    },
+    {
+      "representation_ref": "rep:matrix-universal:Order",
+      "semantic_ref": "universal:Order",
+      "kind": "universal"
+    },
+    {
+      "representation_ref": "rep:matrix-universal:CatalogItem",
+      "semantic_ref": "universal:CatalogItem",
+      "kind": "universal"
+    },
+
+    {
+      "representation_ref": "rep:sequence:001",
+      "relation_ref": "rel:sequence:001"
+    },
+    {
+      "representation_ref": "rep:sequence:002",
+      "relation_ref": "rel:sequence:002"
+    },
+    {
+      "representation_ref": "rep:sequence:003",
+      "relation_ref": "rel:sequence:003"
+    },
+    {
+      "representation_ref": "rep:handoff:001",
+      "relation_ref": "rel:handoff:001"
+    },
+
+    {
+      "representation_ref": "rep:matrix-cell:001",
+      "relation_ref": "rel:step-universal:001"
+    },
+    {
+      "representation_ref": "rep:matrix-cell:002",
+      "relation_ref": "rel:step-universal:002"
+    },
+    {
+      "representation_ref": "rep:matrix-cell:003",
+      "relation_ref": "rel:step-universal:003"
+    },
+    {
+      "representation_ref": "rep:matrix-cell:004",
+      "relation_ref": "rel:step-universal:004"
+    },
+    {
+      "representation_ref": "rep:matrix-cell:005",
+      "relation_ref": "rel:step-universal:005"
+    },
+    {
+      "representation_ref": "rep:matrix-cell:006",
+      "relation_ref": "rel:step-universal:006"
+    },
+    {
+      "representation_ref": "rep:matrix-cell:007",
+      "relation_ref": "rel:step-universal:007"
+    },
+    {
+      "representation_ref": "rep:matrix-cell:008",
+      "relation_ref": "rel:step-universal:008"
+    },
+    {
+      "representation_ref": "rep:matrix-cell:009",
+      "relation_ref": "rel:step-universal:009"
+    },
+    {
+      "representation_ref": "rep:matrix-cell:010",
+      "relation_ref": "rel:step-universal:010"
+    }
+  ],
+  "relations": {
+    "contains": [
+      {
+        "id": "rel:contains:sales:identify_need",
+        "type": "contains",
+        "from": "abstraction:sales",
+        "to": "step:sales.identify_need"
+      },
+      {
+        "id": "rel:contains:sales:prepare_quote",
+        "type": "contains",
+        "from": "abstraction:sales",
+        "to": "step:sales.prepare_quote"
+      },
+      {
+        "id": "rel:contains:sales:confirm_order",
+        "type": "contains",
+        "from": "abstraction:sales",
+        "to": "step:sales.confirm_order"
+      },
+      {
+        "id": "rel:contains:procurement:check_availability",
+        "type": "contains",
+        "from": "abstraction:procurement",
+        "to": "step:proc.check_availability"
+      },
+      {
+        "id": "rel:contains:procurement:create_po",
+        "type": "contains",
+        "from": "abstraction:procurement",
+        "to": "step:proc.create_po"
+      }
+    ],
+    "sequence": [
+      {
+        "id": "rel:sequence:001",
+        "type": "sequence",
+        "from": "step:sales.identify_need",
+        "to": "step:sales.prepare_quote"
+      },
+      {
+        "id": "rel:sequence:002",
+        "type": "sequence",
+        "from": "step:sales.prepare_quote",
+        "to": "step:sales.confirm_order"
+      },
+      {
+        "id": "rel:sequence:003",
+        "type": "sequence",
+        "from": "step:proc.check_availability",
+        "to": "step:proc.create_po"
+      }
+    ],
+    "handoff": [
+      {
+        "id": "rel:handoff:001",
+        "type": "handoff",
+        "from": "step:sales.confirm_order",
+        "to": "step:proc.check_availability",
+        "label": "order → procurement"
+      }
+    ],
+    "step_universal": [
+      {
+        "id": "rel:step-universal:001",
+        "type": "step_universal",
+        "from": "step:sales.identify_need",
+        "to": "universal:Identity"
+      },
+      {
+        "id": "rel:step-universal:002",
+        "type": "step_universal",
+        "from": "step:sales.prepare_quote",
+        "to": "universal:Identity"
+      },
+      {
+        "id": "rel:step-universal:003",
+        "type": "step_universal",
+        "from": "step:sales.confirm_order",
+        "to": "universal:Identity"
+      },
+      {
+        "id": "rel:step-universal:004",
+        "type": "step_universal",
+        "from": "step:sales.prepare_quote",
+        "to": "universal:Quote"
+      },
+      {
+        "id": "rel:step-universal:005",
+        "type": "step_universal",
+        "from": "step:sales.confirm_order",
+        "to": "universal:Quote"
+      },
+      {
+        "id": "rel:step-universal:006",
+        "type": "step_universal",
+        "from": "step:sales.confirm_order",
+        "to": "universal:Order"
+      },
+      {
+        "id": "rel:step-universal:007",
+        "type": "step_universal",
+        "from": "step:proc.check_availability",
+        "to": "universal:Order"
+      },
+      {
+        "id": "rel:step-universal:008",
+        "type": "step_universal",
+        "from": "step:proc.create_po",
+        "to": "universal:Order"
+      },
+      {
+        "id": "rel:step-universal:009",
+        "type": "step_universal",
+        "from": "step:proc.check_availability",
+        "to": "universal:CatalogItem"
+      },
+      {
+        "id": "rel:step-universal:010",
+        "type": "step_universal",
+        "from": "step:proc.create_po",
+        "to": "universal:CatalogItem"
+      }
+    ]
+  }
+}
