@@ -1,0 +1,31 @@
+{
+  "schema": "websvg/0.1",
+  "document_set": "websvg-demo",
+  "documents": [
+    {
+      "id": "overview",
+      "src": "./overview.svg",
+      "title": "Overview"
+    },
+    {
+      "id": "detail",
+      "src": "./detail.svg",
+      "title": "Detail"
+    }
+  ],
+  "semantics": {
+    "identity_attribute": "data-semantic-id",
+    "kind_attribute": "data-kind",
+    "relation_from_attribute": "data-from",
+    "relation_to_attribute": "data-to",
+    "relation_type_attribute": "data-relation",
+    "relation_mode_attribute": "data-mode"
+  },
+  "relations": [
+    {
+      "from": "step:prepare",
+      "to": "step:execute",
+      "relation": "sequence"
+    }
+  ]
+}
