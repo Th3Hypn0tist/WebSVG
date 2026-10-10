@@ -54,7 +54,7 @@ button:hover { border-color: #d88351; }
 
 main {
   display: grid;
-  grid-template-columns: 300px minmax(0, 1fr);
+  grid-template-columns: 320px minmax(0, 1fr);
   min-height: calc(100vh - 72px);
 }
 
@@ -134,14 +134,39 @@ aside section + section { margin-top: 24px; }
   max-width: none;
 }
 
-.svg-host [data-websvg-selected="true"] {
-  filter: drop-shadow(0 0 5px #d88351);
+.websvg-interactive {
+  cursor: pointer;
 }
 
-.svg-host [data-websvg-selected="true"] > rect,
-.svg-host [data-websvg-selected="true"] rect {
+.svg-host [data-websvg-highlight="primary"] {
+  filter: drop-shadow(0 0 8px #ddad68);
+}
+
+.svg-host [data-websvg-highlight="relation"] {
+  filter: drop-shadow(0 0 7px #d88351);
+}
+
+.svg-host [data-websvg-highlight="related"] {
+  filter: drop-shadow(0 0 4px #658fa9);
+  opacity: .92;
+}
+
+.svg-host [data-websvg-highlight="primary"] > rect,
+.svg-host [data-websvg-highlight="primary"] rect {
+  stroke: #ddad68 !important;
+  stroke-width: 3px !important;
+}
+
+.svg-host [data-websvg-highlight="relation"] > rect,
+.svg-host [data-websvg-highlight="relation"] rect {
   stroke: #d88351 !important;
   stroke-width: 2.5px !important;
+}
+
+.svg-host [data-websvg-highlight="related"] > rect,
+.svg-host [data-websvg-highlight="related"] rect {
+  stroke: #658fa9 !important;
+  stroke-width: 2px !important;
 }
 
 .error {
