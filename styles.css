@@ -299,3 +299,37 @@ button:disabled { opacity: .35; cursor: default; }
   text-shadow:
     0 0 8px rgba(255,138,0,.9);
 }
+
+
+/* Projection-expanded role selection */
+.svg-host [data-websvg-group-highlight="primary"] {
+  filter:
+    drop-shadow(0 0 2px rgba(255,255,255,1))
+    drop-shadow(0 0 8px rgba(0,229,255,1))
+    drop-shadow(0 0 14px rgba(0,229,255,.95));
+}
+
+.svg-host [data-websvg-group-highlight="primary"] rect,
+.svg-host [data-websvg-group-highlight="primary"] path,
+.svg-host [data-websvg-group-highlight="primary"] line,
+.svg-host [data-websvg-group-highlight="primary"] polygon {
+  stroke: #00e5ff !important;
+  stroke-width: 2.8px !important;
+}
+
+.svg-host .matrix-cell[data-websvg-group-highlight="primary"] .cell-active {
+  fill: #dffcff !important;
+  fill-opacity: 1 !important;
+  stroke: #00e5ff !important;
+  stroke-width: 1.8px !important;
+}
+
+.svg-host .matrix-cell[data-websvg-group-highlight="primary"] .cell {
+  fill: #05090c !important;
+}
+
+.matrix-pinned-label[data-websvg-group-highlight="primary"] {
+  color: #05090c !important;
+  background: #dffcff !important;
+  text-shadow: none !important;
+}
