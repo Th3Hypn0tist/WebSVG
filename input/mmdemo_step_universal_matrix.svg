@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="940" height="390" viewBox="0 0 940 390" id="mmdemo-step-universal-matrix">
+  <rect width="100%" height="100%" fill="#05090C"/>
+  <style>
+    text{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;fill:#E5F3F9}
+    .title{font-size:26px;font-weight:700}.sub{font-size:13px;fill:#90B7D1}
+    .head{font-size:11px;font-weight:600}.u{font-size:12px;font-weight:700}
+    .grid{stroke:#173748;stroke-width:1}.cell{fill:#0F222E;stroke:#274E63}
+    .matrix-cell[data-mode="C"] .cell{fill:#D88351;fill-opacity:.25;stroke:#D88351}
+    .matrix-cell[data-mode="R"] .cell{fill:#354E97;fill-opacity:.24;stroke:#436983}
+    .matrix-cell[data-mode="W"] .cell{fill:#436983;fill-opacity:.28;stroke:#658FA9}
+    .mode{font-size:12px;font-weight:700;text-anchor:middle}
+  </style>
+
+  <text x="24" y="36" class="title">MMDemo — step × universal</text>
+  <text x="24" y="60" class="sub">C/R/W remains the SVG cell's local datapoint value. The step→universal relation exists only in JSON.</text>
+
+  <g data-websvg-id="rep:matrix-step:sales.identify_need" transform="translate(190,82)">
+    <text transform="rotate(-35)" class="head">Identify need</text>
+  </g>
+  <g data-websvg-id="rep:matrix-step:sales.prepare_quote" transform="translate(330,82)">
+    <text transform="rotate(-35)" class="head">Prepare quote</text>
+  </g>
+  <g data-websvg-id="rep:matrix-step:sales.confirm_order" transform="translate(470,82)">
+    <text transform="rotate(-35)" class="head">Confirm order</text>
+  </g>
+  <g data-websvg-id="rep:matrix-step:proc.check_availability" transform="translate(610,82)">
+    <text transform="rotate(-35)" class="head">Check availability</text>
+  </g>
+  <g data-websvg-id="rep:matrix-step:proc.create_po" transform="translate(750,82)">
+    <text transform="rotate(-35)" class="head">Create PO</text>
+  </g>
+
+  <g data-websvg-id="rep:matrix-universal:Identity" transform="translate(0,150)">
+    <text x="24" y="26" class="u">Identity</text>
+  </g>
+  <g data-websvg-id="rep:matrix-universal:Quote" transform="translate(0,210)">
+    <text x="24" y="26" class="u">Quote</text>
+  </g>
+  <g data-websvg-id="rep:matrix-universal:Order" transform="translate(0,270)">
+    <text x="24" y="26" class="u">Order</text>
+  </g>
+  <g data-websvg-id="rep:matrix-universal:CatalogItem" transform="translate(0,330)">
+    <text x="24" y="26" class="u">CatalogItem</text>
+  </g>
+
+  <g class="matrix-cell" data-websvg-id="rep:matrix-cell:001" data-mode="R" transform="translate(160,150)">
+    <rect class="cell" width="110" height="44"/><text class="mode" x="55" y="28">R</text>
+  </g>
+  <g class="matrix-cell" data-websvg-id="rep:matrix-cell:002" data-mode="R" transform="translate(300,150)">
+    <rect class="cell" width="110" height="44"/><text class="mode" x="55" y="28">R</text>
+  </g>
+  <g class="matrix-cell" data-websvg-id="rep:matrix-cell:003" data-mode="R" transform="translate(440,150)">
+    <rect class="cell" width="110" height="44"/><text class="mode" x="55" y="28">R</text>
+  </g>
+
+  <g class="matrix-cell" data-websvg-id="rep:matrix-cell:004" data-mode="C" transform="translate(300,210)">
+    <rect class="cell" width="110" height="44"/><text class="mode" x="55" y="28">C</text>
+  </g>
+  <g class="matrix-cell" data-websvg-id="rep:matrix-cell:005" data-mode="R" transform="translate(440,210)">
+    <rect class="cell" width="110" height="44"/><text class="mode" x="55" y="28">R</text>
+  </g>
+
+  <g class="matrix-cell" data-websvg-id="rep:matrix-cell:006" data-mode="C" transform="translate(440,270)">
+    <rect class="cell" width="110" height="44"/><text class="mode" x="55" y="28">C</text>
+  </g>
+  <g class="matrix-cell" data-websvg-id="rep:matrix-cell:007" data-mode="R" transform="translate(580,270)">
+    <rect class="cell" width="110" height="44"/><text class="mode" x="55" y="28">R</text>
+  </g>
+  <g class="matrix-cell" data-websvg-id="rep:matrix-cell:008" data-mode="C" transform="translate(720,270)">
+    <rect class="cell" width="110" height="44"/><text class="mode" x="55" y="28">C</text>
+  </g>
+
+  <g class="matrix-cell" data-websvg-id="rep:matrix-cell:009" data-mode="R" transform="translate(580,330)">
+    <rect class="cell" width="110" height="44"/><text class="mode" x="55" y="28">R</text>
+  </g>
+  <g class="matrix-cell" data-websvg-id="rep:matrix-cell:010" data-mode="R" transform="translate(720,330)">
+    <rect class="cell" width="110" height="44"/><text class="mode" x="55" y="28">R</text>
+  </g>
+</svg>
